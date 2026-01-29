@@ -1056,4 +1056,137 @@ function initEmailPreview() {
         });
         start();
     }
+
+    /* ========================================
+       TOAST NOTIFICATION SYSTEM
+       ======================================== */
+    window.WW = window.WW || {};
+
+    window.WW.toast = (() => {
+        let container = null;
+
+        const createContainer = () => {
+            if (container) return container;
+            container = document.createElement('div');
+            container.className = 'toast-container';
+            container.setAttribute('aria-live', 'polite');
+            container.setAttribute('aria-atomic', 'true');
+            document.body.appendChild(container);
+            return container;
+        };
+
+        const icons = {
+            success: '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>',
+            error: '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>',
+            warning: '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>',
+            info: '<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>'
+        };
+
+        const show = ({ type = 'info', title = '', message = '', duration = 4000 }) => {
+            const toastContainer = createContainer();
+
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.innerHTML = `
+                <span class="toast-icon">${icons[type] || icons.info}</span>
+                <div class="toast-content">
+                    ${title ? `<div class="toast-title">${title}</div>` : ''}
+                    ${message ? `<div class="toast-message">${message}</div>` : ''}
+                </div>
+                <button class="toast-close" aria-label="Schließen">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                </button>
+            `;
+
+            const close = () => {
+                toast.classList.add('toast-exit');
+                toast.addEventListener('animationend', () => toast.remove());
+            };
+
+            toast.querySelector('.toast-close').addEventListener('click', close);
+
+            toastContainer.appendChild(toast);
+
+            if (duration > 0) {
+                setTimeout(close, duration);
+            }
+
+            return { close };
+        };
+
+        return {
+            success: (title, message, duration) => show({ type: 'success', title, message, duration }),
+            error: (title, message, duration) => show({ type: 'error', title, message, duration }),
+            warning: (title, message, duration) => show({ type: 'warning', title, message, duration }),
+            info: (title, message, duration) => show({ type: 'info', title, message, duration }),
+            show
+        };
+    })();
+
+    /* ========================================
+       NUMBER COUNTER ANIMATION
+       ======================================== */
+    function initCounters() {
+        const counters = document.querySelectorAll('.counter[data-target]');
+        if (!counters.length) return;
+
+        const animateCounter = (el) => {
+            if (el.classList.contains('counted')) return;
+            el.classList.add('counting');
+            el.classList.add('counted');
+
+            const target = parseInt(el.dataset.target, 10);
+            const duration = parseInt(el.dataset.duration, 10) || 2000;
+            const suffix = el.dataset.suffix || '';
+            const prefix = el.dataset.prefix || '';
+            const startTime = performance.now();
+
+            const easeOutQuart = t => 1 - Math.pow(1 - t, 4);
+
+            const updateCounter = (currentTime) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easedProgress = easeOutQuart(progress);
+                const current = Math.floor(easedProgress * target);
+
+                el.textContent = `${prefix}${current.toLocaleString('de-DE')}${suffix}`;
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    el.textContent = `${prefix}${target.toLocaleString('de-DE')}${suffix}`;
+                }
+            };
+
+            if (prefersReducedMotion.matches) {
+                el.textContent = `${prefix}${target.toLocaleString('de-DE')}${suffix}`;
+                el.classList.add('counting');
+            } else {
+                requestAnimationFrame(updateCounter);
+            }
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        counters.forEach(counter => {
+            counter.setAttribute('data-animate', '');
+            observer.observe(counter);
+        });
+    }
+
+    // Initialize counters on DOMContentLoaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCounters);
+    } else {
+        initCounters();
+    }
+
+    // Expose counter init for dynamic content
+    window.WW.initCounters = initCounters;
 })();
