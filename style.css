@@ -361,6 +361,10 @@ a:hover {
     }
 }
 
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+
 /* Screen reader only */
 .sr-only {
     position: absolute;
@@ -372,6 +376,136 @@ a:hover {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+}
+
+/* Skip Link - Keyboard Navigation */
+.skip-link {
+    position: fixed;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    padding: 1rem 1.5rem;
+    background: var(--ww-primary);
+    color: white;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+    top: 1rem;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.5);
+}
+
+/* Focus Visible - Modern Focus Indicator */
+:focus-visible {
+    outline: 2px solid var(--ww-primary);
+    outline-offset: 2px;
+}
+
+/* Remove focus outline for mouse users */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Enhanced focus for buttons and interactive elements */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--ww-primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
+}
+
+/* High contrast focus for dark backgrounds */
+.navbar a:focus-visible,
+footer a:focus-visible {
+    outline-color: var(--ww-primary-light);
+    box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.3);
+}
+
+/* Focus indicator for cards */
+.product-card:focus-within,
+.blog-card:focus-within,
+.flow-card:focus-within {
+    outline: 2px solid var(--ww-primary);
+    outline-offset: 4px;
+}
+
+/* Keyboard focus for gallery items */
+.gallery-item:focus-visible,
+.funnel-option:focus-visible {
+    outline: 2px solid var(--ww-primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
+}
+
+/* Focus trap visual indicator */
+[aria-modal="true"]:focus {
+    outline: none;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --ww-text: #ffffff;
+        --ww-text-muted: rgba(255, 255, 255, 0.9);
+        --ww-border: #ffffff;
+    }
+
+    .btn-primary,
+    .header-btn {
+        background: var(--ww-primary);
+        border: 2px solid white;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+}
+
+/* Reduced Transparency for better readability */
+@media (prefers-reduced-transparency: reduce) {
+    .navbar {
+        background: var(--ww-dark);
+    }
+
+    .mega-panel {
+        background: var(--ww-dark);
+    }
+}
+
+/* Selection styling */
+::selection {
+    background: rgba(139, 92, 246, 0.3);
+    color: var(--ww-text);
+}
+
+/* Touch target sizing (minimum 44x44px) */
+@media (pointer: coarse) {
+    .nav-links li a {
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    .btn-icon {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .burger-menu {
+        min-width: 44px;
+        min-height: 44px;
+    }
 }
 
 /* ========================================
