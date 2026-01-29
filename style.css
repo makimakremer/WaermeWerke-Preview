@@ -3892,6 +3892,11 @@ footer {
     opacity: 0.8;
 }
 
+.transform-icon {
+    font-size: 4rem;
+    line-height: 1;
+}
+
 .transform-label {
     font-weight: 600;
     color: var(--ww-text-muted);
