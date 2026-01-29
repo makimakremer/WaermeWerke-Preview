@@ -869,8 +869,9 @@ function initEmailPreview() {
 
     function initAnalytics() {
         try {
-            setupGoogleAnalytics('G-JYQMZ72L66');
-            initAnalyticsAutoEvents();
+            // Analytics ID placeholder - replace with your own tracking ID
+            // setupGoogleAnalytics('YOUR-TRACKING-ID');
+            // initAnalyticsAutoEvents();
         } catch {}
     }
 
