@@ -5,54 +5,83 @@
 
 /* CSS Variables */
 :root {
-    /* Primary Colors - Vibrant Gradient */
+    /* Primary Colors - Refined Violet */
     --ww-primary: #8B5CF6;
     --ww-primary-dark: #7C3AED;
     --ww-primary-light: #A78BFA;
+    --ww-primary-muted: #6D4ADB;
 
-    /* Secondary Colors */
+    /* Secondary Colors - Balanced Cyan */
     --ww-secondary: #06B6D4;
     --ww-secondary-dark: #0891B2;
     --ww-secondary-light: #22D3EE;
+    --ww-secondary-muted: #0E9AAF;
 
-    /* Accent */
+    /* Accent - Softer Pink */
     --ww-accent: #EC4899;
     --ww-accent-light: #F472B6;
+    --ww-accent-muted: #D63F87;
 
     /* Success/Energy */
     --ww-energy: #10B981;
     --ww-energy-light: #34D399;
 
-    /* Neutrals */
+    /* Error/Warning States */
+    --ww-error: #EF4444;
+    --ww-error-light: #F87171;
+    --ww-warning: #F59E0B;
+    --ww-warning-light: #FBBF24;
+
+    /* Neutrals - Enhanced Range */
     --ww-dark: #0F0F1A;
     --ww-darker: #080810;
     --ww-card: #1A1A2E;
     --ww-card-hover: #252542;
     --ww-border: #2D2D4A;
     --ww-border-light: #3D3D5C;
+    --ww-surface: #16162A;
+    --ww-overlay: rgba(8, 8, 16, 0.8);
 
-    /* Text */
+    /* Text - Better Hierarchy */
     --ww-text: #F8FAFC;
     --ww-text-muted: rgba(248, 250, 252, 0.7);
     --ww-text-subtle: rgba(248, 250, 252, 0.5);
+    --ww-text-disabled: rgba(248, 250, 252, 0.35);
 
-    /* Gradients */
-    --ww-gradient-primary: linear-gradient(135deg, #8B5CF6 0%, #EC4899 50%, #06B6D4 100%);
-    --ww-gradient-hero: linear-gradient(180deg, rgba(139, 92, 246, 0.15) 0%, rgba(6, 182, 212, 0.08) 50%, transparent 100%);
-    --ww-gradient-card: linear-gradient(145deg, rgba(139, 92, 246, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%);
-    --ww-gradient-glow: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+    /* Gradients - Reduced Saturation for Elegance */
+    --ww-gradient-primary: linear-gradient(135deg, #8B5CF6 0%, #D946EF 50%, #06B6D4 100%);
+    --ww-gradient-primary-subtle: linear-gradient(135deg, rgba(139, 92, 246, 0.8) 0%, rgba(217, 70, 239, 0.6) 50%, rgba(6, 182, 212, 0.8) 100%);
+    --ww-gradient-hero: linear-gradient(180deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.05) 50%, transparent 100%);
+    --ww-gradient-card: linear-gradient(145deg, rgba(139, 92, 246, 0.08) 0%, rgba(217, 70, 239, 0.03) 100%);
+    --ww-gradient-glow: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+    --ww-gradient-text: linear-gradient(135deg, #A78BFA 0%, #F0ABFC 50%, #22D3EE 100%);
 
-    /* Shadows */
-    --ww-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-    --ww-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
-    --ww-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
-    --ww-shadow-glow: 0 0 40px rgba(139, 92, 246, 0.3);
+    /* Shadows - More Refined */
+    --ww-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+    --ww-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+    --ww-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.4);
+    --ww-shadow-glow: 0 0 40px rgba(139, 92, 246, 0.2);
+    --ww-shadow-glow-strong: 0 0 60px rgba(139, 92, 246, 0.35);
 
     /* Typography */
     --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
-    /* Spacing */
+    /* Spacing - 8px Grid System */
+    --space-1: 0.25rem;   /* 4px */
+    --space-2: 0.5rem;    /* 8px */
+    --space-3: 0.75rem;   /* 12px */
+    --space-4: 1rem;      /* 16px */
+    --space-5: 1.25rem;   /* 20px */
+    --space-6: 1.5rem;    /* 24px */
+    --space-8: 2rem;      /* 32px */
+    --space-10: 2.5rem;   /* 40px */
+    --space-12: 3rem;     /* 48px */
+    --space-16: 4rem;     /* 64px */
+    --space-20: 5rem;     /* 80px */
+    --space-24: 6rem;     /* 96px */
+
+    /* Legacy Spacing (keep for compatibility) */
     --space-xs: 0.25rem;
     --space-sm: 0.5rem;
     --space-md: 1rem;
@@ -68,7 +97,7 @@
     --radius-xl: 28px;
     --radius-full: 9999px;
 
-    /* Transitions */
+    /* Transitions - Will be enhanced in Motion System */
     --transition-fast: 150ms ease;
     --transition-normal: 250ms ease;
     --transition-slow: 400ms ease;
