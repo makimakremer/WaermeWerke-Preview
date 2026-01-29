@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thermohybrid-fuchs.de/sitemap.xml
-
+Sitemap: https://waermewerke.de/sitemap.xml
