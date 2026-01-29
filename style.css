@@ -285,11 +285,41 @@ a:hover {
     color: var(--ww-text);
 }
 
-/* Header Button */
+/* ========================================
+   BUTTON SYSTEM
+   ======================================== */
+
+/* Base Button */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 2px solid transparent;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.5);
+}
+
+/* Primary Button (Gradient) */
+.btn-primary,
 .header-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
     padding: 0.75rem 1.5rem;
     background: var(--ww-gradient-primary);
     color: white;
@@ -302,35 +332,208 @@ a:hover {
     transition: all var(--transition-normal);
     text-decoration: none;
     box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+    position: relative;
+    overflow: hidden;
 }
 
+.btn-primary:hover,
 .header-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4);
     color: white;
 }
 
-/* Link Button */
+.btn-primary:focus-visible,
+.header-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.5), 0 8px 30px rgba(139, 92, 246, 0.4);
+}
+
+.btn-primary:active,
+.header-btn:active {
+    transform: translateY(0);
+}
+
+/* Secondary Button (Outline) */
+.btn-secondary,
 .link-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.25rem;
+    padding: 0.75rem 1.5rem;
     color: var(--ww-primary-light);
+    font-family: var(--font-display);
     font-weight: 600;
     font-size: 0.95rem;
     border: 2px solid var(--ww-primary);
     border-radius: var(--radius-full);
     background: transparent;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: all var(--transition-normal);
     text-decoration: none;
 }
 
+.btn-secondary:hover,
 .link-btn:hover {
-    background: rgba(139, 92, 246, 0.1);
+    background: rgba(139, 92, 246, 0.15);
     color: var(--ww-text);
     border-color: var(--ww-primary-light);
+    transform: translateY(-2px);
+}
+
+.btn-secondary:focus-visible,
+.link-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.5);
+}
+
+/* Ghost Button (Minimal) */
+.btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    color: var(--ww-text-muted);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: var(--radius-full);
+    background: transparent;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-decoration: none;
+}
+
+.btn-ghost:hover {
+    color: var(--ww-text);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-ghost:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.5);
+}
+
+/* Icon Button (Square) */
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    color: var(--ww-text-muted);
+    font-size: 1.25rem;
+    border: 1px solid var(--ww-border);
+    border-radius: var(--radius-md);
+    background: var(--ww-card);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.btn-icon:hover {
+    color: var(--ww-text);
+    border-color: var(--ww-primary);
+    background: var(--ww-card-hover);
+}
+
+.btn-icon:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.5);
+}
+
+/* Button Sizes */
+.btn-sm,
+.btn-primary.btn-sm,
+.btn-secondary.btn-sm,
+.btn-ghost.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+}
+
+.btn-lg,
+.btn-primary.btn-lg,
+.btn-secondary.btn-lg,
+.btn-ghost.btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.btn-icon.btn-sm {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+}
+
+.btn-icon.btn-lg {
+    width: 52px;
+    height: 52px;
+    font-size: 1.5rem;
+}
+
+/* Disabled State */
+.btn:disabled,
+.btn-primary:disabled,
+.btn-secondary:disabled,
+.btn-ghost:disabled,
+.btn-icon:disabled,
+.header-btn:disabled,
+.link-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Loading State */
+.btn-loading {
+    color: transparent !important;
+    pointer-events: none;
+}
+
+.btn-loading::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: btn-spin 0.7s linear infinite;
+}
+
+.btn-secondary.btn-loading::after,
+.btn-ghost.btn-loading::after,
+.link-btn.btn-loading::after {
+    border-color: rgba(139, 92, 246, 0.3);
+    border-top-color: var(--ww-primary);
+}
+
+@keyframes btn-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Ripple Effect (optional class) */
+.btn-ripple {
+    overflow: hidden;
+}
+
+.btn-ripple::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-ripple:active::before {
+    width: 300px;
+    height: 300px;
 }
 
 /* Burger Menu */
