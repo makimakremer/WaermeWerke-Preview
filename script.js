@@ -50,24 +50,83 @@
     });
 
     function initNavigation() {
-    const burgerMenu = document.getElementById('burger-menu');
-    const navMenu = document.getElementById('nav-menu');
+        const burgerMenu = document.getElementById('burger-menu');
+        const navMenu = document.getElementById('nav-menu');
         if (!burgerMenu || !navMenu) return;
+
+        const focusableElements = navMenu.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+        const firstFocusable = focusableElements[0];
+        const lastFocusable = focusableElements[focusableElements.length - 1];
+
+        const openMenu = () => {
+            burgerMenu.classList.add('active');
+            navMenu.classList.add('active');
+            burgerMenu.setAttribute('aria-expanded', 'true');
+            navMenu.setAttribute('aria-hidden', 'false');
+            // Focus first menu item for keyboard users
+            setTimeout(() => firstFocusable?.focus(), 100);
+        };
 
         const closeMenu = () => {
             burgerMenu.classList.remove('active');
             navMenu.classList.remove('active');
+            burgerMenu.setAttribute('aria-expanded', 'false');
+            navMenu.setAttribute('aria-hidden', 'true');
+            burgerMenu.focus();
         };
 
-        burgerMenu.addEventListener('click', () => {
-            burgerMenu.classList.toggle('active');
-            navMenu.classList.toggle('active');
+        const toggleMenu = () => {
+            if (navMenu.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        };
+
+        // Click handler
+        burgerMenu.addEventListener('click', toggleMenu);
+
+        // Keyboard support for burger menu
+        burgerMenu.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMenu();
+            }
         });
-        
+
+        // Trap focus within open menu
+        navMenu.addEventListener('keydown', (e) => {
+            if (!navMenu.classList.contains('active')) return;
+
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                closeMenu();
+                return;
+            }
+
+            if (e.key === 'Tab') {
+                if (e.shiftKey) {
+                    // Shift + Tab
+                    if (document.activeElement === firstFocusable) {
+                        e.preventDefault();
+                        lastFocusable?.focus();
+                    }
+                } else {
+                    // Tab
+                    if (document.activeElement === lastFocusable) {
+                        e.preventDefault();
+                        firstFocusable?.focus();
+                    }
+                }
+            }
+        });
+
+        // Close menu when clicking nav links
         navMenu.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', closeMenu);
         });
 
+        // Close menu when clicking outside
         document.addEventListener('click', (event) => {
             const isClickInsideNav = navMenu.contains(event.target);
             const isClickOnBurger = burgerMenu.contains(event.target);
@@ -75,6 +134,19 @@
                 closeMenu();
             }
         });
+
+        // Close on Escape key globally
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+
+        // Initialize ARIA attributes
+        burgerMenu.setAttribute('aria-expanded', 'false');
+        burgerMenu.setAttribute('aria-controls', 'nav-menu');
+        burgerMenu.setAttribute('aria-label', 'Navigation öffnen');
+        navMenu.setAttribute('aria-hidden', 'true');
     }
     
     function initThermoFunnel() {
