@@ -1261,4 +1261,158 @@ function initEmailPreview() {
 
     // Expose counter init for dynamic content
     window.WW.initCounters = initCounters;
+
+    /* ========================================
+       EDITORIAL STORYTELLING ANIMATIONS
+       ======================================== */
+
+    // Text Reveal Animation (Line by Line)
+    function initTextReveal() {
+        const revealTexts = document.querySelectorAll('.reveal-text');
+        if (!revealTexts.length) return;
+
+        revealTexts.forEach(container => {
+            const lines = container.querySelectorAll('.statement-line');
+            if (!lines.length) return;
+
+            lines.forEach((line, index) => {
+                line.style.opacity = '0';
+                line.style.transform = 'translateY(30px)';
+                line.style.transition = `opacity 0.8s ease ${index * 0.15}s, transform 0.8s ease ${index * 0.15}s`;
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const lines = entry.target.querySelectorAll('.statement-line');
+                    lines.forEach(line => {
+                        line.style.opacity = '1';
+                        line.style.transform = 'translateY(0)';
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        revealTexts.forEach(text => observer.observe(text));
+    }
+
+    // Hero Scroll Fade
+    function initHeroScrollFade() {
+        const hero = document.querySelector('.chapter-hero');
+        if (!hero) return;
+
+        const content = hero.querySelector('.chapter-content');
+        const scrollIndicator = hero.querySelector('.scroll-indicator');
+
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+            const heroHeight = hero.offsetHeight;
+            const fadeStart = 100;
+            const fadeEnd = heroHeight * 0.5;
+
+            if (scrollY < fadeEnd) {
+                const opacity = Math.max(0, 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart));
+                const translateY = scrollY * 0.3;
+
+                if (content) {
+                    content.style.opacity = opacity;
+                    content.style.transform = `translateY(${translateY}px)`;
+                }
+                if (scrollIndicator) {
+                    scrollIndicator.style.opacity = Math.max(0, 1 - scrollY / (fadeStart * 2));
+                }
+            }
+        };
+
+        if (!prefersReducedMotion.matches) {
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            handleScroll();
+        }
+    }
+
+    // Chapter Progress Indicator
+    function initChapterProgress() {
+        const chapters = document.querySelectorAll('.chapter');
+        if (chapters.length < 2) return;
+
+        // Create progress bar
+        const progressBar = document.createElement('div');
+        progressBar.className = 'chapter-progress';
+        progressBar.innerHTML = '<div class="chapter-progress-fill"></div>';
+        document.body.appendChild(progressBar);
+
+        const progressFill = progressBar.querySelector('.chapter-progress-fill');
+
+        // Add progress bar styles dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            .chapter-progress {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: rgba(255,255,255,0.1);
+                z-index: 9999;
+            }
+            .chapter-progress-fill {
+                height: 100%;
+                background: var(--ww-gradient-primary);
+                width: 0%;
+                transition: width 0.1s linear;
+            }
+        `;
+        document.head.appendChild(style);
+
+        const updateProgress = () => {
+            const scrollY = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollY / docHeight) * 100;
+            progressFill.style.width = `${Math.min(100, progress)}%`;
+        };
+
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        updateProgress();
+    }
+
+    // Smooth scroll for chapter navigation
+    function initChapterNavigation() {
+        const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href.startsWith('#')) {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        const navHeight = document.querySelector('.navbar')?.offsetHeight || 80;
+                        const targetPosition = target.offsetTop - navHeight;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    }
+
+    // Initialize Editorial Features
+    function initEditorialFeatures() {
+        initTextReveal();
+        initHeroScrollFade();
+        initChapterProgress();
+        initChapterNavigation();
+    }
+
+    // Run on DOMContentLoaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initEditorialFeatures);
+    } else {
+        initEditorialFeatures();
+    }
 })();
