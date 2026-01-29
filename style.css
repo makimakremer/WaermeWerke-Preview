@@ -2757,13 +2757,395 @@ footer {
     }
 }
 
+/* ========================================
+   MICRO-INTERACTIONS
+   ======================================== */
+
+/* Toast Notification System */
+.toast-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    pointer-events: none;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: var(--ww-card);
+    border: 1px solid var(--ww-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--ww-shadow-lg);
+    pointer-events: auto;
+    animation: toastSlideIn var(--duration-normal) var(--ease-out) forwards;
+    max-width: 380px;
+}
+
+.toast.toast-exit {
+    animation: toastSlideOut var(--duration-fast) var(--ease-in) forwards;
+}
+
+.toast-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.toast-success .toast-icon {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--ww-energy);
+}
+
+.toast-error .toast-icon {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--ww-error);
+}
+
+.toast-warning .toast-icon {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--ww-warning);
+}
+
+.toast-info .toast-icon {
+    background: rgba(139, 92, 246, 0.15);
+    color: var(--ww-primary-light);
+}
+
+.toast-content {
+    flex: 1;
+}
+
+.toast-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--ww-text);
+    margin-bottom: 0.25rem;
+}
+
+.toast-message {
+    font-size: 0.85rem;
+    color: var(--ww-text-muted);
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    color: var(--ww-text-subtle);
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: color var(--transition-fast);
+}
+
+.toast-close:hover {
+    color: var(--ww-text);
+}
+
+@keyframes toastSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes toastSlideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+/* Success Checkmark Animation */
+.success-checkmark {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+.success-checkmark .check-icon {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border-radius: 50%;
+    box-sizing: content-box;
+    border: 4px solid var(--ww-energy);
+}
+
+.success-checkmark .check-icon::before {
+    top: 3px;
+    left: -2px;
+    width: 30px;
+    height: 90px;
+    transform-origin: 100% 50%;
+    border-radius: 100px 0 0 100px;
+}
+
+.success-checkmark .check-icon::after {
+    top: 0;
+    left: 30px;
+    width: 60px;
+    height: 90px;
+    transform-origin: 0 50%;
+    border-radius: 0 100px 100px 0;
+    animation: rotate-circle 4.25s ease-in;
+}
+
+.success-checkmark .icon-line {
+    height: 5px;
+    background-color: var(--ww-energy);
+    display: block;
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+}
+
+.success-checkmark .icon-line.line-tip {
+    top: 46px;
+    left: 14px;
+    width: 25px;
+    transform: rotate(45deg);
+    animation: icon-line-tip 0.75s var(--ease-out) forwards;
+}
+
+.success-checkmark .icon-line.line-long {
+    top: 38px;
+    right: 8px;
+    width: 47px;
+    transform: rotate(-45deg);
+    animation: icon-line-long 0.75s var(--ease-out) forwards;
+}
+
+.success-checkmark .icon-circle {
+    top: -4px;
+    left: -4px;
+    z-index: 10;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    box-sizing: content-box;
+    border: 4px solid rgba(16, 185, 129, 0.3);
+}
+
+.success-checkmark .icon-fix {
+    top: 8px;
+    width: 5px;
+    left: 26px;
+    z-index: 1;
+    height: 85px;
+    position: absolute;
+    transform: rotate(-45deg);
+    background-color: var(--ww-card);
+}
+
+@keyframes icon-line-tip {
+    0% { width: 0; left: 1px; top: 19px; }
+    54% { width: 0; left: 1px; top: 19px; }
+    70% { width: 50px; left: -8px; top: 37px; }
+    84% { width: 17px; left: 21px; top: 48px; }
+    100% { width: 25px; left: 14px; top: 46px; }
+}
+
+@keyframes icon-line-long {
+    0% { width: 0; right: 46px; top: 54px; }
+    65% { width: 0; right: 46px; top: 54px; }
+    84% { width: 55px; right: 0; top: 35px; }
+    100% { width: 47px; right: 8px; top: 38px; }
+}
+
+/* Number Counter Animation */
+.counter {
+    font-family: var(--font-display);
+    font-weight: 800;
+    background: var(--ww-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.counter[data-animate] {
+    opacity: 0;
+    transition: opacity var(--duration-fast) var(--ease-standard);
+}
+
+.counter[data-animate].counting {
+    opacity: 1;
+}
+
+/* Skeleton Loading */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--ww-card) 25%,
+        var(--ww-card-hover) 50%,
+        var(--ww-card) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: var(--radius-md);
+}
+
+.skeleton-text {
+    height: 1em;
+    margin-bottom: 0.5em;
+}
+
+.skeleton-text:last-child {
+    width: 60%;
+}
+
+.skeleton-circle {
+    border-radius: 50%;
+}
+
+.skeleton-card {
+    padding: 1.5rem;
+    background: var(--ww-card);
+    border-radius: var(--radius-lg);
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Progress Indicator */
+.progress-ring {
+    transform: rotate(-90deg);
+}
+
+.progress-ring__circle {
+    stroke: var(--ww-border);
+    fill: transparent;
+}
+
+.progress-ring__progress {
+    stroke: url(#gradient-progress);
+    fill: transparent;
+    stroke-linecap: round;
+    transition: stroke-dashoffset var(--duration-slow) var(--ease-out);
+}
+
+/* Tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    padding: 0.5rem 0.75rem;
+    background: var(--ww-dark);
+    border: 1px solid var(--ww-border);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    color: var(--ww-text);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+    z-index: 1000;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-4px);
+}
+
+/* Badge */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.badge-primary {
+    background: rgba(139, 92, 246, 0.15);
+    color: var(--ww-primary-light);
+}
+
+.badge-secondary {
+    background: rgba(6, 182, 212, 0.15);
+    color: var(--ww-secondary-light);
+}
+
+.badge-success {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--ww-energy-light);
+}
+
+.badge-warning {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--ww-warning-light);
+}
+
+.badge-error {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--ww-error-light);
+}
+
+/* Card Shimmer Effect on Hover */
+.shimmer-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.shimmer-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.05),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.shimmer-card:hover::before {
+    left: 100%;
+}
+
 /* Print Styles */
 @media print {
     .navbar,
     .burger-menu,
     .hero-bg,
     .hero-glow,
-    footer {
+    footer,
+    .toast-container {
         display: none !important;
     }
 
