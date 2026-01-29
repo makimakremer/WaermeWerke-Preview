@@ -893,8 +893,8 @@ section {
     width: 120%;
     height: 120%;
     background: var(--ww-gradient-glow);
-    filter: blur(80px);
-    opacity: 0.5;
+    filter: blur(100px);
+    opacity: 0.35;
     pointer-events: none;
 }
 
