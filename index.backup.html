@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8B5CF6">
+    <meta name="color-scheme" content="dark light">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="robots" content="index,follow">
+
+    <title>WärmeWerke | ThermoHybrid Systeme - Innovative Energielösungen</title>
+    <meta name="description" content="WärmeWerke entwickelt innovative ThermoHybrid-Systeme für nachhaltige Strom- und Wärmeerzeugung. Maximale Effizienz durch KWK-Technologie. Contractor-Modell ohne Investitionskosten.">
+    <meta name="keywords" content="WärmeWerke, ThermoHybrid, Hybridheizung, Wärmepumpe, KWK, Kraft-Wärme-Kopplung, Energieeffizienz, nachhaltig heizen, Contractor, Energiekostensparen">
+
+    <link rel="canonical" href="https://waermewerke.de/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="WärmeWerke | Innovative ThermoHybrid Energielösungen">
+    <meta property="og:description" content="Revolutionäre ThermoHybrid-Systeme für effiziente Strom- und Wärmeerzeugung. Made in Germany.">
+    <meta property="og:image" content="https://waermewerke.de/images/og-image.png">
+    <meta property="og:url" content="https://waermewerke.de">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="WärmeWerke">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WärmeWerke | ThermoHybrid Energiesysteme">
+    <meta name="twitter:description" content="Innovative ThermoHybrid-Systeme. Strom und Wärme aus einer Anlage.">
+
+    <!-- Google Fonts - Poppins & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Strukturierte Daten (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "WärmeWerke GmbH",
+        "url": "https://waermewerke.de",
+        "logo": "https://waermewerke.de/images/logo.png",
+        "description": "Innovative ThermoHybrid-Systeme für nachhaltige Energieversorgung",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Musterstraße 1",
+            "addressLocality": "Musterstadt",
+            "postalCode": "12345",
+            "addressCountry": "DE"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+49-123-4567890",
+            "contactType": "customer service"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "WärmeWerke - ThermoHybrid Spezialist",
+        "image": "https://waermewerke.de/images/logo.png",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Musterstraße 1",
+            "addressLocality": "Musterstadt",
+            "addressRegion": "NRW",
+            "postalCode": "12345",
+            "addressCountry": "DE"
+        },
+        "url": "https://waermewerke.de",
+        "telephone": "+49-123-4567890",
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "17:00"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Für wen eignet sich ein ThermoHybrid-System?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ThermoHybrid-Systeme sind ideal für Mehrfamilienhäuser, Hotels, Gewerbeimmobilien und Quartiere mit hohem Energiebedarf ab 40.000 kWh Jahreswärmebedarf."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a class="logo-text" href="index.html" aria-label="Zur Startseite">
+                <span class="logo-waermewerke">WärmeWerke</span>
+            </a>
+
+            <button class="burger-menu" id="burger-menu" aria-label="Menü öffnen">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html">Start</a></li>
+                    <li class="has-mega"><a href="#module">Produkte</a>
+                        <div class="mega-panel" aria-label="Produkte">
+                            <div class="mega-grid">
+                                <a class="mega-item" href="produkt-thermohybrid.html" aria-label="ThermoHybrid System">
+                                    <img src="images/thermohybrid.png" alt="ThermoHybrid System" width="80" height="80" loading="lazy" decoding="async">
+                                    <span>ThermoHybrid</span>
+                                </a>
+                                <a class="mega-item" href="produkt-h2-storage.html" aria-label="H2 Storage">
+                                    <img src="images/h2.png" alt="H2 Storage Speicher" width="80" height="80" loading="lazy" decoding="async">
+                                    <span>H2 Storage</span>
+                                </a>
+                                <a class="mega-item" href="produkt-comfy-plus-75.html" aria-label="Comfy Plus 75">
+                                    <img src="images/FuchsComfy.png" alt="Comfy Plus 75 Wärmepumpe" width="80" height="80" loading="lazy" decoding="async">
+                                    <span>Comfy Plus 75</span>
+                                </a>
+                                <a class="mega-item" href="produkt-renso-kompakt.html" aria-label="Renso Kompakt">
+                                    <img src="images/renso.png" alt="Renso Kompakt Speicher" width="80" height="80" loading="lazy" decoding="async">
+                                    <span>Renso Kompakt</span>
+                                </a>
+                                <a class="mega-item" href="produkt-fuchs-titan.html#fuchs-titan" aria-label="Titan Großwärmepumpe">
+                                    <img src="images/titan.png" alt="Titan Großwärmepumpe" width="80" height="80" loading="lazy" decoding="async">
+                                    <span>Titan</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="wirtschaftlichkeit.html">Wirtschaftlichkeit</a></li>
+                    <li><a href="foerderung.html">Förderung</a></li>
+                    <li><a href="referenzen.html">Referenzen</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="#contact-section">Kontakt</a></li>
+                </ul>
+                <a class="header-btn" href="funnel.html">Energie-Check</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero hero-v2" id="hero">
+            <div class="hero-bg" data-parallax="0.25" aria-hidden="true"></div>
+            <div class="hero-glow" aria-hidden="true"></div>
+            <div class="hero-inner">
+                <div class="hero-copy reveal">
+                    <p class="hero-eyebrow">ThermoHybrid + Wärmepumpe + KWK + Umweltwärme</p>
+                    <h1>Energie neu gedacht<br><span class="brand-highlight">WärmeWerke</span> ThermoHybrid</h1>
+                    <p class="hero-text">Wir kombinieren innovative Generatortechnik mit Umweltwärme, intelligentem Monitoring und maximaler Förderung. Das Ergebnis: planbare Energiekosten, ESG-konforme Wärme und messbarer Return.</p>
+                    <div class="hero-cta">
+                        <a class="header-btn" href="funnel.html">Kostenloser Energie-Check</a>
+                        <a class="link-btn" href="#lead-hub">Wirtschaftlichkeit berechnen</a>
+                    </div>
+                    <div class="hero-metrics">
+                        <div>
+                            <p class="metric-label">ROI</p>
+                            <p class="metric-value">3-4 Jahre</p>
+                        </div>
+                        <div>
+                            <p class="metric-label">CO₂-Reduktion</p>
+                            <p class="metric-value">60%</p>
+                        </div>
+                        <div>
+                            <p class="metric-label">Verfügbarkeit</p>
+                            <p class="metric-value">98%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trust-section reveal" aria-label="Vertrauenssignale">
+            <p>Vertraut von Betreibern in Hospitality · Wohnungswirtschaft · Produktion · Kommunen</p>
+            <div class="trust-logos" role="list">
+                <span role="listitem">GEG 2026 konform</span>
+                <span role="listitem">KWKG & BEW ready</span>
+                <span role="listitem">Contracting ohne CAPEX</span>
+                <span role="listitem">Remote Monitoring</span>
+            </div>
+        </section>
+
+        <section class="statement-strip" aria-hidden="true">
+            <div class="strip-track" data-parallax-x="-0.24">
+                <span>WärmeWerke</span>
+                <span>Innovation</span>
+                <span>120+ Systeme in Betrieb</span>
+                <span>Made in Germany</span>
+                <span>WärmeWerke</span>
+                <span>Innovation</span>
+                <span>120+ Systeme in Betrieb</span>
+                <span>Made in Germany</span>
+            </div>
+        </section>
+
+        <section class="product-flow reveal" id="thermohybrid">
+            <div class="section-intro">
+                <span class="hero-eyebrow">Systemdesign</span>
+                <h2 class="heading-xl">Generator, Umweltwärme, Speicher & Daten als Einheit</h2>
+                <p>ThermoHybrid liefert Strom und nutzt Abwärme + Umweltenergie für Wärme. Die Regelung priorisiert den Bedarf im Gebäude, optimiert Einspeisung und steuert Förder-Abrechnung.</p>
+            </div>
+            <div class="flow-grid">
+                <div class="flow-visual">
+                    <div class="flow-parallax-glow" data-parallax="0.018" aria-hidden="true"></div>
+                    <img src="images/Explosionszeichnung.png" alt="Schematische Darstellung der ThermoHybrid Anlage" loading="lazy" decoding="async" data-parallax="0.08">
+                    <div class="flow-badge">Live KPI Feed</div>
+                </div>
+                <div class="flow-steps">
+                    <article class="flow-card">
+                        <h3>1 · Strom erzeugen</h3>
+                        <p>Der gasbetriebene Generator liefert Grundlaststrom für Haus- oder Gewerbenetze. Spitzen werden intelligent eingespeist – inklusive 0,16 €/kWh Zuschlag.</p>
+                    </article>
+                    <article class="flow-card">
+                        <h3>2 · Umweltwärme koppeln</h3>
+                        <p>Aus Abwärme + Umweltenergie entsteht Heizwasser. Pufferspeicher verteilen Energie an Heizung, Lüftung und Warmwasser.</p>
+                    </article>
+                    <article class="flow-card">
+                        <h3>3 · Förderung maximieren</h3>
+                        <p>Förderungen und Zuschläge decken nicht nur die Anlagenkosten – über die Laufzeit entstehen zusätzliche Erlöse, die den reinen Anlagenpreis übersteigen.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="advisor-funnel reveal" id="thermohybrid-funnel" aria-label="ThermoHybrid Matching">
+            <div class="funnel-inner" data-funnel data-start-step="ownership">
+                <div class="section-intro">
+                    <span class="hero-eyebrow">Förderungs-Check</span>
+                    <h2 class="heading-xl">Verdient Ihre Heizung schon Geld?</h2>
+                    <p>Finden Sie in 60 Sekunden heraus, wie viel Ihr Gebäude monatlich erwirtschaften kann.</p>
+                </div>
+                <div class="funnel-layout">
+                    <div class="funnel-main">
+                        <div class="funnel-stage" data-funnel-stage>
+                            <div class="funnel-linear-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                <div class="funnel-linear-track">
+                                    <div class="funnel-linear-fill" data-progress-fill style="width:0%"></div>
+                                </div>
+                                <div class="funnel-linear-label"><span data-progress-step>1</span>/5</div>
+                            </div>
+                            <article class="funnel-step active" data-step-id="ownership" data-progress-target="ownership">
+                                <p class="step-eyebrow">Schritt 1 · Eigentum</p>
+                                <h3>Sind Sie Eigentümer?</h3>
+                                <p class="step-description">Wir brauchen die Zustimmung des Eigentümers.</p>
+                                <div class="funnel-options">
+                                    <button type="button" class="funnel-option" data-value="yes" data-label="Ja, Eigentum">
+                                        <span>Ja</span>
+                                        <small>Ich entscheide</small>
+                                    </button>
+                                    <button type="button" class="funnel-option" data-value="no" data-label="Nein, nicht Eigentümer">
+                                        <span>Nein</span>
+                                        <small>Ich bin Verwalter oder Mieter</small>
+                                    </button>
+                                </div>
+                            </article>
+                            <article class="funnel-step" data-step-id="owner-blocked" data-progress-target="ownership">
+                                <p class="step-eyebrow">Hinweis</p>
+                                <h3>ThermoHybrid erfordert Eigentümer-Zustimmung</h3>
+                                <p class="step-description">Unsere Anlagen werden in der Regel als Contracting oder Betreiberlösung umgesetzt. Ohne Eigentümer können wir leider kein Angebot erstellen.</p>
+                                <p class="step-description">Holen Sie gerne Entscheider mit ins Gespräch und starten Sie den Funnel erneut.</p>
+                                <button type="button" class="link-btn" data-funnel-retry>Zur ersten Frage</button>
+                            </article>
+                            <article class="funnel-step" data-step-id="asset-type" data-progress-target="asset">
+                                <p class="step-eyebrow">Schritt 2 · Objekt</p>
+                                <h3>Um welches Objekt geht es?</h3>
+                                <p class="step-description">Wohngebäude, Gewerbe oder beides?</p>
+                                <div class="funnel-options">
+                                    <button type="button" class="funnel-option" data-value="private" data-label="Privatobjekt">
+                                        <span class="option-icon" aria-hidden="true">
+                                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M4 10l8-6 8 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <rect x="6" y="10" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+                                                <path d="M10 19v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                            </svg>
+                                        </span>
+                                        <span>Wohngebäude</span>
+                                        <small>Mehrfamilienhaus, Quartier, Wohnanlage</small>
+                                    </button>
+                                    <button type="button" class="funnel-option" data-value="business" data-label="Gewerbe / Industrie">
+                                        <span class="option-icon" aria-hidden="true">
+                                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="3" y="9" width="7" height="10" rx="1.2" stroke="currentColor" stroke-width="1.8"/>
+                                                <rect x="12" y="5" width="9" height="14" rx="1.2" stroke="currentColor" stroke-width="1.8"/>
+                                                <path d="M5.5 12h2M5.5 15h2M14.5 8h3M14.5 11h3M14.5 14h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                                            </svg>
+                                        </span>
+                                        <span>Gewerbe</span>
+                                        <small>Hotel, Produktion, Büro, Rechenzentrum</small>
+                                    </button>
+                                    <button type="button" class="funnel-option" data-value="mixed" data-label="Gemischt genutzt">
+                                        <span class="option-icon" aria-hidden="true">
+                                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M3.5 12l5.5-4 5.5 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <rect x="5" y="12" width="7" height="7" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+                                                <rect x="14" y="6" width="7" height="13" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+                                                <path d="M16.5 8.75h2M16.5 11.25h2M16.5 13.75h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                            </svg>
+                                        </span>
+                                        <span>Gewerbe + Wohngebäude</span>
+                                        <small>Wohn- und Gewerbeflächen kombiniert</small>
+                                    </button>
+                                </div>
+                            </article>
+                            <article class="funnel-step" data-step-id="private-units" data-progress-target="usage">
+                                <p class="step-eyebrow">Schritt 3 · Wohneinheiten</p>
+                                <h3>Wie viele Wohnungen?</h3>
+                                <p class="step-description">Damit schätzen wir die Größe.</p>
+                                <div class="funnel-options">
+                                    <button type="button" class="funnel-option" data-value="1-6" data-label="1–6 Wohneinheiten">
+                                        <span>1 – 6</span>
+                                        <small>Kleine Häuser</small>
+                                    </button>
+                                    <button type="button" class="funnel-option" data-value="6-10" data-label="6–10 Wohneinheiten">
+                                        <span>6 – 10</span>
+                                        <small>Mittlere Häuser</small>
+                                    </button>
+                                    <button type="button" class="funnel-option" data-value="10-20" data-label="10–20 Wohneinheiten">
+                                        <span>10 – 20</span>
+                                        <small>Große Häuser</small>
+                                    </button>
+                                    <button type="button" class="funnel-option" data-value="20plus" data-label="Über 20 Wohneinheiten">
+                                        <span>20+</span>
+                                        <small>Sehr viele Wohnungen</small>
+                                    </button>
+                                </div>
+                            </article>
+                            <article class="funnel-step" data-step-id="commercial-area" data-progress-target="usage">
+                                <p class="step-eyebrow">Schritt 3 · Nutzfläche</p>
+                                <h3>Wie groß ist die Fläche?</h3>
+                                <p class="step-description">So wählen wir die Leistung.</p>
+                                <div class="funnel-options">
+                                    <button type="button" class="funnel-option" data-value="up-to-150" data-label="Bis 150 m²">
+                                        <span>Bis 150 m²</span>
+                                        <small>Shops, kleine Büros, Praxen</small>
+                                    </button>
+                                    <button type="button" class="funnel-option" data-value="150-500" data-label="150 – 500 m²">
+                                        <span>150 – 500 m²</span>
+                                        <small>Mehrere Filialen, Boarding Houses</small>
+                                    </button>
+                                    <button type="button" class="funnel-option" data-value="500-1000" data-label="500 – 1.000 m²">
+                                        <span>500 – 1.000 m²</span>
+                                        <small>Hotels, Produktionsflächen light</small>
+                                    </button>
+                                    <button type="button" class="funnel-option" data-value="1000plus" data-label="Über 1.000 m²">
+                                        <span>Über 1.000 m²</span>
+                                        <small>Gewerbeparks, Campus, Logistik</small>
+                                    </button>
+                                </div>
+                            </article>
+                            <article class="funnel-step" data-step-id="heating" data-progress-target="heating">
+                                <p class="step-eyebrow">Schritt 4 · Heizung</p>
+                                <h3>Womit heizen Sie jetzt?</h3>
+                                <p class="step-description">Damit schätzen wir Einsparung und Förderung.</p>
+                                <div class="funnel-options">
+                                    <button type="button" class="funnel-option" data-value="oil" data-label="Öl">
+                                        <span>Öl</span>
+                                        <small>Kessel oder Ölheizung</small>
+                                    </button>
+                                    <button type="button" class="funnel-option" data-value="gas" data-label="Gas">
+                                        <span>Gas</span>
+                                        <small>Brennwert oder Bestand</small>
+                                    </button>
+                                    <button type="button" class="funnel-option" data-value="district" data-label="Fernwärme">
+                                        <span>Fernwärme</span>
+                                        <small>Contract / Stadtwerke</small>
+                                    </button>
+                                    <button type="button" class="funnel-option" data-value="heatpump" data-label="Wärmepumpe">
+                                        <span>Wärmepumpe</span>
+                                        <small>Monovalent oder hybrid</small>
+                                    </button>
+                                    <button type="button" class="funnel-option" data-value="pellets" data-label="Pellets">
+                                        <span>Pellets</span>
+                                        <small>Biomasselösungen</small>
+                                    </button>
+                                </div>
+                            </article>
+                            <article class="funnel-step" data-step-id="result" data-progress-target="result">
+                                <p class="step-eyebrow">Schritt 5 · Ergebnis</p>
+                                <h3>Analyse anfordern</h3>
+                                <p class="step-description" data-funnel-result-text>Wir schicken Ihnen eine kurze Einschätzung mit Zahlen und Förderung.</p>
+                                <form class="funnel-form" data-funnel-form action="https://formsubmit.co/info@waermewerke.de" method="POST">
+                                    <input type="text" name="_honey" style="display:none">
+                                    <input type="hidden" name="_subject" value="WärmeWerke Energie-Check Lead">
+                                    <input type="hidden" name="_next" value="welcome.html">
+                                    <input type="hidden" name="_template" value="table">
+                                    <input type="hidden" name="_captcha" value="false">
+                                    <input type="hidden" name="_autoresponse" value="Danke für Ihre Anfrage! Wir melden uns innerhalb von 24h mit Impact-Kennzahlen, Förderübersicht und Terminvorschlag.">
+                                    <input type="hidden" name="funnel_summary" data-funnel-summary-input>
+                                    <div class="funnel-form-grid">
+                                        <label>
+                                            <span>Vor- und Nachname*</span>
+                                            <input type="text" name="name" autocomplete="name" required>
+                                        </label>
+                                        <label>
+                                            <span>E-Mail*</span>
+                                            <input type="email" name="email" autocomplete="email" required>
+                                        </label>
+                                        <label>
+                                            <span>Telefon*</span>
+                                            <input type="tel" name="phone" autocomplete="tel" required>
+                                        </label>
+                                    </div>
+                                    <label class="consent">
+                                        <input type="checkbox" name="consent" required>
+                                        Ich akzeptiere die Kontaktaufnahme gemäß Datenschutzerklärung.
+                                    </label>
+                                    <button type="submit" class="header-btn">Analyse anfordern</button>
+                                    <p class="lite-trust">Kostenlos · unverbindlich · Antwort innerhalb von 24&nbsp;Stunden</p>
+                                </form>
+                            </article>
+                            <div class="funnel-controls">
+                                <button type="button" data-funnel-back disabled>Zurück</button>
+                                <button type="button" data-funnel-reset>Neu starten</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-teaser reveal" aria-labelledby="blog-teaser-title">
+            <div>
+                <span class="hero-eyebrow">Knowledge Hub</span>
+                <h2 id="blog-teaser-title" class="heading-xl">Blog & Wissen</h2>
+                <p>Die neuesten Artikel aus Förderung, Technik und Praxis. Jeder Beitrag verlinkt direkt auf Kontakt- und Demo-Touchpoints.</p>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <p class="eyebrow">Förderung</p>
+                    <h3>KWKG 2026: Was Betreiber wissen müssen</h3>
+                    <p class="excerpt">Fördersätze, Vollbenutzungsstunden und Monitoring-Pflichten auf einen Blick.</p>
+                    <a href="blog.html#blog/kwkg-foerderung" class="link-btn">Zum Artikel</a>
+                </article>
+                <article class="blog-card">
+                    <p class="eyebrow">Praxis</p>
+                    <h3>Hospitality-Case: −27% Nebenkosten</h3>
+                    <p class="excerpt">Wie ein Hotel Strom, Wärme und ESG-Berichte aus einem ThermoHybrid erhält.</p>
+                    <a href="referenzen.html" class="link-btn">Referenz ansehen</a>
+                </article>
+                <article class="blog-card">
+                    <p class="eyebrow">Technik</p>
+                    <h3>ThermoHybrid Control Stack</h3>
+                    <p class="excerpt">Was im Schaltschrank passiert – von Generator bis Umweltwärme-Puffer.</p>
+                    <a href="blog.html#blog/technik" class="link-btn">Mehr erfahren</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-dark reveal" id="solutions">
+            <div class="section-inner">
+                <div class="layout-two-column">
+                    <div class="section-intro">
+                        <span class="hero-eyebrow">Made in Germany</span>
+                        <h2 class="heading-xl">Ingenieurwissen verwandelt Gebäude in Energiezentren</h2>
+                        <p>ThermoHybrid-Systeme kombinieren einen gasbetriebenen Generator mit Umweltwärme, Pufferspeichern und einer cloudbasierten Steuerung. Das Ergebnis: zuverlässige Strom- und Wärmeerzeugung, die Förderquoten maximiert und Nebenkosten planbar senkt.</p>
+                        <ul class="list-check tight">
+                            <li>Synchronisierte Module: Generator, Wärmepumpe, Speicher und Regelung greifen digital ineinander.</li>
+                            <li>Förderfähiges Design: KWKG, BEW und Landesmittel werden bereits in der Planung berücksichtigt.</li>
+                            <li>Operation as a Service: Monitoring, Wartung und Contracting mit klaren Leistungsversprechen.</li>
+                        </ul>
+                        <div class="hero-cta">
+                            <a class="header-btn" href="foerderung.html">Förderungen nutzen</a>
+                            <a class="link-btn" href="referenzen.html">Referenzen prüfen</a>
+                        </div>
+                    </div>
+                    <div class="media-card">
+                        <img src="images/lagerhalle.png" alt="Produktionshalle mit ThermoHybrid-Systemen" loading="lazy" decoding="async">
+                        <p class="media-caption">110 Qualitätschecks pro Anlage · digitale Inbetriebnahmeprotokolle · GEG 2026 ready</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section" id="gallery">
+            <div class="gallery-container">
+                <div class="gallery-grid">
+                    <div class="gallery-info">
+                        <h2 class="heading-xl">Einblicke</h2>
+                        <ul class="gallery-headings" id="gallery-headings">
+                            <li class="gallery-heading-item" data-index="0">
+                                <div class="gallery-heading active">Energieeffizienz</div>
+                                <div class="gallery-text">Höchste Effizienz durch die Kombination von Generator, Umweltwärme und intelligenter Regelung.</div>
+                            </li>
+                            <li class="gallery-heading-item" data-index="1">
+                                <div class="gallery-heading">GEG-konform & CO₂-befreit</div>
+                                <div class="gallery-text">GEG 2026 sicher erfüllen und dauerhaft von der CO₂-Abgabe befreit bleiben.
+                                    <ul>
+                                        <li>Vollbenutzungsstunden werden nachgewiesen</li>
+                                        <li>Messkonzept für KWKG & BEW inklusive</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="gallery-heading-item" data-index="2">
+                                <div class="gallery-heading">Contracting</div>
+                                <div class="gallery-text">Modernisierung ohne CAPEX – WärmeWerke übernimmt Invest, Wartung und Monitoring.
+                                    <ul>
+                                        <li>Planbare Servicepauschale</li>
+                                        <li>Performance-Garantie</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="gallery-heading-item" data-index="3">
+                                <div class="gallery-heading">Förderung</div>
+                                <div class="gallery-text">KWKG-Zuschlag, BEG-Förderung und Landesprogramme.
+                                    <ul>
+                                        <li>0,27 € pro kWh Einspeisevergütung §7 KWKG</li>
+                                        <li>0,08 € pro kWh Eigenstromvergütung §7 KWKG</li>
+                                        <li>Investzuschuss bis 70% BEG & Landesprogramme</li>
+                                        <li>Vollbenutzungsstunden bei 30.000 std §8 KWKG</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="gallery-heading-item" data-index="4">
+                                <div class="gallery-heading">WärmeWerke Live Monitoring</div>
+                                <div class="gallery-text">Dashboards zeigen KPIs + Realtime Monitoring, alarmieren bei Abweichungen und speichern Nachweise.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="gallery-scroller">
+                        <div class="gallery-track" id="gallery-track">
+                            <article class="gallery-item" data-index="0">
+                                <img src="images/Hero.webp" alt="Energieeffizienz in der Praxis" loading="lazy" decoding="async">
+                                <div class="gallery-overlay">
+                                    <h3 class="gallery-item-title">Energieeffizienz</h3>
+                                </div>
+                            </article>
+                            <div class="gallery-detail" data-index="0"></div>
+                            <article class="gallery-item" data-index="1">
+                                <img src="images/Lagerhalle.png" alt="Produktion in Deutschland" loading="lazy" decoding="async">
+                                <div class="gallery-overlay">
+                                    <h3 class="gallery-item-title">GEG Konformität</h3>
+                                </div>
+                            </article>
+                            <div class="gallery-detail" data-index="1"></div>
+                            <article class="gallery-item" data-index="2">
+                                <img src="images/Contracting.png" alt="Contracting ohne Investitionskosten" loading="lazy" decoding="async">
+                                <div class="gallery-overlay">
+                                    <h3 class="gallery-item-title">Contracting</h3>
+                                </div>
+                            </article>
+                            <div class="gallery-detail" data-index="2"></div>
+                            <article class="gallery-item" data-index="3">
+                                <img src="images/ThermoHybird.png" alt="Förderung und Vergütung" loading="lazy" decoding="async">
+                                <div class="gallery-overlay">
+                                    <h3 class="gallery-item-title">Förderung</h3>
+                                </div>
+                            </article>
+                            <div class="gallery-detail" data-index="3"></div>
+                            <article class="gallery-item" data-index="4">
+                                <img src="images/Monitoring.png" alt="Live Monitoring Dashboard" loading="lazy" decoding="async">
+                                <div class="gallery-overlay">
+                                    <h3 class="gallery-item-title">WärmeWerke Live</h3>
+                                </div>
+                            </article>
+                            <div class="gallery-detail" data-index="4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-showcase" id="module">
+            <div class="section-inner">
+                <div class="product-grid">
+                    <article class="product-card hero-card">
+                        <a class="product-link" href="produkt-thermohybrid.html" aria-label="Mehr zum ThermoHybrid">
+                            <img src="images/thermohybrid.png" alt="ThermoHybrid System" loading="lazy" decoding="async">
+                            <div class="product-overlay">
+                                <p class="product-label">ThermoHybrid</p>
+                                <h3>Strom & Wärme für Ihr Gebäude</h3>
+                                <p class="product-sub">Control Cockpit, Live-Daten und Automationspfade.</p>
+                            </div>
+                        </a>
+                        <a class="product-cta" href="produkt-thermohybrid.html" aria-label="Zur Produktseite ThermoHybrid">→</a>
+                    </article>
+                    <article class="product-card card-solar">
+                        <a class="product-link" href="produkt-h2-storage.html" aria-label="Mehr zum H2 Storage">
+                            <img src="images/h2.png" alt="H2 Storage Visualisierung" loading="lazy" decoding="async">
+                            <div class="product-overlay">
+                                <p class="product-label">H2 Storage</p>
+                                <h3>Energie wenn sie gebraucht wird</h3>
+                                <p class="product-sub">Generator + PV + Umweltwärme orchestrieren.</p>
+                            </div>
+                        </a>
+                        <a class="product-cta" href="produkt-h2-storage.html" aria-label="Zur Produktseite H2 Storage">→</a>
+                    </article>
+                    <article class="product-card card-storage">
+                        <a class="product-link" href="produkt-comfy-plus-75.html" aria-label="Mehr zur Comfy Plus 75">
+                            <img src="images/FuchsComfy.png" alt="Comfy Plus 75 Wärmepumpe" loading="lazy" decoding="async">
+                            <div class="product-overlay">
+                                <p class="product-label">Comfy Plus 75</p>
+                                <h3>Wärmepumpen der neuesten Generation</h3>
+                                <p class="product-sub">Effizient, förderfähig & zukunftssicher.</p>
+                            </div>
+                        </a>
+                        <a class="product-cta" href="produkt-comfy-plus-75.html" aria-label="Zur Produktseite Comfy Plus 75">→</a>
+                    </article>
+                    <article class="product-card card-wallbox">
+                        <a class="product-link" href="produkt-renso-kompakt.html" aria-label="Mehr zum Renso Kompakt">
+                            <img src="images/renso.png" alt="Renso Kompakt Speicherlösung" loading="lazy" decoding="async">
+                            <div class="product-overlay">
+                                <p class="product-label">Renso Kompakt</p>
+                                <h3>Der All-in-One für Speichersysteme</h3>
+                                <p class="product-sub">Ladeinfrastruktur mit Contracting & Service.</p>
+                            </div>
+                        </a>
+                        <a class="product-cta" href="produkt-renso-kompakt.html" aria-label="Zur Produktseite Renso Kompakt">→</a>
+                    </article>
+                    <article class="product-card card-heat">
+                        <a class="product-link" href="produkt-fuchs-titan.html#fuchs-titan" aria-label="Mehr zum Titan">
+                            <img src="images/titan.png" alt="Titan Großwärmepumpe" loading="lazy" decoding="async">
+                            <div class="product-overlay">
+                                <p class="product-label">Titan</p>
+                                <h3>Großes für große Lasten</h3>
+                                <p class="product-sub">Von 50 kW bis 800 kW thermischer Leistung.</p>
+                            </div>
+                        </a>
+                        <a class="product-cta" href="produkt-fuchs-titan.html#fuchs-titan" aria-label="Zur Produktseite Titan">→</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="economics-teaser" id="wirtschaftlichkeit">
+            <div class="section-inner teaser-grid">
+                <div class="teaser-copy">
+                    <span class="hero-eyebrow">ROI-Simulation</span>
+                    <h2 class="heading-xl">Wirtschaftlichkeit live antesten</h2>
+                    <p>Eine Eingabe, drei Kennzahlen, sofort greifbarer ROI. Der Teaser-Rechner zeigt, wie ThermoHybrid Verbrauchsdaten in Leistung und Erlös-Spannen übersetzt.</p>
+                    <ul class="list-check tight">
+                        <li>Heizlast nach DIN EN 15378</li>
+                        <li>Elektrische Leistung als ThermoHybrid-Klasse</li>
+                        <li>Erlösrange Einspeisung/Eigenverbrauch</li>
+                    </ul>
+                    <p class="helper-text">Richtwerte. Die Detailplanung erfolgt auf der Wirtschaftlichkeitsseite und nach Vor-Ort-Prüfung.</p>
+                </div>
+                <div class="teaser-card" data-calculator-teaser>
+                    <p class="teaser-eyebrow">Schritt 1 · Verbrauch eingeben</p>
+                    <label for="verbrauch" class="sr-only">Verbrauch in kWh</label>
+                    <div class="teaser-input-row">
+                        <input type="text" id="verbrauch" placeholder="z. B. 46.000 kWh">
+                        <button id="BerechnenBTN">Berechnen</button>
+                    </div>
+                    <p class="teaser-note">Der Rechner wandelt den Jahresverbrauch in Heizlast und elektrische Leistung.</p>
+                    <div class="teaser-metrics" aria-live="polite">
+                        <div class="teaser-metric">
+                            <p>Heizlast</p>
+                            <strong id="Heizlastergebniss">46 kW</strong>
+                        </div>
+                        <div class="teaser-metric">
+                            <p>Elektrische Leistung</p>
+                            <strong id="Elektischeleistung"><span>25 kW</span></strong>
+                        </div>
+                        <div class="teaser-metric">
+                            <p>Erlösrange *</p>
+                            <strong id="teaser-range">200 – 285 T€</strong>
+                        </div>
+                    </div>
+                    <small class="teaser-footnote">* Basierend auf 30.000 Vollbenutzungsstunden. Detailwerte auf der Wirtschaftlichkeitsseite.</small>
+                    <div class="teaser-actions">
+                        <a class="header-btn" href="funnel.html">Detailanalyse anfordern</a>
+                        <a class="link-btn" id="cta-detail-rechner" href="wirtschaftlichkeit.html">Zum erweiterten Rechner</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section reveal" id="faq">
+            <div class="faq-container">
+                <h2 class="heading-xl">Häufig gestellte Fragen</h2>
+                <div class="faq-item" data-faq-item>
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-1">
+                        Für welche Gebäude lohnt sich ThermoHybrid?
+                        <span class="arrow" aria-hidden="true">▼</span>
+                    </div>
+                    <div class="faq-answer" id="faq-answer-1">
+                        Ab etwa 40.000 kWh Jahreswärmebedarf spielt ThermoHybrid seine Stärken aus: Mehrfamilienhäuser, Hotels, Gewerbe und Quartiere benötigen gleichzeitig Strom und Wärme. Wir prüfen Lastprofile, Hydraulik und Netzsituation, bevor wir eine verbindliche Empfehlung aussprechen.
+                    </div>
+                </div>
+                <div class="faq-item" data-faq-item>
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-2">
+                        Wie läuft die Umsetzung vom Erstkontakt bis Inbetriebnahme?
+                        <span class="arrow" aria-hidden="true">▼</span>
+                    </div>
+                    <div class="faq-answer" id="faq-answer-2">
+                        Nach der Impact-Analyse folgen Fördercheck, Engineering, Netzbetreiberfreigabe und Installation. Dank vorbereiteter Templates liegt die Realisierungszeit meist zwischen 8 und 12 Wochen – inklusive Monitoring-Setup und Betreibertraining.
+                    </div>
+                </div>
+                <div class="faq-item" data-faq-item>
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-3">
+                        Wie stellt ihr sicher, dass Förderungen ausgezahlt werden?
+                        <span class="arrow" aria-hidden="true">▼</span>
+                    </div>
+                    <div class="faq-answer" id="faq-answer-3">
+                        Wir pflegen alle Fristen und Nachweise digital, führen Messkonzepte gemäß KWKG und BEW und kommunizieren mit BAFA, Netzbetreibern und Förderbanken. Erst wenn Förderbescheide vorliegen, starten wir die finale Bestellung.
+                    </div>
+                </div>
+                <div class="faq-item" data-faq-item>
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-4">
+                        Welche Services erhalte ich nach der Inbetriebnahme?
+                        <span class="arrow" aria-hidden="true">▼</span>
+                    </div>
+                    <div class="faq-answer" id="faq-answer-4">
+                        Remote Monitoring, Performance-Reporting, Wartung und Ersatzteile sind Teil unseres Servicepakets oder Contractor-Modells. Zusätzlich gibt es Schulungen und persönliche Ansprechpartner für ESG-Reporting und Audit-Anfragen.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-contrast reveal" id="tech-data">
+            <div class="section-inner">
+                <div class="section-intro">
+                    <span class="hero-eyebrow">Technische Daten</span>
+                    <h2 class="heading-xl">Skalierbare ThermoHybrid Module</h2>
+                    <p>Leistungsklassen von 2 kW bis 71 kW elektrisch decken Mehrfamilienhäuser, Hotels, Gewerbe und Quartiere ab. Jede Konfiguration ist für Erdgas, Flüssiggas, Biomethan oder H₂-ready ausgelegt.</p>
+                </div>
+                <div class="tech-table-wrapper">
+                    <table class="tech-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Komponente</th>
+                                <th scope="col">Thermische Leistung</th>
+                                <th scope="col">Elektrische Leistung</th>
+                                <th scope="col">Brennstoff</th>
+                                <th scope="col">Besonderheit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">ThermoHybrid</td>
+                                <td>2,5 – 139 kW</td>
+                                <td>2 – 71 kW</td>
+                                <td>Erdgas · Flüssiggas · H₂-ready · Biomethan</td>
+                                <td>Strom- und Wärmeerzeugung plus Umweltenergie-Nutzung</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Comfy Plus 75 Wärmepumpe</td>
+                                <td>7 – 50 kW</td>
+                                <td>–</td>
+                                <td>Strom</td>
+                                <td>COP bis zu 5,9</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="tech-footnote">* Werte beziehen sich auf Standardausführungen. Die finale Auslegung erfolgt nach Lastprofil, Hydraulik und Förderstrategie.</p>
+            </div>
+        </section>
+
+        <section class="contact-section contact-modern reveal" id="contact-section">
+            <div class="contact-card">
+                <span class="hero-eyebrow">Kontakt</span>
+                <h2 class="heading-xl"><span class="brand-highlight">Planungsgespräch</span> vereinbaren</h2>
+                <p>Wir melden uns innerhalb von 24 Stunden mit Terminvorschlag, Agenda und einer Checkliste für Ihre Unterlagen.</p>
+                <form action="https://formsubmit.co/info@waermewerke.de" method="POST">
+                    <input type="text" name="_honey" style="display:none">
+                    <input type="hidden" name="_next" value="welcome.html">
+                    <input type="hidden" name="_subject" value="Neue Kontaktanfrage über WärmeWerke Website">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <label for="contact-name">Name <span aria-hidden="true">*</span><span class="sr-only">Pflichtfeld</span></label>
+                    <input type="text" id="contact-name" name="name" placeholder="Vor- und Nachname" autocomplete="name" required>
+                    <label for="contact-email">E-Mail <span aria-hidden="true">*</span><span class="sr-only">Pflichtfeld</span></label>
+                    <input type="email" id="contact-email" name="email" placeholder="name@unternehmen.de" autocomplete="email" required>
+                    <label for="contact-phone">Telefon <span aria-hidden="true">*</span><span class="sr-only">Pflichtfeld</span></label>
+                    <input type="tel" id="contact-phone" name="telefon" placeholder="+49 ..." autocomplete="tel" required>
+                    <label for="contact-message">Nachricht</label>
+                    <textarea id="contact-message" name="message" rows="4" placeholder="Beschreiben Sie Ihr Objekt, Energieverbrauch oder gewünschte Leistungen." autocomplete="off"></textarea>
+                    <p class="form-footnote"><span aria-hidden="true">*</span> Pflichtfeld</p>
+                    <button type="submit" class="header-btn">Nachricht senden</button>
+                </form>
+            </div>
+            <div class="map-card">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.159!2d13.4050!3d52.5200!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851c655f20989%3A0x26bbfb4e84674c63!2sBerlin!5e0!3m2!1sde!2sde!4v1689272548693!5m2!1sde!2sde"
+                    allowfullscreen
+                    loading="lazy"
+                    aria-label="Standort von WärmeWerke"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <nav class="footer-navbar">
+            <div class="footer-logo-text">
+                <span class="logo-waermewerke-footer">WärmeWerke</span>
+            </div>
+            <div>
+                <h2>Menü</h2>
+                <ul class="footer-nav-links">
+                    <li><a href="index.html">Start</a></li>
+                    <li><a href="wirtschaftlichkeit.html">Wirtschaftlichkeit</a></li>
+                    <li><a href="foerderung.html">Förderung</a></li>
+                    <li><a href="referenzen.html">Referenzen</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="#contact-section">Kontakt</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Kontakt</h3>
+                <ul class="footer-nav-links">
+                    <li>WärmeWerke GmbH</li>
+                    <li>Musterstraße 1</li>
+                    <li>12345 Musterstadt</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="slogan">Innovativ<br>Effizient<br>Nachhaltig</h4>
+            </div>
+        </nav>
+        <div class="footer-bottom">
+            <span>&copy; 2026 WärmeWerke GmbH</span>
+            <span class="footer-links">
+                <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
+            </span>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
