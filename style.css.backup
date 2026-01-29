@@ -1,0 +1,897 @@
+/* Reset & Base Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background-color: #100F0D;
+}
+
+body {
+    max-width: 100vw;
+}
+
+main,
+header,
+footer,
+section {
+    width: 100%;
+    max-width: 100%;
+}
+    color: #F5F3F0;
+    box-sizing: border-box;
+}m;
+    text-align: right;
+} font-family: 'Montserrat', Arial, sans-serif;
+    background-color: #100F0D;
+}
+
+body {
+    max-width: 100vw;
+}
+
+main,
+header,
+footer,
+section {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Typography */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: #FF914D;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #e68a3f;
+    text-decoration: none;
+}
+
+/* Table Styles */
+th,
+td {
+    padding: 1.3rem 1rem;
+    text-align: center;
+}
+
+/* Heading Classes */
+.heading-xl {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.heading-lg {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.heading-md {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.heading-sm {
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 1.55;
+    text-align: left;
+    color: #3a3a40;
+    margin: 0;
+    padding-right: 5rem;
+}
+
+.text-content {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+/* Utility Classes */
+.accent-color {
+    color: #FF914D;
+}
+
+.text-shadow {
+    text-shadow: 0 0 1px #100F0D;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.border-bottom {
+    border-bottom: 2px solid #7F7F7F;
+}
+
+.border-bottom-light {
+    border-bottom: 2px solid #7F7F7F4D;
+}
+
+/* Navigation Bar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 40px;
+    padding: 1rem 2rem;
+    background: rgba(16, 15, 13, 0.50);
+    backdrop-filter: blur(2px);
+}
+
+.logo {
+    height: 40px;
+    margin-right: 1rem;
+}
+
+.logo-text {
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    font-size: 1.6rem;
+    margin-right: 2rem;
+    text-align: right;
+}
+
+.logo-fuchs {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #FF914D;
+}
+
+
+.logo-group {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+    text-decoration: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: whitesmoke;
+    margin: 0 38px;
+}
+
+.header-btn {
+    display: flex;
+    width: 250px;
+    height: 31px;
+    padding: 20px 29px;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #FF914D;
+    color: #FFF;
+    border: none;
+    font-weight: 400;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-btn:hover {
+    background: #e68a3f;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #211f1f;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    text-align: left;
+    margin-left: 15%;
+    top: 50%;
+    padding: 2rem;
+    padding-right: 7rem;
+    background-color: #100F0DB2;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+
+.hero-bg {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, rgba(16, 15, 13, 1) 100%),
+        url('images/Main-img.png');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+/*Info Section */
+.Infopage {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    padding: 2rem;
+    background: linear-gradient(to bottom, #100F0D 70%, #A2A2A2 100%);
+    color: #F5F3F0;
+    box-sizing: border-box;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    margin-top: 50px;
+    padding: 5rem 0;
+}
+
+/* Wirtschaftlichkeit und Amortisation der ThermoHybrid-Hybridanlage */
+#info2 {
+    background-image: url('images/h2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 70vh;
+    text-align: left;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    overflow: hidden;
+    position: relative;
+}
+
+#Lagerhalle {
+    width: 40vw;
+    min-width: 40vw;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.toggle-btn {
+    border: 2px solid #FF914D;
+    color: #FF914D;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+    padding: 0;
+    outline: none;
+    text-shadow: 0 0 1px #100F0D;
+}
+
+.toggle-btn:hover {
+    color: #ba6f31;
+    border-color: #ba6f31;
+}
+
+.arrow {
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.arrow.rotated {
+    transform: rotate(90deg);
+}
+
+.collapsible-text {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s, opacity 0.3s;
+    opacity: 0.1;
+}
+
+.collapsible-text.open {
+    max-height: 800px;
+    opacity: 1;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+
+#info3 {
+    background-image: url('images/Bergkamen-Büro\ .jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 60vh;
+}
+
+.left-align {
+    text-align: left;
+    position: relative;
+    z-index: 2;
+    width: 60%;
+
+}
+
+
+.container {
+    background-color: #EFE1CE;
+    padding: 28px 44px;
+    border-radius: 5px;
+    margin: 100px 0;
+    color: #100F0D;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+/* Tabelle Technisches Datenblatt */
+#Tabelle-TDB {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.Technisches-Datenblatt {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10% 0 20% 0;
+}
+
+/* Contractor Section */
+.Contractor {
+    width: 100%;
+    background: linear-gradient(#A2A2A2 0%, #F5F3F0 100%);
+}
+
+.Container-contractor {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 2rem;
+    flex-wrap: nowrap;
+    padding: 0 2rem;
+}
+
+.Container-contractor>* {
+    flex: 1;
+}
+
+.Contractor-Bild {
+    width: 40%;
+    height: auto;
+    border-radius: 10px;
+}
+
+#ThermoHybrid-Contractor {
+    text-align: left;
+    font-size: 2.7rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin: 0 0 2.5rem 0;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.Animations-block {
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 8px 32px 0 rgba(60, 60, 70, 0.10), 0 1.5px 10px 0 rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.8rem 2.2rem 2.1rem 2.2rem;
+    transition: box-shadow 0.22s, transform 0.22s;
+    width: 70%;
+}
+
+
+.Animations-block video,
+.Animations-block img {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 14px rgba(80, 80, 110, 0.06);
+    object-fit: cover;
+}
+
+/* Card Content Headings */
+.card-heading {
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+    color: #202026;
+}
+
+.card-text {
+    font-weight: 400;
+    font-size: 1.07rem;
+    line-height: 1.55;
+    text-align: center;
+    color: #3a3a40;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1.7rem;
+    }
+
+    .Animations-block {
+        padding: 2rem 1rem 1.5rem 1rem;
+    }
+}
+
+/* Wirtschaftlichkeit Section */
+.Wirtschaftlichkeit {
+    background-color: #F5F3F0;
+    padding-top: 10rem;
+    border-radius: 5px;
+    color: #100F0D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.notebook-double {
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    background: #f3eee5;
+    padding: 2rem 1rem;
+    border-radius: 22px;
+    box-shadow: 0 12px 42px 0 rgba(0, 0, 0, 0.17), 0 1.5px 10px 0 rgba(0, 0, 0, 0.09);
+    transform: rotate(-12deg) scale(0.7);
+    width: 100%;
+    max-width: 100vw;
+    margin: 2rem 0 2rem auto;
+    position: relative;
+    overflow-x: visible;
+}
+
+.notebook-page {
+    background: repeating-linear-gradient(to bottom, #fffbe9, #fffbe9 38px, #e5e5e5 39px, #fffbe9 40px);
+    min-height: 100%;
+    width: 48%;
+    min-width: 560px;
+    max-width: 100%;
+    display: inline-block;
+    border-radius: 18px;
+    box-shadow: 2px 2px 18px rgba(0, 0, 0, 0.08);
+    position: relative;
+    margin: 0 0.7rem;
+    padding: 2.6rem 2.2rem 2.4rem 2.7rem;
+    overflow: hidden;
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Papiertextur als Overlay */
+.notebook-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.23;
+}
+
+/* Eselsohr-Effekt rechts unten */
+.notebook-page::after {
+    content: "";
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(135deg, #fffbe9 60%, #e0d2b2 100%);
+    border-bottom-right-radius: 12px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.13);
+    transform: rotate(10deg) skew(-8deg, 4deg);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.notebook-page.left::before,
+.notebook-page.right::before {
+    position: absolute;
+    top: 0;
+    left: 36px;
+    width: 2px;
+    height: 100%;
+    background: #f2bc8d;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Spiralbindung (CSS-Simulation) */
+.spiral {
+    width: 36px;
+    min-height: 560px;
+    background: repeating-radial-gradient(circle at 18px 36px, #bbb 0 4px, transparent 4px 18px),
+        repeating-radial-gradient(circle at 18px 504px, #bbb 0 4px, transparent 4px 18px);
+    border-radius: 20px;
+    margin: 0 0.15rem;
+    z-index: 8;
+    position: relative;
+    pointer-events: none;
+}
+
+/* Inhalt über der Papiertextur anzeigen */
+.notebook-page>* {
+    position: relative;
+    z-index: 5;
+}
+
+/* Responsive Anpassung (für kleinere Bildschirme) */
+@media (max-width: 1200px) {
+    .notebook-double {
+        width: 98vw;
+        padding: 1rem 0.3rem;
+    }
+
+    .notebook-page {
+        min-width: 380px;
+        padding: 1.4rem 0.7rem 1.2rem 1.2rem;
+        font-size: 1rem;
+    }
+
+    .spiral {
+        min-height: 340px;
+    }
+
+    .flex-container {
+        gap: 2rem;
+    }
+}
+
+/* Tablet + Small Laptops */
+@media (max-width: 900px) {
+    /* Header/Navbar */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 1rem 0.7rem;
+        gap: 0.5rem;
+    }
+
+    .logo-text {
+        font-size: 1.3rem;
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+        text-align: left;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0.1rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
+
+    .nav-links a {
+        margin: 0.2rem 0;
+        font-size: 1.1rem;
+        text-align: left;
+        padding: 0.6rem 0;
+        display: block;
+        width: 100%;
+    }
+
+    .header-btn {
+        width: 100%;
+        max-width: 280px;
+        font-size: 1rem;
+        margin-top: 0.7rem;
+        margin-bottom: 0.2rem;
+        padding: 0.7rem 0;
+    }
+
+    /* Content */
+    .hero-content {
+        margin-left: 0;
+        padding: 1.2rem;
+        padding-right: 1.2rem;
+        font-size: 1.1rem;
+    }
+
+    .flex-container,
+    .container-colum,
+    .vergleich {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.2rem;
+    }
+
+    #Lagerhalle {
+        width: 90vw;
+        min-width: 0;
+        max-width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    /* Notebook Section */
+    .notebook-double {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100vw;
+        min-width: 0;
+        padding: 0.3rem 0.1rem;
+    }
+
+    .spiral {
+        display: none;
+    }
+
+    .notebook-page {
+        width: 96vw;
+        min-width: 0;
+        margin: 1.2rem auto;
+        padding: 1rem 0.5rem;
+        font-size: 0.95rem;
+    }
+
+    table {
+        font-size: 0.93rem;
+    }
+
+    /* Footer */
+    .footer-navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+        padding: 1.2rem 0.4rem;
+    }
+
+    .footer-navbar > div {
+        width: 100%;
+        margin-bottom: 0.8rem;
+    }
+
+    .footer-logo-text,
+    .logo-fuchs,
+    .logo-group {
+        text-align: left;
+    }
+
+    .footer-nav-links {
+        padding-left: 0.5rem;
+    }
+
+    /* Animations */
+    video {
+        width: 80vw !important;
+        height: auto !important;
+        max-width: 360px;
+        margin: 0.4rem auto 0.8rem auto;
+        display: block;
+        border-radius: 12px;
+    }
+}
+
+/* Mobile (max 600px) */
+@media (max-width: 600px) {
+    html,
+    body {
+        font-size: 16px;
+    }
+
+    /* Header/Navbar */
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.4rem 0.1rem;
+        gap: 0.2rem;
+    }
+
+    .logo-text {
+        margin-right: 0;
+        font-size: 1.1rem;
+    }
+
+    /* Content */
+    .hero-content {
+        font-size: 0.99rem;
+        padding: 0.7rem 0.4rem;
+    }
+
+    h1,
+    .heading-xl {
+        font-size: 1.25rem;
+    }
+
+    .heading-lg,
+    h2 {
+        font-size: 1.08rem;
+    }
+
+    .text-content {
+        font-size: 1rem;
+    }
+
+    .Contractor {
+        padding: 1rem;
+    }
+
+    /* Animations */
+    video {
+        width: 95vw !important;
+        height: auto !important;
+        max-width: 98vw;
+        margin-bottom: 0.8rem;
+    }
+
+    /* Notebook */
+    .notebook-double {
+        padding: 0.2rem 0.02rem;
+    }
+
+    .notebook-page {
+        padding: 0.7rem 0.3rem;
+        width: 99vw;
+        font-size: 0.93rem;
+    }
+
+    /* Table */
+    table,
+    th,
+    td {
+        font-size: 0.82rem;
+        padding: 0.4rem 0.3rem;
+        word-break: break-word;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    /* Footer */
+    .footer-navbar {
+        padding: 0.5rem 0.1rem;
+        gap: 1rem;
+    }
+
+    .footer-navbar > div {
+        margin-bottom: 0.4rem;
+    }
+
+    .footer-nav-links {
+        font-size: 0.97rem;
+    }
+
+    .footer-bottom {
+        font-size: 0.85rem;
+        flex-direction: column;
+        gap: 0.4rem;
+        padding: 0.2rem 0;
+    }
+}
+
+
+
+/* Footer Section */
+.footer-navbar {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    background-color: #100F0D;
+    color: #F5F3F0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.slogan {
+    border-left: #FF914D 5px solid;
+    margin: 0;
+}
+
+/* Notebook page content spacing */
+.notebook-page p,
+.notebook-page li,
+.notebook-page ul,
+.notebook-page ol,
+.notebook-page h1,
+.notebook-page h2,
+.notebook-page h3,
+.notebook-page h4,
+.notebook-page h5,
+.notebook-page h6 {
+    margin-bottom: 0.4em;
+    margin-top: 0.2em;
+}
+
+.notebook-page ul,
+.notebook-page ol {
+    padding-left: 1.2em;
+}
+
+.notebook-page {
+    line-height: 1.3;
+}
+
+/* Contact Section */
+.Kontakt {
+    background-color: #EFE1CE;
+    padding: 4rem 2rem;
+    color: #100F0D;
+    text-align: center;
+}

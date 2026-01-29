@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800" viewBox="0 0 1600 800" fill="none">
+  <title>Betrieb & Wartung – Fuchs</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B0B0B"/>
+      <stop offset="1" stop-color="#141414"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF914D" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#FF914D" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="800" fill="url(#bg)"/>
+  <path d="M0,140 C420,40 820,220 1600,40 L1600,0 L0,0 Z" fill="url(#accent)"/>
+  <g transform="translate(800,400)" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="0" cy="0" r="170" stroke="#FF914D" stroke-width="6" fill="none"/>
+    <!-- Wrench -->
+    <path d="M-80 -40 L-30 10" stroke="#EDEFF6" stroke-width="14"/>
+    <path d="M-90 -50 C-60 -80 -30 -50 -20 -40 C-35 -25 -50 -20 -65 -35" stroke="#EDEFF6" stroke-width="14" fill="none"/>
+    <!-- Gear -->
+    <g transform="translate(60,30)" stroke="#FFE1CF" stroke-width="10" fill="none">
+      <circle cx="0" cy="0" r="36"/>
+      <line x1="0" y1="-56" x2="0" y2="-76"/>
+      <line x1="0" y1="56" x2="0" y2="76"/>
+      <line x1="-56" y1="0" x2="-76" y2="0"/>
+      <line x1="56" y1="0" x2="76" y2="0"/>
+      <line x1="-39" y1="-39" x2="-53" y2="-53"/>
+      <line x1="39" y1="-39" x2="53" y2="-53"/>
+      <line x1="-39" y1="39" x2="-53" y2="53"/>
+      <line x1="39" y1="39" x2="53" y2="53"/>
+    </g>
+  </g>
+</svg>

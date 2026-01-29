@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800" viewBox="0 0 1600 800" fill="none">
+  <title>Technik: Brennwert & Puffer – Fuchs</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B0B0B"/>
+      <stop offset="1" stop-color="#141414"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF914D" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#FF914D" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="800" fill="url(#bg)"/>
+  <path d="M0,140 C420,40 820,220 1600,40 L1600,0 L0,0 Z" fill="url(#accent)"/>
+  <g transform="translate(800,400)">
+    <circle cx="0" cy="0" r="170" stroke="#FF914D" stroke-width="6" fill="none"/>
+    <!-- Droplet -->
+    <path d="M-60 40 C-60 10 -35 -10 -25 -35 C -15 -10 10 10 10 40 C10 60 -5 78 -25 78 C-45 78 -60 60 -60 40Z" fill="#FF914D" fill-opacity="0.9"/>
+    <!-- Coil / heat exchanger -->
+    <g transform="translate(40,-40)" stroke="#EDEFF6" stroke-width="10" stroke-linecap="round">
+      <path d="M-20 -30 H 120"/>
+      <path d="M120 -30 V 0 H -20"/>
+      <path d="M-20 0 H 120"/>
+      <path d="M120 0 V 30 H -20"/>
+      <path d="M-20 30 H 120"/>
+    </g>
+  </g>
+</svg>

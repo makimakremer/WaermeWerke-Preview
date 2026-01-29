@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800" viewBox="0 0 1600 800" fill="none">
+  <title>Auslegung & Lastprofil – Fuchs</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B0B0B"/>
+      <stop offset="1" stop-color="#141414"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF914D" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#FF914D" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="800" fill="url(#bg)"/>
+  <path d="M0,120 C420,30 780,210 1600,20 L1600,0 L0,0 Z" fill="url(#accent)"/>
+  <g transform="translate(800,420)">
+    <circle cx="0" cy="0" r="170" stroke="#FF914D" stroke-width="6" fill="none"/>
+    <!-- Axes -->
+    <g transform="translate(-120,100)" stroke="#9da0a8" stroke-width="8" stroke-linecap="round">
+      <line x1="-40" y1="0" x2="220" y2="0"/>
+      <line x1="-40" y1="0" x2="-40" y2="-220"/>
+    </g>
+    <!-- Load curve -->
+    <path d="M -160 80 C -60 10 0 -40 40 -10 C 90 20 120 -30 160 -60" stroke="#FFE1CF" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <!-- Buffer icon -->
+    <rect x="90" y="40" width="40" height="80" rx="8" fill="#FF914D" fill-opacity="0.26" stroke="#FF914D" stroke-width="6"/>
+  </g>
+</svg>

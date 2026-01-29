@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wirtschaftlichkeit & Förderung | Fuchs Holding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a class="logo-text" href="index.html" aria-label="Zur Startseite">
+                <span class="logo-fuchs">Fuchs</span><br>
+            </a>
+            <button class="burger-menu" id="burger-menu">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html">Startseite</a></li>
+
+                    <li class="has-mega"><a href="produkt-thermohybrid.html">Produkte</a>
+                        <div class="mega-panel" aria-label="Produkte">
+                            <div class="mega-grid">
+                                <a class="mega-item" href="produkt-thermohybrid.html" aria-label="Fuchs ThermoHybrid">
+                                    <img src="images/thermohybrid.png" alt="Fuchs ThermoHybrid System" width="1920" height="1080" loading="lazy" decoding="async">
+                                    <span>Fuchs ThermoHybrid</span>
+                                </a>
+                                <a class="mega-item" href="produkt-h2-storage.html" aria-label="Fuchs H2 Storage">
+                                    <img src="images/h2.png" alt="Fuchs H2 Storage Speicher" width="1024" height="1536" loading="lazy" decoding="async">
+                                    <span>Fuchs H2 Storage</span>
+                                </a>
+                                <a class="mega-item" href="produkt-comfy-plus-75.html" aria-label="Fuchs Comfy plus 75">
+                                    <img src="images/FuchsComfy.png" alt="Fuchs Comfy plus 75 Wärmepumpe" width="1536" height="1024" loading="lazy" decoding="async">
+                                    <span>Fuchs Comfy plus 75</span>
+                                </a>
+                                <a class="mega-item" href="produkt-renso-kompakt.html" aria-label="Renso kompakt">
+                                    <img src="images/renso.png" alt="Renso kompakt Speicherlösung" width="1536" height="1024" loading="lazy" decoding="async">
+                                    <span>Renso kompakt</span>
+                                </a>
+                                <a class="mega-item" href="produkt-fuchs-titan.html#fuchs-titan" aria-label="Fuchs Titan Großwärmepumpe">
+                                    <img src="images/titan.png" alt="Fuchs Titan Großwärmepumpe" width="1024" height="1536" loading="lazy" decoding="async">
+                                    <span>Fuchs Titan</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="wirtschaftlichkeit.html">Wirtschaftlichkeit</a></li>
+                    <li><a href="foerderung.html">Förderung</a></li>
+                    <li><a href="referenzen.html">Referenzen</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact-section">Kontakt</a></li>
+                </ul>
+                <a class="header-btn" href="funnel.html">Heizungs-Check</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="economics-section economics-detail" id="wirtschaftlichkeit">
+            <div class="section-inner economics-grid">
+                <div class="economics-copy">
+                    <span class="hero-eyebrow">ROI-Simulation</span>
+                    <h2 class="heading-xl">Wirtschaftlichkeit in Echtzeit beweisen</h2>
+                    <p>Der ThermoHybrid Rechner übersetzt Verbrauchsdaten in Heizlast, Leistungsklassen und erwartete Erlöse. So sehen Entscheidungsträger sofort, wie Stromkosten sinken und Förderung aktiviert wird.</p>
+                    <ul class="list-check tight">
+                        <li>DIN EN 15378 konforme Heizlastberechnung</li>
+                        <li>Vergleich Einspeisung vs. Eigenverbrauch auf Basis aktueller Tarife</li>
+                        <li>Automatische Ableitung von Wartungs- und Investbudgets</li>
+                    </ul>
+                    <p class="helper-text">Alle Werte sind Richtwerte. Die finale Planung erfolgt nach Vor-Ort-Termin und Netzbetreiberfreigabe.</p>
+                </div>
+                <div class="economics-notebook">
+                    <div class="notebook-double" role="region" aria-label="Notebook Wirtschaftlichkeitsrechner">
+                        <div class="ƒhybrid left">
+                            <div class="calc-card-grid" role="list" aria-label="Heizlastberechnung ThermoHybrid">
+                                <article class="calc-card calc-card-input" role="listitem">
+                                    <div class="calc-card-head">
+                                        <span class="calc-step-label">01</span>
+                                        <div>
+                                            <p class="calc-card-eyebrow">Verbrauch erfassen</p>
+                                            <p class="calc-card-title">Startwert eingeben</p>
+                                        </div>
+                                    </div>
+                                    <div class="info-wrap">
+                                        <label class="calc-card-field-label" for="verbrauch">Verbrauch in kWh</label>
+                                        <button type="button" class="info-badge" aria-label="Was bedeutet Verbrauch in kWh?" tabindex="0">i</button>
+                                        <div class="info-tip" role="tooltip">Jahreswärmeverbrauch in kWh. Beispiel: 46 000. Punkte/Kommas werden ignoriert. Aus diesem Wert leiten wir die Heizlast nach DIN EN 15378 ab.</div>
+                                    </div>
+                                    <div class="calc-input-row">
+                                        <input type="text" id="verbrauch" placeholder="z. B. 46.000 kWh">
+                                        <button id="BerechnenBTN">Berechnen!</button>
+                                    </div>
+                                </article>
+                                <article class="calc-card calc-card-output" role="listitem">
+                                    <div class="calc-card-head">
+                                        <span class="calc-step-label">02</span>
+                                        <div>
+                                            <p class="calc-card-eyebrow">Heizlast verstehen</p>
+                                            <p class="calc-card-title">Wärmeleistung</p>
+                                        </div>
+                                    </div>
+                                    <div class="calc-output-grid" aria-live="polite">
+                                        <div class="calc-output">
+                                            <div class="info-wrap">
+                                                <p class="calc-output-label">Heizlast</p>
+                                                <button type="button" class="info-badge" aria-label="Was bedeutet Heizlast?" tabindex="0">i</button>
+                                                <div class="info-tip" role="tooltip">Heizlast = Wärmebedarf des Gebäudes unter Normbedingungen. Gibt an, wie viele kW kontinuierlich nötig sind, um die Solltemperatur zu halten.</div>
+                                            </div>
+                                            <p class="calc-output-value underline" id="Heizlastergebniss">46 kW</p>
+                                        </div>
+                                        <div class="calc-output">
+                                            <div class="info-wrap">
+                                                <p class="calc-output-label">Heizleistung optimal</p>
+                                                <button type="button" class="info-badge" aria-label="Was bedeutet Heizleistung?" tabindex="0">i</button>
+                                                <div class="info-tip" role="tooltip">Empfohlene installierte Wärmeleistung. Liegt meist leicht über der Heizlast, um Reserve und taktarme Betriebsweise zu sichern.</div>
+                                            </div>
+                                            <p class="calc-output-value" id="Heizleistung">50 kW</p>
+                                        </div>
+                                    </div>
+                                </article>
+                                <article class="calc-card calc-card-electric" role="listitem">
+                                    <div class="calc-card-head">
+                                        <span class="calc-step-label">03</span>
+                                        <div>
+                                            <p class="calc-card-eyebrow">Output sichtbar</p>
+                                            <div class="calc-card-title info-wrap"><span>Elektrische Leistung</span><button type="button" class="info-badge" aria-label="Was bedeutet elektrische Leistung?" tabindex="0">i</button><div class="info-tip" role="tooltip">Elektrische Generatorleistung des ThermoHybrid aus der Wärmebereitstellung. Bestimmt die Erlöse bei Einspeisung und Eigenverbrauch.</div></div>
+                                        </div>
+                                    </div>
+                                    <p class="calc-electric-subline">ThermoHybrid erzeugt daraus:</p>
+                                    <p class="calc-output-value calc-output-electric" id="Elektischeleistung"><span>25 kW</span></p>
+                                </article>
+                            </div>
+                            <div class="revenue-card-grid" role="list" aria-label="Ergebnis-Szenarien">
+                                <article class="revenue-card rev-feed" role="listitem">
+                                    <h4 class="rev-title">Bei 100% Einspeisung</h4>
+                                    <p class="rev-formula">
+                                        <a class="info-inline info-link" style="color:#e63946" href="https://www.gesetze-im-internet.de/kwkg_2016/__8.html" target="_blank" rel="noopener" aria-label="Vollbenutzungsstunden (§8 KWKG)">30.000
+                                            <span class="info-tip" role="tooltip">Vollbenutzungsstunden gemäß §8 KWKG. Typischer Ansatz für Jahreserlös-Berechnung. <span class="tip-cta">§8 KWKG öffnen</span></span>
+                                        </a>
+                                        × (
+                                        <a class="info-inline info-link" style="color:#8AAD34;" href="https://www.gesetze-im-internet.de/kwkg_2016/__7.html" target="_blank" rel="noopener" aria-label="KWKG Förderung (§7)">0,16 € Förderung
+                                            <span class="info-tip" role="tooltip">KWKG-Zuschlag pro eingespeister kWh gemäß §7(3a) KWKG. <span class="tip-cta">§7 KWKG öffnen</span></span>
+                                        </a>
+                                        +
+                                        <a class="info-inline info-link" style="color:#9D00FF;" href="https://www.eex.com/en/market-data/market-data-hub/power/indices" target="_blank" rel="noopener" aria-label="EEX Marktpreis">0,11 € EEX Strom
+                                            <span class="info-tip" role="tooltip">Durchschnittlicher Marktpreis (EEX). Tatsächlicher Wert ist variabel. <span class="tip-cta">EEX Preis öffnen</span></span>
+                                        </a>
+                                        )
+                                        ×
+                                        <span class="info-inline" tabindex="0" aria-label="Elektrische Leistung">
+                                            <span style="color:#2ed5d2" id="Elektischeleistung1">25 kW</span>
+                                            <span class="info-tip" role="tooltip">Elektrische Generatorleistung des ThermoHybrid, bestimmt Erlöse.</span>
+                                        </span>
+                                    </p>
+                                    <p class="rev-result">Ergebnis Einspeisung: <span id="Einspeisung">202.500 €</span></p>
+                                </article>
+                                <article class="revenue-card rev-self" role="listitem">
+                                    <h5 class="rev-title">Bei 100% Eigenverbrauch</h5>
+                                    <p class="rev-formula">
+                                        <a class="info-inline info-link" style="color:#e63946" href="https://www.gesetze-im-internet.de/kwkg_2016/__8.html" target="_blank" rel="noopener" aria-label="Vollbenutzungsstunden (§8 KWKG)">30.000
+                                            <span class="info-tip" role="tooltip">Vollbenutzungsstunden gemäß §8 KWKG. Referenz für jährliche Betriebsstunden. <span class="tip-cta">§8 KWKG öffnen</span></span>
+                                        </a>
+                                        × (
+                                        <a class="info-inline info-link" style="color:#8AAD34;" href="https://www.gesetze-im-internet.de/kwkg_2016/__7.html" target="_blank" rel="noopener" aria-label="KWKG Förderung Eigenbedarf (§7)">0,08 € Förderung
+                                            <span class="info-tip" role="tooltip">KWKG-Zuschlag pro kWh für Eigenversorgung. <span class="tip-cta">§7 KWKG öffnen</span></span>
+                                        </a>
+                                        +
+                                        <span class="info-inline" style="color:#FC89AC;" tabindex="0" aria-label="Stromkosten-Einsparung">0,30 € Strom
+                                            <span class="info-tip" role="tooltip">Ersparte Strombezugskosten pro kWh bei Eigenverbrauch. Tipp: Wert aus aktuellem Bezugsvertrag bzw. Lastprofil ableiten.</span>
+                                        </span>
+                                        )
+                                        ×
+                                        <span class="info-inline" tabindex="0" aria-label="Elektrische Leistung">
+                                            <span style="color:#2ed5d2" id="Elektischeleistung2">25 kW</span>
+                                            <span class="info-tip" role="tooltip">Elektrische Generatorleistung des ThermoHybrid.</span>
+                                        </span>
+                                    </p>
+                                    <p class="rev-result">Ergebnis Eigenverbrauch: <span id="Eigenverbrauch">285.000 €</span></p>
+                                </article>
+                            </div>
+                            <div class="info-card-grid">
+                                <article class="info-card amort-card" aria-labelledby="amort-title">
+                                    <h6 class="info-title" id="amort-title">Amortisation</h6>
+                                    <ul class="amort-list">
+                                        <li>Die Amortisation der Anlage erfolgt innerhalb von 5 Jahren.</li>
+                                        <li>Kosten ThermoHybrid: <span id="preis">85.000,00 €</span></li>
+                                        <li>Kosten Wartung: <span id="wartung">14.150,00 €</span></li>
+										<li>CO₂-Einsparung pro Jahr: <span id="co2-savings">4.500,00 kg</span></li>
+                                    </ul>
+                                    <p class="ertrag-total" id="Ertrag">Ertrag: 144.600 €</p>
+                                    <div class="notebook-cta">
+                                        <a class="header-btn" href="funnel.html">Detailanalyse anfordern</a>
+                                    </div>
+                                    <div class="rev-actions">
+                                        <button class="rev-apply" data-source="Einspeisung">Einspeisung übernehmen</button>
+                                        <button class="rev-apply" data-source="Eigenverbrauch">Eigenverbrauch übernehmen</button>
+                                    </div>
+                                </article>
+                                <article class="info-card legal-card" aria-labelledby="legal-title">
+                                    <h6 class="info-title" id="legal-title">Rechtsgrundlagen &amp; Quellen</h6>
+                                    <ul class="legal-list">
+                                        <li>KWKG Zuschuss §7(3a) KWKG<br><span style="color:#8AAD34;">Feste Förderung: 0,16 € / kWh Einspeisung<br>Feste Förderung: 0,08 € / kWh Eigenbedarf</span><br><a href="https://www.gesetze-im-internet.de/kwkg_2016/__7.html" target="_blank" rel="noopener">Gesetzestext öffnen</a></li>
+                                        <li><span style="color:#9D00FF;">EEX Strom Vergütung: 0,11 € §4(3) KWKG</span></li>
+                                        <li><a href="https://www.gesetze-im-internet.de/kwkg_2016/__4.html" target="_blank" rel="noopener">§4 KWKG (Zulassung)</a></li>
+                                        <li><a href="https://www.eex.com/en/market-data/market-data-hub/power/indices" target="_blank" rel="noopener">EEX Marktpreis</a></li>
+                                        <li><span style="color:#e63946;">Vollbenutzungsstunden: 30.000 h (§8 KWKG)</span></li>
+                                        <li><a href="https://www.gesetze-im-internet.de/kwkg_2016/__8.html" target="_blank" rel="noopener">§8 KWKG (Wartung)</a></li>
+                                        <li><span style="color:#FC89AC;">Stromkosten Eigenverbrauch: 0,30 € / kWh</span></li>
+                                    </ul>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-contrast" id="foerderung-verstehen">
+            <div class="section-inner">
+                <div class="section-intro center">
+                    <span class="hero-eyebrow">Förderlandschaft 2025</span>
+                    <h2 class="heading-xl">So funktioniert die Förderung für ThermoHybrid</h2>
+                    <p>ThermoHybrid-Anlagen kombinieren KWKG-Zahlungen mit BEG- und BEW-Boni. Die folgenden Karten zeigen auf einen Blick, welche Paragraphen gelten, welche Werte wichtig sind und welche Nachweise Fuchs für Sie übernimmt.</p>
+                </div>
+
+                <div class="funding-stack">
+                    <article class="funding-group">
+                        <header class="funding-group-head">
+                            <span class="funding-pill">KWKG</span>
+                            <h3>Grundlagen &amp; Förderdauer</h3>
+                            <p>Alle Zahlen, die Sie für die KWKG-Zulassung, Zuschläge und Vollbenutzungsstunden benötigen – übersichtlich nach Paragraphen sortiert.</p>
+                        </header>
+                        <div class="funding-rows">
+                            <div class="funding-row">
+                                <div class="funding-row-label">§4 Zulassung</div>
+                                <div class="funding-row-body">
+                                    <ul>
+										<li><strong>Einspeisevergütung bis 0,16 € / kWh</strong> für KWK‑Strom aus ThermoHybrid – Voraussetzung ist die Zulassung nach §4.</li>
+										<li>BAFA‑Zulassung vor Inbetriebnahme, Hocheffizienz ≥ 70 %</li>
+										<li>KWKG‑konformes Mess‑ &amp; Abrechnungskonzept (Strom/Wärme)</li>
+										<li>Hydraulikschema</li>
+                                    </ul>
+                                </div>
+                                <a href="https://www.gesetze-im-internet.de/kwkg_2016/__4.html" target="_blank" rel="noopener">§4 KWKG →</a>
+                            </div>
+                            <div class="funding-row">
+                                <div class="funding-row-label">§7 Zuschläge</div>
+                                <div class="funding-row-body two-column">
+                                    <div>
+                                        <strong>0,16 € / kWh</strong>
+                                        <p>Einspeisung gemäß §7 Abs. 3a</p>
+                                    </div>
+                                    <div>
+                                        <strong>0,08 € / kWh</strong>
+                                        <p>Eigenbedarf gemäß §7 Abs. 4</p>
+                                    </div>
+                                    <p class="funding-note">Beispiel: 25 kW &times; 5.000 h = ca. 13.000 € Zuschlag pro Jahr.</p>
+                                </div>
+                                <a href="https://www.gesetze-im-internet.de/kwkg_2016/__7.html" target="_blank" rel="noopener">§7 KWKG →</a>
+                            </div>
+                            <div class="funding-row">
+                                <div class="funding-row-label">§8 Vollbenutzungsstunden</div>
+                                <div class="funding-row-body">
+                                    <ul>
+                                        <li>Anlagen bis 50 kWel: 30.000 h Förderdauer</li>
+                                        <li>5.000 h/Jahr → 6 Jahre Förderung</li>
+                                        <li>4.000 h/Jahr → 7,5 Jahre Förderung</li>
+                                        <li>Wartung &amp; Monitoring laut §8 Abs. 3 verpflichtend</li>
+                                    </ul>
+                                </div>
+                                <a href="https://www.gesetze-im-internet.de/kwkg_2016/__8.html" target="_blank" rel="noopener">§8 KWKG →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="funding-group">
+                        <header class="funding-group-head">
+                            <span class="funding-pill">BEG &amp; BEW</span>
+                            <h3>Investzuschüsse kombinieren</h3>
+                            <p>ThermoHybrid nutzt BEG Einzelmaßnahmen für Wärmepumpen und BEW für Quartiere. So entsteht eine Förderquote von bis zu 70 %.</p>
+                        </header>
+                        <div class="funding-rows">
+                            <div class="funding-row">
+                                <div class="funding-row-label">BEG Einzelmaßnahme</div>
+                                <div class="funding-row-body two-column">
+                                    <div>
+                                    <strong>35 %</strong>
+                                    <p>Basisförderung für effiziente Wärmepumpen</p>
+                                    </div>
+                                    <div>
+                                    <strong>+20 %</strong>
+                                    <p>Geschwindigkeitsbonus</p>
+                                </div>
+                                <div>
+                                    <strong>+30 %</strong>
+                                    <p>Einkommensbonus</p>
+                                    </div>
+                                    <p class="funding-note">Förderfähige Kosten bis 30.000 € (größere Gebäude höher). Kombinierbar mit KWKG.</p>
+                                </div>
+                                <a href="https://www.bafa.de/DE/Energie/Effiziente_Gebaeude/Sanierung_Wohngebaeude/sanierung_wohngebaeude_node.html" target="_blank" rel="noopener">BEG EM →</a>
+                            </div>
+                            <div class="funding-row">
+                                <div class="funding-row-label">BEW Wärmenetze</div>
+                                <div class="funding-row-body">
+                                    <ul>
+                                        <li>Machbarkeitsstudien: bis zu 50 % Zuschuss</li>
+                                        <li>Invest &amp; Transformationspläne: bis zu 70 %</li>
+                                        <li>Ideal für Wohnungswirtschaft, Kommunen, Quartiere</li>
+                                    </ul>
+                                </div>
+                                <a href="https://www.bafa.de/DE/Energie/Energieeffizienz/Waermenetze/Effiziente_Waermenetze/effiziente_waermenetze_node.html" target="_blank" rel="noopener">BEW →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="funding-group">
+                        <header class="funding-group-head">
+                            <span class="funding-pill">Add-ons</span>
+                            <h3>Weitere Förderbausteine</h3>
+                            <p>Fuchs bündelt Zusatzprogramme, steuerliche Vorteile und Finanzierungslösungen – alles aus einer Hand.</p>
+                        </header>
+                        <div class="funding-rows">
+                            <div class="funding-row">
+                                <div class="funding-row-label">Regionale Programme</div>
+                                <div class="funding-row-body">
+                                    <ul>
+                                        <li>NRW, Bayern, Baden-Württemberg mit eigenen KWK-Boni</li>
+                                        <li>Kommunale Fonds für Quartierskonzepte</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="funding-row">
+                                <div class="funding-row-label">Steuern &amp; Finanzierung</div>
+                                <div class="funding-row-body">
+                                    <ul>
+                                        <li>Energiesteuer-Entlastung nach §53a EnergieStG</li>
+                                        <li>EEG-Umlage-Befreiung bei Eigenverbrauch</li>
+                                        <li>KfW-Darlehen oder Contracting ohne CAPEX</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="funding-row">
+                                <div class="funding-row-label">Fuchs Fördercheck</div>
+                                <div class="funding-row-body">
+                                    <p>Wir prüfen alle Programme, bündeln Nachweise und übernehmen Antrag, Kommunikation und Auszahlungskontrolle.</p>
+                        </div>
+                                <a href="foerderung.html">Details zur Förderübersicht →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="cta-panel" style="margin-top:3rem;">
+                    <h3>Förderung sichern, Wirtschaftlichkeit maximieren</h3>
+                    <p>In einem kostenlosen Förderbriefing analysieren wir Ihr Projekt, identifizieren alle relevanten Förderbausteine und berechnen Ihre maximale Förderquote. Fuchs übernimmt die komplette Antragstellung – Sie konzentrieren sich auf Ihr Kerngeschäft.</p>
+                    <div class="hero-cta" style="justify-content:center; margin-top:1.5rem;">
+                        <a class="header-btn" href="funnel.html">Förderbriefing anfordern</a>
+                        <a class="link-btn" href="blog.html#blog/wirtschaftlichkeit-berechnen">Zum Blog: KWKG-Förderung 2025 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <nav class="footer-navbar">
+            <div class="footer-logo-text">
+                <span class="logo-fuchs">Fuchs</span><br>
+            </div>
+            <div>
+                <h2 class="logo-fuchs">Menü</h2>
+                <ul class="footer-nav-links">
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="wirtschaftlichkeit.html">Wirtschaftlichkeit</a></li>
+                    <li><a href="foerderung.html">Förderung</a></li>
+                    <li><a href="referenzen.html">Referenzen</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact-section">Kontakt</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="logo-fuchs">Kontakt</h3>
+                <ul class="footer-nav-links">
+                    <li>Fuchs Holding GmbH</li>
+                    <li>Hafenweg 15</li>
+                    <li>59192 Bergkamen</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="slogan">Nachhaltig<br>Effizent<br>Heizen</h4>
+            </div>
+        </nav>
+        <div class="footer-bottom">
+            <span>&copy; 2025 Fuchs Holding</span>
+            <span class="footer-links">
+                <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
+            </span>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+

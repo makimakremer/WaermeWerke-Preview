@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800" viewBox="0 0 1600 800" fill="none">
+  <title>Praxis: Hotel – Fuchs</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B0B0B"/>
+      <stop offset="1" stop-color="#141414"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF914D" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#FF914D" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="800" fill="url(#bg)"/>
+  <path d="M0,120 C420,30 780,210 1600,20 L1600,0 L0,0 Z" fill="url(#accent)"/>
+  <g transform="translate(800,410)" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="0" cy="0" r="170" stroke="#FF914D" stroke-width="6" fill="none"/>
+    <!-- Building -->
+    <g transform="translate(-70,-90)" stroke="#EDEFF6" stroke-width="8" fill="none">
+      <rect x="-80" y="-10" width="160" height="240" rx="10"/>
+      <rect x="-100" y="210" width="200" height="20" fill="#EDEFF6"/>
+      <!-- windows -->
+      <g fill="#FF914D" fill-opacity="0.25" stroke="none">
+        <rect x="-60" y="10" width="30" height="24" rx="4"/>
+        <rect x="-10" y="10" width="30" height="24" rx="4"/>
+        <rect x="40" y="10" width="30" height="24" rx="4"/>
+        <rect x="-60" y="50" width="30" height="24" rx="4"/>
+        <rect x="-10" y="50" width="30" height="24" rx="4"/>
+        <rect x="40" y="50" width="30" height="24" rx="4"/>
+        <rect x="-60" y="90" width="30" height="24" rx="4"/>
+        <rect x="-10" y="90" width="30" height="24" rx="4"/>
+        <rect x="40" y="90" width="30" height="24" rx="4"/>
+      </g>
+      <!-- door -->
+      <rect x="-15" y="150" width="30" height="60" rx="4"/>
+    </g>
+  </g>
+</svg>

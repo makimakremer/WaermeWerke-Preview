@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Fuchs Blog</title>
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com https://cdn.jsdelivr.net 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com; connect-src 'self' https://*.supabase.co https://*.supabase.in; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a class="logo-text" href="index.html" aria-label="Zur Startseite">
+                <span class="logo-fuchs">Fuchs</span><br>
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html">Startseite</a></li>
+
+                    <li class="has-mega"><a href="produkt-thermohybrid.html">Produkte</a>
+                        <div class="mega-panel" aria-label="Produkte">
+                            <div class="mega-grid">
+                                <a class="mega-item" href="produkt-thermohybrid.html" aria-label="Fuchs ThermoHybrid">
+                                    <img src="images/thermohybrid.png" alt="Fuchs ThermoHybrid System" width="1920" height="1080" loading="lazy" decoding="async">
+                                    <span>Fuchs ThermoHybrid</span>
+                                </a>
+                                <a class="mega-item" href="produkt-h2-storage.html" aria-label="Fuchs H2 Storage">
+                                    <img src="images/h2.png" alt="Fuchs H2 Storage Speicher" width="1024" height="1536" loading="lazy" decoding="async">
+                                    <span>Fuchs H2 Storage</span>
+                                </a>
+                                <a class="mega-item" href="produkt-comfy-plus-75.html" aria-label="Fuchs Comfy plus 75">
+                                    <img src="images/FuchsComfy.png" alt="Fuchs Comfy plus 75 Wärmepumpe" width="1536" height="1024" loading="lazy" decoding="async">
+                                    <span>Fuchs Comfy plus 75</span>
+                                </a>
+                                <a class="mega-item" href="produkt-renso-kompakt.html" aria-label="Renso kompakt">
+                                    <img src="images/renso.png" alt="Renso kompakt Speicherlösung" width="1536" height="1024" loading="lazy" decoding="async">
+                                    <span>Renso kompakt</span>
+                                </a>
+                                <a class="mega-item" href="produkt-fuchs-titan.html#fuchs-titan" aria-label="Fuchs Titan Großwärmepumpe">
+                                    <img src="images/titan.png" alt="Fuchs Titan Großwärmepumpe" width="1024" height="1536" loading="lazy" decoding="async">
+                                    <span>Fuchs Titan</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="wirtschaftlichkeit.html">Wirtschaftlichkeit</a></li>
+                    <li><a href="foerderung.html">Förderung</a></li>
+                    <li><a href="referenzen.html">Referenzen</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact-section">Kontakt</a></li>
+                </ul>
+                <a class="header-btn" href="funnel.html">Heizungs-Check</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="blog-section admin-section" id="admin">
+            <div class="blog-container">
+                <h1 class="heading-xl">Blog Admin</h1>
+                <p class="admin-subtitle">Beiträge ohne Code erstellen. Mit Supabase‑Login für Veröffentlichung oder lokal als Entwurf speichern.</p>
+                <div class="admin-grid">
+                    <aside class="admin-panel admin-card">
+                        <div class="admin-panel-block">
+                            <h3 class="admin-panel-title">Login</h3>
+                            <label for="admin-login-email" class="admin-label">E‑Mail</label>
+                            <input id="admin-login-email" class="admin-input" type="email" placeholder="name@firma.de">
+                            <div style="height:.75rem"></div>
+                            <label for="admin-login-password" class="admin-label">oder Passwort‑Login</label>
+                            <input id="admin-login-password" class="admin-input" type="password" placeholder="Passwort">
+                            <div class="admin-actions">
+                                <button id="admin-login-password-btn" class="header-btn btn-primary" type="button">Login</button>
+                                <button id="admin-logout" class="header-btn btn-outline" type="button">Logout</button>
+                            </div>
+                            <div class="admin-actions">
+                                <button id="admin-reset-password" class="header-btn btn-outline" type="button">Passwort vergessen? Link senden</button>
+                            </div>
+                            <div id="admin-newpass-wrap" style="display:none;margin-top:.5rem;">
+                                <label class="admin-label">Neues Passwort setzen</label>
+                                <input id="admin-new-password" class="admin-input" type="password" placeholder="Neues Passwort (min. 8 Zeichen)">
+                                <input id="admin-new-password2" class="admin-input" type="password" placeholder="Passwort wiederholen">
+                                <div class="admin-actions">
+                                    <button id="admin-new-password-btn" class="header-btn btn-primary" type="button">Passwort speichern</button>
+                                </div>
+                            </div>
+                            <div id="admin-auth-status" class="admin-status">Nicht angemeldet</div>
+                        </div>
+                        <div class="admin-panel-block">
+                            <h3 class="admin-panel-title">Kurzanleitung</h3>
+                            <ul class="admin-help">
+                                <li>E‑Mail + Passwort einloggen (Email Confirmations aktivieren)</li>
+                                <li>Optional: 2FA (TOTP) in Supabase aktivieren</li>
+                                <li>Automatische Abmeldung nach 10 Minuten Inaktivität</li>
+                                <li>Titel, Datum, Kurzbeschreibung, Tags ausfüllen</li>
+                                <li>Optional: Cover‑Bild auswählen</li>
+                                <li>„Veröffentlicht“ anlassen → Vorschau → Speichern</li>
+                                <li>Beitrag erscheint in <code>blog.html</code></li>
+                            </ul>
+                        </div>
+                    </aside>
+                    <form id="admin-form" class="funnel-container admin-card" style="display:none;" aria-hidden="true">
+    <div class="admin-tabs" role="tablist" aria-label="Admin Navigation">
+        <button id="tab-editor" class="admin-tab active" type="button" role="tab" aria-selected="true">Blog‑Bereich</button>
+        <button id="tab-drafts" class="admin-tab" type="button" role="tab" aria-selected="false">Entwürfe</button>
+    </div>
+    <div id="admin-editor-view" role="tabpanel" aria-labelledby="tab-editor">
+                    <div class="funnel-row">
+                        <div class="funnel-col">
+                            <label for="admin-title">Titel*</label>
+                            <input id="admin-title" type="text" required>
+                        </div>
+        <div class="funnel-col">
+            <label for="admin-slug">Slug*</label>
+            <input id="admin-slug" type="text" required placeholder="auto-aus-titel">
+        </div>
+    </div>
+    <div class="funnel-row">
+        <div class="funnel-col">
+            <label for="admin-date">Datum*</label>
+            <input id="admin-date" type="date" required>
+        </div>
+        <div class="funnel-col">
+            <label for="admin-cover">Cover-Bild (optional)</label>
+            <input id="admin-cover" type="file" accept="image/*">
+        </div>
+    </div>
+    <div class="funnel-row">
+        <div class="funnel-col">
+            <label for="admin-author-name">Autor</label>
+            <input id="admin-author-name" type="text" placeholder="Name">
+        </div>
+        <div class="funnel-col">
+            <label for="admin-author-title">Rolle</label>
+            <input id="admin-author-title" type="text" placeholder="z. B. Energieberatung">
+        </div>
+    </div>
+    <div class="funnel-col">
+        <label for="admin-excerpt">Kurzbeschreibung (SEO)</label>
+        <textarea id="admin-excerpt" rows="3" placeholder="1–2 Sätze, max. ~160 Zeichen"></textarea>
+    </div>
+    <div class="funnel-row">
+        <div class="funnel-col">
+            <label for="admin-seo-title">SEO Titel</label>
+            <input id="admin-seo-title" type="text" placeholder="Optional, sonst aus Titel">
+        </div>
+        <div class="funnel-col">
+            <label for="admin-seo-desc">SEO Beschreibung</label>
+            <input id="admin-seo-desc" type="text" placeholder="Optional, sonst aus Kurzbeschreibung">
+        </div>
+    </div>
+    <div class="funnel-col">
+        <label>Tags</label>
+        <div class="funnel-choice">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.5rem;width:100%;">
+                <label><input type="checkbox" name="admin-tags" value="Wirtschaftlichkeit"> Wirtschaftlichkeit</label>
+                <label><input type="checkbox" name="admin-tags" value="Förderung"> Förderung</label>
+                <label><input type="checkbox" name="admin-tags" value="Technik"> Technik</label>
+                <label><input type="checkbox" name="admin-tags" value="Praxis"> Praxis</label>
+                <label><input type="checkbox" name="admin-tags" value="Recht"> Recht</label>
+                <label><input type="checkbox" name="admin-tags" value="Nachhaltigkeit"> Nachhaltigkeit</label>
+                <label><input type="checkbox" name="admin-tags" value="Grundlagen"> Grundlagen</label>
+            </div>
+        </div>
+    </div>
+    <div class="funnel-row">
+        <div class="funnel-col">
+            <label for="admin-publish-at">Veröffentlichungstermin (optional)</label>
+            <input id="admin-publish-at" type="datetime-local">
+            <small style="color:#bdbdc4">Ohne Termin: sofort nach „Veröffentlichen“ online. Mit Termin: automatisch ab diesem Zeitpunkt sichtbar.</small>
+        </div>
+    </div>
+    <div class="funnel-row">
+        <div class="funnel-col">
+            <label class="admin-label">Modus</label>
+            <div class="funnel-choice">
+                <label style="display:flex;align-items:center;gap:.4rem;">
+                    <input type="radio" name="admin-mode" id="admin-mode-simple" value="simple" checked>
+                    Einfacher Modus (Freitext)
+                </label>
+                <label style="display:flex;align-items:center;gap:.4rem;">
+                    <input type="radio" name="admin-mode" id="admin-mode-guide" value="guide">
+                    Leitfaden‑Modus (Einordnung/Kernpunkte/Schritte)
+                </label>
+            </div>
+        </div>
+    </div>
+    <div id="admin-simple-block" class="funnel-col">
+        <label for="admin-body">Hauptinhalt (WYSIWYG‑Editor)</label>
+        <div id="admin-editor" class="admin-editor" aria-label="WYSIWYG Editor"></div>
+        <textarea id="admin-body" rows="12" placeholder="<h2>Abschnitt</h2>
+<p>Text …</p>" style="display:none;"></textarea>
+        <div class="admin-help" style="margin-top:.5rem;">
+            Tipp: Über die Bild‑Schaltfläche kannst du Bilder hochladen (Supabase) oder per Drag&Drop einfügen.
+        </div>
+    </div>
+    <hr class="border-bottom-light" style="margin:1rem 0;">
+    <h2 class="heading-lg">Template-Inhalt</h2>
+    <div id="admin-template-block">
+    <div class="funnel-col">
+        <label for="admin-why">Einordnung – Warum wichtig?</label>
+        <textarea id="admin-why" rows="4"></textarea>
+    </div>
+    <div class="funnel-col">
+        <label for="admin-bullets">Kernpunkte (je Zeile ein Punkt)</label>
+        <textarea id="admin-bullets" rows="4"></textarea>
+    </div>
+    <div class="funnel-col">
+        <label for="admin-steps">Schritte (je Zeile ein Schritt)</label>
+        <textarea id="admin-steps" rows="4"></textarea>
+    </div>
+    <div class="funnel-col">
+        <label for="admin-example">Beispiel / Rechnung</label>
+        <textarea id="admin-example" rows="4"></textarea>
+    </div>
+    <div class="funnel-col">
+        <label for="admin-sources">Quellen (Format: Titel|https://... je Zeile)</label>
+        <textarea id="admin-sources" rows="4"></textarea>
+    </div>
+    </div>
+        <div class="funnel-row">
+            <div class="funnel-col">
+                <label class="admin-label">Speicherziel</label>
+                <div class="funnel-choice">
+                    <label style="display:flex;align-items:center;gap:.4rem;">
+                        <input type="radio" id="admin-target-local" name="admin-target" value="local" checked>
+                        Lokal
+                    </label>
+                    <label style="display:flex;align-items:center;gap:.4rem;">
+                        <input type="radio" id="admin-target-online" name="admin-target" value="online">
+                        Online (Supabase)
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="admin-actions">
+            <button id="admin-generate" class="header-btn btn-outline" type="button">Vorschau erzeugen</button>
+            <button id="admin-save" class="header-btn btn-outline" type="button" disabled>Entwurf speichern (online)</button>
+            <button id="admin-publish" class="header-btn btn-primary" type="button" disabled>Veröffentlichen</button>
+            <button id="admin-save-draft" class="header-btn btn-outline" type="button" title="Speichert nur lokal als Entwurf">Entwurf lokal</button>
+            <button id="admin-delete" class="header-btn btn-outline" type="button">Löschen</button>
+            <button id="admin-reset" class="header-btn btn-outline" type="button">Zurücksetzen</button>
+            <button id="admin-export" class="header-btn btn-outline" type="button">Export</button>
+            <input id="admin-import" type="file" accept="application/json" style="display:none;">
+            <button id="admin-import-trigger" class="header-btn btn-outline" type="button">Import</button>
+        </div>
+        <div id="admin-preview" class="blog-detail admin-preview"></div>
+    </div>
+    <div id="admin-drafts-view" class="admin-drafts" role="tabpanel" aria-labelledby="tab-drafts" style="display:none;">
+        <h2 class="heading-lg admin-subheading">Online‑Entwürfe</h2>
+        <div id="admin-posts-online-wrap">
+            <div id="admin-posts-online-empty" class="admin-help" style="display:none;">Keine Online‑Entwürfe oder nicht eingeloggt.</div>
+            <ul id="admin-posts-online" class="admin-list"></ul>
+        </div>
+        <h2 class="heading-lg admin-subheading" style="margin-top:1rem;">Gespeicherte Beiträge (lokal)</h2>
+        <ul id="admin-posts-local" class="admin-list"></ul>
+    </div>
+    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="admin-toast" class="admin-toast" aria-live="polite" aria-atomic="true" style="display:none;"></div>
+    <footer>
+        <nav class="footer-navbar">
+            <div class="footer-logo-text">
+                <span class="logo-fuchs">Fuchs</span><br>
+            </div>
+            <div>
+                <h2 class="logo-fuchs">Menü</h2>
+                <ul class="footer-nav-links">
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="wirtschaftlichkeit.html">Wirtschaftlichkeit</a></li>
+                    <li><a href="foerderung.html">Förderung</a></li>
+                    <li><a href="referenzen.html">Referenzen</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact-section">Kontakt</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="slogan">Nachhaltig<br>Effizent<br>Heizen</h4>
+            </div>
+        </nav>
+        <div class="footer-bottom">
+            <span>&copy; 2025 Fuchs Holding</span>
+            <span class="footer-links">
+                <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
+            </span>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
+
+

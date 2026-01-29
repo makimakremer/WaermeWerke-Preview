@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800" viewBox="0 0 1600 800" fill="none">
+  <title>Nachhaltige Brennstoffe – Fuchs</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B0B0B"/>
+      <stop offset="1" stop-color="#141414"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF914D" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#FF914D" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="800" fill="url(#bg)"/>
+  <path d="M0,140 C420,40 820,220 1600,40 L1600,0 L0,0 Z" fill="url(#accent)"/>
+  <g transform="translate(800,400)" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="0" cy="0" r="170" stroke="#FF914D" stroke-width="6" fill="none"/>
+    <!-- Leaf -->
+    <path d="M-40 40 C-40 -10 15 -30 55 -10 C30 30 -5 70 -40 70 C-55 70 -60 60 -60 50 C-60 45 -58 40 -40 40 Z" fill="#2ed5d2" fill-opacity="0.22" stroke="#2ed5d2" stroke-width="8"/>
+    <path d="M-40 40 C-5 45 15 55 30 70" stroke="#2ed5d2" stroke-width="6"/>
+    <!-- Bubbles (H2 symbolized) -->
+    <g stroke="#EDEFF6" stroke-width="8">
+      <circle cx="90" cy="-10" r="12"/>
+      <circle cx="120" cy="20" r="8"/>
+      <circle cx="105" cy="45" r="10"/>
+    </g>
+  </g>
+</svg>

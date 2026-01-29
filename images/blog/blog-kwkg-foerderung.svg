@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800" viewBox="0 0 1600 800" fill="none">
+  <title>KWKG Förderung – Fuchs</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B0B0B"/>
+      <stop offset="1" stop-color="#141414"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF914D" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#FF914D" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="800" fill="url(#bg)"/>
+  <path d="M0,120 C420,30 780,210 1600,20 L1600,0 L0,0 Z" fill="url(#accent)"/>
+  <g transform="translate(800,400)">
+    <circle cx="0" cy="0" r="170" stroke="#FF914D" stroke-width="6" fill="none"/>
+    <!-- Document with folded corner -->
+    <g transform="translate(-60,-80)">
+      <rect x="-120" y="-40" width="240" height="220" rx="14" fill="none" stroke="#EDEFF6" stroke-width="8"/>
+      <path d="M120 -40 L60 -40 L120 20 Z" fill="#FF914D" fill-opacity="0.3" stroke="#FF914D" stroke-width="6"/>
+      <!-- lines -->
+      <g stroke="#9da0a8" stroke-width="6">
+        <line x1="-90" y1="10" x2="80" y2="10"/>
+        <line x1="-90" y1="45" x2="80" y2="45"/>
+        <line x1="-90" y1="80" x2="40" y2="80"/>
+      </g>
+    </g>
+    <!-- Checkmark -->
+    <path d="M-10 70 L20 100 L90 20" stroke="#FF914D" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

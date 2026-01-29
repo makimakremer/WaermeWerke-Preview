@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThermoHybrid Blog | Fuchs Holding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a class="logo-text" href="index.html" aria-label="Zur Startseite">
+                <span class="logo-fuchs">Fuchs</span><br>
+            </a>
+            <button class="burger-menu" id="burger-menu">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html">Startseite</a></li>
+
+                    <li class="has-mega"><a href="produkt-thermohybrid.html">Produkte</a>
+                        <div class="mega-panel" aria-label="Produkte">
+                            <div class="mega-grid">
+                                <a class="mega-item" href="produkt-thermohybrid.html" aria-label="Fuchs ThermoHybrid">
+                                    <img src="images/thermohybrid.png" alt="Fuchs ThermoHybrid System" width="1920" height="1080" loading="lazy" decoding="async">
+                                    <span>Fuchs ThermoHybrid</span>
+                                </a>
+                                <a class="mega-item" href="produkt-h2-storage.html" aria-label="Fuchs H2 Storage">
+                                    <img src="images/h2.png" alt="Fuchs H2 Storage Speicher" width="1024" height="1536" loading="lazy" decoding="async">
+                                    <span>Fuchs H2 Storage</span>
+                                </a>
+                                <a class="mega-item" href="produkt-comfy-plus-75.html" aria-label="Fuchs Comfy plus 75">
+                                    <img src="images/FuchsComfy.png" alt="Fuchs Comfy plus 75 Wärmepumpe" width="1536" height="1024" loading="lazy" decoding="async">
+                                    <span>Fuchs Comfy plus 75</span>
+                                </a>
+                                <a class="mega-item" href="produkt-renso-kompakt.html" aria-label="Renso kompakt">
+                                    <img src="images/renso.png" alt="Renso kompakt Speicherlösung" width="1536" height="1024" loading="lazy" decoding="async">
+                                    <span>Renso kompakt</span>
+                                </a>
+                                <a class="mega-item" href="produkt-fuchs-titan.html#fuchs-titan" aria-label="Fuchs Titan Großwärmepumpe">
+                                    <img src="images/titan.png" alt="Fuchs Titan Großwärmepumpe" width="1024" height="1536" loading="lazy" decoding="async">
+                                    <span>Fuchs Titan</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="wirtschaftlichkeit.html">Wirtschaftlichkeit</a></li>
+                    <li><a href="foerderung.html">Förderung</a></li>
+                    <li><a href="referenzen.html">Referenzen</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact-section">Kontakt</a></li>
+                </ul>
+                <a class="header-btn" href="funnel.html">Heizungs-Check</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="blog-hero">
+            <div class="blog-hero-inner">
+                <h1>Blog</h1>
+            </div>
+        </section>
+        <section class="blog-section" id="blog">
+            <div class="blog-container">
+                
+                <div class="blog-filters" id="blog-filters" role="group" aria-label="Blog-Filter">
+                    <span class="filters-label">Filter</span>
+                    <button class="filter-chip active" data-tag="All" aria-pressed="true">Alle</button>
+                    <button class="filter-chip" data-tag="Wirtschaftlichkeit" aria-pressed="false">Wirtschaftlichkeit</button>
+                    <button class="filter-chip" data-tag="Förderung" aria-pressed="false">Förderung</button>
+                    <button class="filter-chip" data-tag="Technik" aria-pressed="false">Technik</button>
+                    <button class="filter-chip" data-tag="Praxis" aria-pressed="false">Praxis</button>
+                    <button class="filter-chip" data-tag="Recht" aria-pressed="false">Recht</button>
+                    <button class="filter-chip" data-tag="Nachhaltigkeit" aria-pressed="false">Nachhaltigkeit</button>
+                    <button class="filter-clear" id="filter-clear" type="button">Filter zurücksetzen</button>
+                </div>
+                <div class="blog-controls">
+                    <div class="blog-search" role="search">
+                        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+                            <line x1="16.65" y1="16.65" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <input type="search" id="blog-search" placeholder="Suche im Blog..." aria-label="Blog durchsuchen">
+                    </div>
+                </div>
+                <div id="blog-list" class="blog-list"></div>
+                <div class="blog-list-actions">
+                    <button id="blog-load-more" class="load-more-btn" type="button">Mehr laden</button>
+                </div>
+                <div id="blog-detail" class="blog-detail hidden"></div>
+            </div>
+        </section>
+        <section class="podcast-section" id="podcast">
+            <div class="blog-container">
+                <h2 class="heading-xl">ThermoHybrid Insights</h2>
+                <p class="text-content" style="opacity:.85">Podcast und Videos rund um effiziente Wärme, Förderung und Projekte.</p>
+                <div class="podcast-grid">
+                    <article class="podcast-card">
+                        <div class="podcast-episode">EPISODE 001</div>
+                        <h3 class="podcast-title">Wirtschaftlichkeit in 10 Minuten erklärt</h3>
+                        <p class="podcast-meta">mit Laura König, Energieberatung</p>
+                        <div class="podcast-actions">
+                            <a class="podcast-btn" href="#" aria-label="Auf YouTube ansehen">YouTube</a>
+                            <a class="podcast-btn" href="#" aria-label="Auf Spotify anhören">Spotify</a>
+                        </div>
+                    </article>
+                    <article class="podcast-card">
+                        <div class="podcast-episode">EPISODE 002</div>
+                        <h3 class="podcast-title">Förderlandschaft 2025 kompakt</h3>
+                        <p class="podcast-meta">mit Tim Albrecht, Fördermittel-Experte</p>
+                        <div class="podcast-actions">
+                            <a class="podcast-btn" href="#">YouTube</a>
+                            <a class="podcast-btn" href="#">Spotify</a>
+                        </div>
+                    </article>
+                    <article class="podcast-card">
+                        <div class="podcast-episode">EPISODE 003</div>
+                        <h3 class="podcast-title">Vom Bestand zur ThermoHybrid</h3>
+                        <p class="podcast-meta">mit Jonas Weber, Technik</p>
+                        <div class="podcast-actions">
+                            <a class="podcast-btn" href="#">YouTube</a>
+                            <a class="podcast-btn" href="#">Spotify</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <nav class="footer-navbar">
+            <div class="footer-logo-text">
+                <span class="logo-fuchs">Fuchs</span><br>
+            </div>
+            <div>
+                <h2 class="logo-fuchs">Menü</h2>
+                <ul class="footer-nav-links">
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="wirtschaftlichkeit.html">Wirtschaftlichkeit</a></li>
+                    <li><a href="foerderung.html">Förderung</a></li>
+                    <li><a href="referenzen.html">Referenzen</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact-section">Kontakt</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="logo-fuchs">Kontakt</h3>
+                <ul class="footer-nav-links">
+                    <li>Fuchs Holding GmbH</li>
+                    <li>Hafenweg 15</li>
+                    <li>59192 Bergkamen</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="slogan">Nachhaltig<br>Effizent<br>Heizen</h4>
+            </div>
+        </nav>
+        <div class="footer-bottom">
+            <span>&copy; 2025 Fuchs Holding</span>
+            <span class="footer-links">
+                <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
+            </span>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="blog.js" defer></script>
+    <!-- Deep-link support: blog.html#blog/slug -->
+</body>
+</html>
+
+

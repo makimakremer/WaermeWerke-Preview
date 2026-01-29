@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wirtschaftlichkeitsrechner Teaser (Backup) | Fuchs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <section class="economics-section" id="wirtschaftlichkeit">
+            <div class="section-inner economics-grid">
+                <div class="economics-copy">
+                    <span class="hero-eyebrow">ROI-Simulation</span>
+                    <h2 class="heading-xl">Wirtschaftlichkeit in Echtzeit beweisen</h2>
+                    <p>Der ThermoHybrid Rechner übersetzt Verbrauchsdaten in Heizlast, Leistungsklassen und erwartete Erlöse. So sehen Entscheidungsträger sofort, wie Stromkosten sinken und Förderung aktiviert wird.</p>
+                    <ul class="list-check tight">
+                        <li>DIN EN 15378 konforme Heizlastberechnung</li>
+                        <li>Vergleich Einspeisung vs. Eigenverbrauch auf Basis aktueller Tarife</li>
+                        <li>Automatische Ableitung von Wartungs- und Investbudgets</li>
+                    </ul>
+                    <p class="helper-text">Alle Werte sind Richtwerte. Die finale Planung erfolgt nach Vor-Ort-Termin und Netzbetreiberfreigabe.</p>
+                </div>
+                <div class="economics-notebook">
+                    <div class="notebook-double" role="region" aria-label="Notebook Wirtschaftlichkeitsrechner">
+                        <div class="ƒhybrid left">
+                            <div class="calc-card-grid" role="list" aria-label="Heizlastberechnung ThermoHybrid">
+                                <article class="calc-card calc-card-input" role="listitem">
+                                    <div class="calc-card-head">
+                                        <span class="calc-step-label">01</span>
+                                        <div>
+                                            <p class="calc-card-eyebrow">Verbrauch erfassen</p>
+                                            <p class="calc-card-title">Startwert eingeben</p>
+                                        </div>
+                                    </div>
+                                    <div class="info-wrap">
+                                        <label class="calc-card-field-label" for="verbrauch">Verbrauch in kWh</label>
+                                        <button type="button" class="info-badge" aria-label="Was bedeutet Verbrauch in kWh?" tabindex="0">i</button>
+                                        <div class="info-tip" role="tooltip">Jahreswärmeverbrauch in kWh. Beispiel: 46 000. Punkte/Kommas werden ignoriert. Aus diesem Wert leiten wir die Heizlast nach DIN EN 15378 ab.</div>
+                                    </div>
+                                    <div class="calc-input-row">
+                                        <input type="text" id="verbrauch" placeholder="z. B. 46.000 kWh">
+                                        <button id="BerechnenBTN">Berechnen!</button>
+                                    </div>
+                                    <p class="calc-card-hint">Der Rechner übersetzt den Jahresverbrauch in Ihre Heizlast nach DIN EN 15378.</p>
+                                </article>
+                                <article class="calc-card calc-card-output" role="listitem">
+                                    <div class="calc-card-head">
+                                        <span class="calc-step-label">02</span>
+                                        <div>
+                                            <p class="calc-card-eyebrow">Heizlast verstehen</p>
+                                            <p class="calc-card-title">Wärmeleistung</p>
+                                        </div>
+                                    </div>
+                                    <div class="calc-output-grid" aria-live="polite">
+                                        <div class="calc-output">
+                                            <div class="info-wrap">
+                                                <p class="calc-output-label">Heizlast</p>
+                                                <button type="button" class="info-badge" aria-label="Was bedeutet Heizlast?" tabindex="0">i</button>
+                                                <div class="info-tip" role="tooltip">Heizlast = Wärmebedarf des Gebäudes unter Normbedingungen. Gibt an, wie viele kW kontinuierlich nötig sind, um die Solltemperatur zu halten.</div>
+                                            </div>
+                                            <p class="calc-output-value underline" id="Heizlastergebniss">46 kW</p>
+                                        </div>
+                                        <div class="calc-output">
+                                            <div class="info-wrap">
+                                                <p class="calc-output-label">Heizleistung optimal</p>
+                                                <button type="button" class="info-badge" aria-label="Was bedeutet Heizleistung?" tabindex="0">i</button>
+                                                <div class="info-tip" role="tooltip">Empfohlene installierte Wärmeleistung. Liegt meist leicht über der Heizlast, um Reserve und taktarme Betriebsweise zu sichern.</div>
+                                            </div>
+                                            <p class="calc-output-value" id="Heizleistung">50 kW</p>
+                                        </div>
+                                    </div>
+                                    <p class="calc-card-hint">Wir zeigen, welche Leistung direkt in die elektrische Stufe übertragen wird.</p>
+                                </article>
+                                <article class="calc-card calc-card-electric" role="listitem">
+                                    <div class="calc-card-head">
+                                        <span class="calc-step-label">03</span>
+                                        <div>
+                                            <p class="calc-card-eyebrow">Output sichtbar</p>
+                                            <div class="calc-card-title info-wrap"><span>Elektrische Leistung</span><button type="button" class="info-badge" aria-label="Was bedeutet elektrische Leistung?" tabindex="0">i</button><div class="info-tip" role="tooltip">Elektrische Generatorleistung des ThermoHybrid aus der Wärmebereitstellung. Bestimmt die Erlöse bei Einspeisung und Eigenverbrauch.</div></div>
+                                        </div>
+                                    </div>
+                                    <p class="calc-electric-subline">ThermoHybrid erzeugt daraus:</p>
+                                    <p class="calc-output-value calc-output-electric" id="Elektischeleistung"><span>25 kW</span></p>
+                                    <p class="calc-card-hint">Dieser Wert fließt automatisch in die Einspeise- und Eigenverbrauchsszenarien ein.</p>
+                                </article>
+                            </div>
+                            <div class="revenue-card-grid" role="list" aria-label="Ergebnis-Szenarien">
+                                <article class="revenue-card rev-feed" role="listitem">
+                                    <h4 class="rev-title">Bei 100% Einspeisung</h4>
+                                    <p class="rev-formula">
+                                        <a class="info-inline info-link" style="color:#e63946" href="https://www.gesetze-im-internet.de/kwkg_2016/__8.html" target="_blank" rel="noopener" aria-label="Vollbenutzungsstunden (§8 KWKG)">30.000
+                                            <span class="info-tip" role="tooltip">Vollbenutzungsstunden gemäß §8 KWKG. Typischer Ansatz für Jahreserlös-Berechnung. <span class="tip-cta">§8 KWKG öffnen</span></span>
+                                        </a>
+                                        × (
+                                        <a class="info-inline info-link" style="color:#8AAD34;" href="https://www.gesetze-im-internet.de/kwkg_2016/__7.html" target="_blank" rel="noopener" aria-label="KWKG Förderung (§7)">0,16 € Förderung
+                                            <span class="info-tip" role="tooltip">KWKG-Zuschlag pro eingespeister kWh gemäß §7(3a) KWKG. <span class="tip-cta">§7 KWKG öffnen</span></span>
+                                        </a>
+                                        +
+                                        <a class="info-inline info-link" style="color:#9D00FF;" href="https://www.eex.com/en/market-data/market-data-hub/power/indices" target="_blank" rel="noopener" aria-label="EEX Marktpreis">0,11 € EEX Strom
+                                            <span class="info-tip" role="tooltip">Durchschnittlicher Marktpreis (EEX). Tatsächlicher Wert ist variabel. <span class="tip-cta">EEX Preis öffnen</span></span>
+                                        </a>
+                                        )
+                                        ×
+                                        <span class="info-inline" tabindex="0" aria-label="Elektrische Leistung">
+                                            <span style="color:#2ed5d2" id="Elektischeleistung1">25 kW</span>
+                                            <span class="info-tip" role="tooltip">Elektrische Generatorleistung des ThermoHybrid, bestimmt Erlöse.</span>
+                                        </span>
+                                    </p>
+                                    <p class="rev-result">Ergebnis Einspeisung: <span id="Einspeisung">202.500 €</span></p>
+                                </article>
+                                <article class="revenue-card rev-self" role="listitem">
+                                    <h5 class="rev-title">Bei 100% Eigenverbrauch</h5>
+                                    <p class="rev-formula">
+                                        <a class="info-inline info-link" style="color:#e63946" href="https://www.gesetze-im-internet.de/kwkg_2016/__8.html" target="_blank" rel="noopener" aria-label="Vollbenutzungsstunden (§8 KWKG)">30.000
+                                            <span class="info-tip" role="tooltip">Vollbenutzungsstunden gemäß §8 KWKG. Referenz für jährliche Betriebsstunden. <span class="tip-cta">§8 KWKG öffnen</span></span>
+                                        </a>
+                                        × (
+                                        <a class="info-inline info-link" style="color:#8AAD34;" href="https://www.gesetze-im-internet.de/kwkg_2016/__7.html" target="_blank" rel="noopener" aria-label="KWKG Förderung Eigenbedarf (§7)">0,08 € Förderung
+                                            <span class="info-tip" role="tooltip">KWKG-Zuschlag pro kWh für Eigenversorgung. <span class="tip-cta">§7 KWKG öffnen</span></span>
+                                        </a>
+                                        +
+                                        <span class="info-inline" style="color:#FC89AC;" tabindex="0" aria-label="Stromkosten-Einsparung">0,30 € Strom
+                                            <span class="info-tip" role="tooltip">Ersparte Strombezugskosten pro kWh bei Eigenverbrauch. Tipp: Wert aus aktuellem Bezugsvertrag bzw. Lastprofil ableiten.</span>
+                                        </span>
+                                        )
+                                        ×
+                                        <span class="info-inline" tabindex="0" aria-label="Elektrische Leistung">
+                                            <span style="color:#2ed5d2" id="Elektischeleistung2">25 kW</span>
+                                            <span class="info-tip" role="tooltip">Elektrische Generatorleistung des ThermoHybrid.</span>
+                                        </span>
+                                    </p>
+                                    <p class="rev-result">Ergebnis Eigenverbrauch: <span id="Eigenverbrauch">285.000 €</span></p>
+                                </article>
+                            </div>
+                            <div class="info-card-grid">
+                                <article class="info-card amort-card" aria-labelledby="amort-title">
+                                    <h6 class="info-title" id="amort-title">Amortisation</h6>
+                                    <ul class="amort-list">
+                                        <li>Die Amortisation der Anlage erfolgt innerhalb von 5 Jahren.</li>
+                                        <li>Kosten ThermoHybrid: <span id="preis">85.000,00 €</span></li>
+                                        <li>Kosten Wartung: <span id="wartung">14.150,00 €</span></li>
+                                        <li>CO₂-Einsparung pro Jahr: 4.500,00 kg</li>
+                                    </ul>
+                                    <p class="ertrag-total" id="Ertrag">Ertrag: 144.600 €</p>
+                                    <div class="notebook-cta">
+                                        <a class="header-btn" href="funnel.html">Detailanalyse anfordern</a>
+                                        <a class="link-btn" id="cta-detail-rechner" href="wirtschaftlichkeit.html">Zum erweiterten Rechner</a>
+                                    </div>
+                                </article>
+                                <article class="info-card legal-card" aria-labelledby="legal-title">
+                                    <h6 class="info-title" id="legal-title">Rechtsgrundlagen &amp; Quellen</h6>
+                                    <ul class="legal-list">
+                                        <li>KWKG Zuschuss §7(3a) KWKG<br><span style="color:#8AAD34;">Feste Förderung: 0,16 € / kWh Einspeisung<br>Feste Förderung: 0,08 € / kWh Eigenbedarf</span><br><a href="https://www.gesetze-im-internet.de/kwkg_2016/__7.html" target="_blank" rel="noopener">Gesetzestext öffnen</a></li>
+                                        <li><span style="color:#9D00FF;">EEX Strom Vergütung: 0,11 € §4(3) KWKG</span></li>
+                                        <li><a href="https://www.gesetze-im-internet.de/kwkg_2016/__4.html" target="_blank" rel="noopener">§4 KWKG (Zulassung)</a></li>
+                                        <li><a href="https://www.eex.com/en/market-data/market-data-hub/power/indices" target="_blank" rel="noopener">EEX Marktpreis</a></li>
+                                        <li><span style="color:#e63946;">Vollbenutzungsstunden: 30.000 h (§8 KWKG)</span></li>
+                                        <li><a href="https://www.gesetze-im-internet.de/kwkg_2016/__8.html" target="_blank" rel="noopener">§8 KWKG (Wartung)</a></li>
+                                        <li><span style="color:#FC89AC;">Stromkosten Eigenverbrauch: 0,30 € / kWh</span></li>
+                                    </ul>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
+
