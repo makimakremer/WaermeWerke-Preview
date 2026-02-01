@@ -11,7 +11,7 @@ WärmeWerke is a static marketing website for ThermoHybrid energy systems (KWK/K
 
 ## Development
 
-**Local preview:** Open any HTML file directly in browser, or use a simple HTTP server:
+**Local preview:**
 ```bash
 python3 -m http.server 8000
 # or
@@ -23,7 +23,7 @@ npx serve .
 ## Architecture
 
 ### Pages (HTML)
-- `index.html` - Homepage with hero, product showcase, funnel, FAQ
+- `index.html` - Homepage with 7-chapter Editorial Storytelling structure
 - `produkt-*.html` - Product detail pages (ThermoHybrid, H2 Storage, Comfy Plus 75, Renso Kompakt, Titan)
 - `wirtschaftlichkeit.html` - ROI calculator with detailed BHKW analysis
 - `foerderung.html` - Funding/subsidies info (KWKG, BEW)
@@ -35,41 +35,65 @@ npx serve .
 ### JavaScript Modules
 | File | Purpose |
 |------|---------|
-| `script.js` | Main bundle: navigation, inline funnel, gallery, FAQ accordion, parallax, reveal animations, analytics, idle prefetch |
+| `script.js` | Main bundle: navigation, reveal animations, parallax, FAQ accordion, toast notifications, number counters, editorial scroll animations |
 | `calculator.js` | BHKW economics calculator - lazy loaded on wirtschaftlichkeit.html |
-| `blog.js` | Blog reader with Supabase fetch, DOMPurify sanitization, filtering, deep-links |
-| `funnel.js` | Standalone funnel logic (similar to inline funnel in script.js) |
+| `blog.js` | Blog reader with Supabase fetch, DOMPurify sanitization, filtering |
+| `funnel.js` | Standalone funnel logic |
 | `admin.js` | Blog admin portal with Supabase auth |
 
 ### CSS Design System (`style.css`)
-All variables prefixed with `--ww-*`:
-- **Primary:** `--ww-primary` (#8B5CF6 violet)
-- **Secondary:** `--ww-secondary` (#06B6D4 cyan)
-- **Accent:** `--ww-accent` (#EC4899 pink)
-- **Fonts:** Poppins (display), Inter (body)
-- **Dark theme:** `--ww-dark`, `--ww-darker`, `--ww-card`
+
+**CSS Variables (prefixed `--ww-*`):**
+- Colors: `--ww-primary` (violet), `--ww-secondary` (cyan), `--ww-accent` (pink), `--ww-energy` (green), `--ww-error` (red)
+- Spacing: `--space-1` through `--space-24` (8px grid system)
+- Motion: `--duration-fast/normal/slow`, `--ease-out/in/bounce`
+- Fonts: Poppins (display), Inter (body)
+
+**Component Systems:**
+- **Buttons:** `.btn-primary`, `.btn-secondary`, `.btn-ghost`, `.btn-icon` with sizes (`.btn-sm`, `.btn-lg`) and states (`:disabled`, `.btn-loading`)
+- **Forms:** `.form-group` with floating labels, validation states (`.is-valid`, `.is-error`, `.is-loading`)
+- **Editorial:** `.chapter`, `.grid-editorial`, `.statement`, `.reveal`
 
 ### External Services
 - **Forms:** FormSubmit.co (action URLs point to info@waermewerke.de)
 - **Blog Backend:** Supabase (table: `posts`)
-- **Analytics:** Google Analytics placeholder (currently disabled in `initAnalytics()`)
+- **Analytics:** Google Analytics (currently disabled)
 
 ## Key Patterns
 
+### Editorial Storytelling (index.html)
+The homepage uses a chapter-based scroll narrative:
+```html
+<section class="chapter chapter-hero" id="hero">...</section>
+<section class="chapter chapter-problem" id="problem">...</section>
+```
+Each chapter is full-viewport height with scroll-triggered animations.
+
+### Toast Notifications (JavaScript)
+```javascript
+WW.toast.success('Title', 'Message');
+WW.toast.error('Title', 'Message');
+WW.toast.warning('Title', 'Message');
+WW.toast.info('Title', 'Message');
+```
+
+### Number Counter Animation
+```html
+<span class="counter" data-target="120" data-suffix="+">0</span>
+```
+Automatically animates when scrolled into view.
+
+### Reveal Animations
+Add `.reveal` class to elements for fade-in on scroll. Use `.reveal-stagger` on parent for sequential child animations.
+
 ### Funnel System
-The lead funnel uses `data-*` attributes for state management:
+Uses `data-*` attributes for state management:
 - `data-funnel` - Container
 - `data-step-id` - Step identifier
 - `data-funnel-form` - Final form
-- `data-progress-fill` - Progress bar
-
-### Gallery
-Scroll-triggered gallery with intersection observer:
-- `#gallery-track` contains `.gallery-item` elements
-- `#gallery-headings` syncs with scroll position
 
 ### Calculator
-BHKW unit selection based on thermal load (`bhkwEinheiten` array in calculator.js).
+BHKW unit selection based on thermal load (`bhkwEinheiten` array).
 Formula: `heizlast = verbrauch / 3000`
 
 ## Branding Notes
