@@ -4,38 +4,226 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wirtschaftlichkeitsrechner – WärmeWerke</title>
-    <meta name="description" content="Berechnen Sie jetzt, wie viel Sie mit ThermoHybrid sparen können. Echtzeit-Kalkulation inklusive Förderung.">
+    <meta name="description" content="Berechnen Sie in wenigen Minuten, wie viel Sie mit unserem ThermoHybrid-System sparen können. Kostenlos und unverbindlich.">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://images.unsplash.com">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="animations.css">
+    <style>
+        .page-hero {
+            min-height: 50vh;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-primary);
+            padding: 120px 24px 80px;
+        }
+        
+        .calculator-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 64px;
+            align-items: start;
+            margin-top: 64px;
+        }
+        
+        .calculator-info h3 {
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+        
+        .calculator-info p {
+            color: var(--text-dark-secondary);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+        
+        .calculator-features {
+            list-style: none;
+            margin-top: 32px;
+        }
+        
+        .calculator-features li {
+            display: flex;
+            align-items: start;
+            gap: 12px;
+            margin-bottom: 16px;
+            color: var(--text-dark-secondary);
+        }
+        
+        .calculator-features li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .calculator-card {
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 100px;
+        }
+        
+        .calculator-card h3 {
+            color: var(--text-dark);
+            margin-bottom: 32px;
+        }
+        
+        .form-group {
+            margin-bottom: 32px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            font-family: inherit;
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            transition: all var(--duration-fast);
+            background: var(--bg-off-white);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: var(--bg-light);
+        }
+        
+        .form-hint {
+            font-size: var(--small);
+            color: var(--text-dark-secondary);
+            margin-top: 8px;
+        }
+        
+        .calculate-btn {
+            width: 100%;
+            padding: 18px;
+            font-size: 16px;
+            font-weight: 600;
+            background: var(--accent);
+            color: var(--text-primary);
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all var(--duration-fast);
+        }
+        
+        .calculate-btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(241, 135, 1, 0.3);
+        }
+        
+        .results {
+            margin-top: 48px;
+            padding-top: 48px;
+            border-top: 2px solid var(--border-light);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all var(--duration-medium) var(--ease-out);
+        }
+        
+        .results.visible {
+            opacity: 1;
+            transform: none;
+        }
+        
+        .results h4 {
+            color: var(--accent);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        
+        .result-grid {
+            display: grid;
+            gap: 24px;
+        }
+        
+        .result-item {
+            background: var(--bg-off-white);
+            padding: 20px;
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--accent);
+        }
+        
+        .result-label {
+            font-size: var(--small);
+            color: var(--text-dark-secondary);
+            margin-bottom: 8px;
+        }
+        
+        .result-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        
+        .result-highlight {
+            background: linear-gradient(135deg, rgba(241, 135, 1, 0.1), rgba(247, 184, 1, 0.1));
+            border-left-color: var(--accent);
+        }
+        
+        .result-highlight .result-value {
+            color: var(--accent);
+            font-size: 32px;
+        }
+        
+        @media (max-width: 1024px) {
+            .calculator-layout {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            
+            .calculator-card {
+                position: static;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#F18701;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#F7B801;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <path d="M8 4L16 16L8 28M14 4L22 16L14 28M20 4L28 16L20 28" stroke="url(#logoGradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span>W° WärmeWerke</span>
-            </a>
+            <a href="index.html" class="logo">WärmeWerke</a>
             <div class="nav-links">
                 <a href="produkte.html">Produkte</a>
                 <a href="rechner.html">Rechner</a>
                 <a href="foerderung.html">Förderung</a>
                 <a href="referenzen.html">Referenzen</a>
                 <a href="ueber-uns.html">Über uns</a>
-                <a href="kontakt.html" class="nav-cta">Kostenlos beraten lassen</a>
+                <a href="kontakt.html" class="nav-cta">Beratung starten</a>
             </div>
-            <button class="hamburger"><span></span><span></span><span></span></button>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
         <div class="mobile-menu">
             <a href="produkte.html">Produkte</a>
@@ -43,193 +231,176 @@
             <a href="foerderung.html">Förderung</a>
             <a href="referenzen.html">Referenzen</a>
             <a href="ueber-uns.html">Über uns</a>
-            <a href="kontakt.html">Kostenlos beraten lassen</a>
+            <a href="kontakt.html">Beratung starten</a>
         </div>
     </nav>
 
-    <main>
-        <section class="section section-light" style="padding-top: 140px;">
-            <div class="container">
-                <div class="section-header">
-                    <div class="eyebrow animate-in">WIRTSCHAFTLICHKEITSRECHNER</div>
-                    <h1 class="animate-in" style="font-size: 48px;">Berechnen Sie Ihre Ersparnis</h1>
-                    <p class="animate-in">Geben Sie Ihren Jahreswärmeverbrauch ein und sehen Sie in Echtzeit, wie viel Sie mit ThermoHybrid sparen können.</p>
-                </div>
-                
-                <div class="calculator-wrapper">
-                    <div class="calculator-info animate-in">
-                        <div>
-                            <h3>So funktioniert der Rechner</h3>
-                            <p>Geben Sie Ihren jährlichen Wärmeverbrauch in kWh ein. Der Rechner ermittelt automatisch die passende ThermoHybrid-Einheit und berechnet Ihre Einsparungen.</p>
-                        </div>
-                        
-                        <div>
-                            <h3>Was wird berechnet?</h3>
-                            <ul>
-                                <li>Ihre Heizlast basierend auf dem Jahresverbrauch</li>
-                                <li>Die passende ThermoHybrid-Modellgröße</li>
-                                <li>Elektrische und thermische Leistung</li>
-                                <li>Jahresertrag bei Einspeisung oder Eigenverbrauch</li>
-                                <li>CO₂-Einsparung pro Jahr</li>
-                                <li>Nettoertrag nach Wartungskosten</li>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <h3>Typische Verbrauchswerte</h3>
-                            <ul>
-                                <li><strong>Einfamilienhaus:</strong> 20.000 - 30.000 kWh/Jahr</li>
-                                <li><strong>MFH (4-8 Parteien):</strong> 80.000 - 150.000 kWh/Jahr</li>
-                                <li><strong>Großes MFH (10+ Parteien):</strong> 150.000+ kWh/Jahr</li>
-                                <li><strong>Gewerbeimmobilie:</strong> 100.000+ kWh/Jahr</li>
-                            </ul>
-                        </div>
-                        
-                        <div style="padding: 24px; background: #F8F8F8; border-radius: 12px; margin-top: 24px;">
-                            <h3 style="margin-bottom: 12px;">💡 Tipp</h3>
-                            <p style="font-size: 15px; margin: 0;">Finden Sie Ihren Jahresverbrauch in Ihrer Heizkostenabrechnung. Bei Unsicherheit beraten wir Sie gerne kostenlos!</p>
-                        </div>
-                    </div>
-                    
-                    <div class="calculator-card animate-in">
-                        <div class="calculator-step">
-                            <div class="calculator-step-title">Schritt 1: Jahreswärmeverbrauch eingeben</div>
-                            <div class="calculator-input-group">
-                                <input type="text" id="verbrauch" class="calculator-input" placeholder="z.B. 150000" aria-label="Jahreswärmeverbrauch in kWh">
-                                <button id="BerechnenBTN" class="calculator-button">Berechnen</button>
-                            </div>
-                            <p style="font-size: 14px; color: #6B7280; margin-top: 8px;">Finden Sie Ihren Verbrauch in Ihrer Jahresabrechnung</p>
-                        </div>
-                        
-                        <div class="calculator-step">
-                            <div class="calculator-step-title">Schritt 2: Ihre Heizlast</div>
-                            <div class="calculator-results">
-                                <div class="calculator-result">
-                                    <div class="calculator-result-label">Heizlast</div>
-                                    <div class="calculator-result-value" id="Heizlastergebniss">— kW</div>
-                                </div>
-                                <div class="calculator-result">
-                                    <div class="calculator-result-label">Empfohlene Heizleistung</div>
-                                    <div class="calculator-result-value" id="Heizleistung">— kW</div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="calculator-step">
-                            <div class="calculator-step-title">Schritt 3: Elektrische Leistung</div>
-                            <div class="calculator-result">
-                                <div class="calculator-result-label">Elektrische Leistung des ThermoHybrid</div>
-                                <div class="calculator-result-value" id="Elektischeleistung">— kW</div>
-                            </div>
-                        </div>
-                        
-                        <div class="calculator-summary">
-                            <div class="calculator-summary-title">Wirtschaftlichkeitsübersicht</div>
-                            <div class="calculator-summary-row">
-                                <span class="calculator-summary-label">Anlagenpreis</span>
-                                <span class="calculator-summary-value" id="preis">—</span>
-                            </div>
-                            <div class="calculator-summary-row">
-                                <span class="calculator-summary-label">Wartungskosten (jährlich)</span>
-                                <span class="calculator-summary-value" id="wartung">—</span>
-                            </div>
-                            <div class="calculator-summary-row">
-                                <span class="calculator-summary-label">
-                                    <svg class="co2-icon" style="width: 20px; height: 20px; display: inline-block; vertical-align: middle; margin-right: 6px; fill: #10B981;" viewBox="0 0 24 24">
-                                        <path d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z"/>
-                                    </svg>
-                                    CO₂-Einsparung (jährlich)
-                                </span>
-                                <span class="calculator-summary-value" id="co2-savings" style="color: #10B981;">— kg</span>
-                            </div>
-                            <div class="calculator-summary-row">
-                                <span class="calculator-summary-label">Ertrag (bei 100% Einspeisung)</span>
-                                <span class="calculator-summary-value" id="Einspeisung">—</span>
-                            </div>
-                            <div class="calculator-summary-row">
-                                <span class="calculator-summary-label">Ertrag (bei 100% Eigenverbrauch)</span>
-                                <span class="calculator-summary-value" id="Eigenverbrauch">—</span>
-                            </div>
-                            <div class="calculator-summary-row result-highlight" style="padding: 16px; background: rgba(241, 135, 1, 0.05); border-radius: 8px; border: 1px solid rgba(241, 135, 1, 0.2);">
-                                <span class="calculator-summary-label" style="font-weight: 600;">💰 Jährlicher Nettoertrag</span>
-                                <span class="calculator-summary-value" id="Ertrag" style="color: var(--accent); font-size: 22px; font-weight: 700;">—</span>
-                            </div>
-                        </div>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="eyebrow">WIRTSCHAFTLICHKEIT</div>
+            <h1>Berechnen Sie<br>Ihre Ersparnis</h1>
+            <p style="max-width: 600px; margin: 24px auto 0; font-size: 18px; color: var(--text-secondary);">
+                In wenigen Minuten erfahren Sie, wie viel Sie mit unserem ThermoHybrid-System sparen können.
+            </p>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="section-light">
+        <div class="container">
+            <div class="calculator-layout">
+                <!-- Left: Info -->
+                <div class="calculator-info reveal">
+                    <h3>Wie funktioniert der Rechner?</h3>
+                    <p>
+                        Unser Wirtschaftlichkeitsrechner analysiert Ihren Energieverbrauch und berechnet, 
+                        welches ThermoHybrid-System optimal zu Ihnen passt. Sie erhalten eine detaillierte 
+                        Übersicht über Ihre Einsparungen, Amortisationszeit und CO₂-Reduktion.
+                    </p>
+
+                    <h3 style="margin-top: 48px;">Was Sie erhalten:</h3>
+                    <ul class="calculator-features">
+                        <li>Empfehlung für das passende System</li>
+                        <li>Jährliche Energiekostenersparnis</li>
+                        <li>Amortisationszeit (ROI)</li>
+                        <li>CO₂-Einsparung pro Jahr</li>
+                        <li>Fördermittel-Potenzial</li>
+                        <li>Detaillierte Wirtschaftlichkeitsanalyse</li>
+                    </ul>
+
+                    <div style="margin-top: 48px; padding: 32px; background: var(--bg-off-white); border-radius: var(--radius-md);">
+                        <h4 style="color: var(--accent); margin-bottom: 12px;">💡 Tipp</h4>
+                        <p style="margin: 0; font-size: 15px;">
+                            Ihre Verbrauchsdaten finden Sie auf Ihrer letzten Energierechnung. 
+                            Falls Sie diese nicht zur Hand haben, kontaktieren Sie uns für eine 
+                            persönliche Beratung.
+                        </p>
                     </div>
                 </div>
-                
-                <div style="max-width: 800px; margin: 64px auto 0; padding: 32px; background: var(--bg-subtle); border-radius: 16px; border: 2px solid var(--accent);">
-                    <h3 style="margin-bottom: 16px; color: var(--accent);">📊 Ergebnis verstehen</h3>
-                    <div style="display: grid; gap: 16px;">
-                        <div>
-                            <h4 style="font-size: 16px; margin-bottom: 8px;">Einspeisung vs. Eigenverbrauch</h4>
-                            <p style="font-size: 15px; margin: 0; color: var(--text-muted-light);">
-                                <strong>Einspeisung:</strong> Sie speisen 100% des erzeugten Stroms ins Netz ein und erhalten dafür Vergütung.<br>
-                                <strong>Eigenverbrauch:</strong> Sie nutzen den Strom selbst und sparen dadurch Strombezugskosten.
-                            </p>
-                        </div>
-                        <div>
-                            <h4 style="font-size: 16px; margin-bottom: 8px;">Nettoertrag</h4>
-                            <p style="font-size: 15px; margin: 0; color: var(--text-muted-light);">
-                                Der durchschnittliche Ertrag (Mischung aus Einspeisung und Eigenverbrauch) abzüglich Wartungskosten. Dies ist Ihre jährliche Ersparnis.
-                            </p>
-                        </div>
-                        <div>
-                            <h4 style="font-size: 16px; margin-bottom: 8px;">ROI (Return on Investment)</h4>
-                            <p style="font-size: 15px; margin: 0; color: var(--text-muted-light);">
-                                Bei typischen Erträgen amortisiert sich die Anlage in 3-4 Jahren. Mit Förderung sogar noch schneller!
-                            </p>
+
+                <!-- Right: Calculator -->
+                <div class="calculator-card reveal">
+                    <h3>Ihre Daten eingeben</h3>
+
+                    <div class="form-group">
+                        <label for="verbrauch">Jährlicher Gasverbrauch (kWh)</label>
+                        <input type="number" id="verbrauch" placeholder="z.B. 150000" step="1000" min="0">
+                        <div class="form-hint">Dieser Wert steht auf Ihrer Gasrechnung</div>
+                    </div>
+
+                    <button id="BerechnenBTN" class="calculate-btn">
+                        Jetzt berechnen →
+                    </button>
+
+                    <!-- Results -->
+                    <div id="results" class="results">
+                        <h4>Ihre Ergebnisse</h4>
+                        <div class="result-grid">
+                            <div class="result-item">
+                                <div class="result-label">Empfohlene Heizlast</div>
+                                <div class="result-value" id="Heizlastergebniss">—</div>
+                            </div>
+
+                            <div class="result-item">
+                                <div class="result-label">Thermische Leistung</div>
+                                <div class="result-value" id="Heizleistung">—</div>
+                            </div>
+
+                            <div class="result-item">
+                                <div class="result-label">Elektrische Leistung</div>
+                                <div class="result-value" id="Elektischeleistung">—</div>
+                            </div>
+
+                            <div class="result-item">
+                                <div class="result-label">Jährliche Einspeisung</div>
+                                <div class="result-value" id="Einspeisung">—</div>
+                            </div>
+
+                            <div class="result-item">
+                                <div class="result-label">Eigenverbrauch Strom</div>
+                                <div class="result-value" id="Eigenverbrauch">—</div>
+                            </div>
+
+                            <div class="result-item result-highlight">
+                                <div class="result-label">Jährliche Ersparnis</div>
+                                <div class="result-value" id="Ertrag">—</div>
+                            </div>
+
+                            <div class="result-item">
+                                <div class="result-label">Wartungskosten pro Jahr</div>
+                                <div class="result-value" id="wartung">—</div>
+                            </div>
+
+                            <div class="result-item result-highlight">
+                                <div class="result-label">Investitionskosten</div>
+                                <div class="result-value" id="preis">—</div>
+                            </div>
+
+                            <div class="result-item">
+                                <div class="result-label">CO₂-Einsparung pro Jahr</div>
+                                <div class="result-value" id="co2-savings">—</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 64px;">
-                    <h2 style="margin-bottom: 16px;">Überzeugt?</h2>
-                    <p style="font-size: 18px; margin-bottom: 32px; color: var(--text-muted-light);">Lassen Sie sich jetzt kostenlos beraten und holen Sie sich ein individuelles Angebot.</p>
-                    <a href="kontakt.html" class="btn btn-primary btn-large">Jetzt Beratungstermin vereinbaren</a>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
+    <!-- CTA Section -->
+    <section class="cta-section cta-section-gradient">
+        <div class="container">
+            <div class="reveal">
+                <h2>Überzeugt von den Zahlen?</h2>
+                <p>Vereinbaren Sie jetzt ein kostenloses Beratungsgespräch. Wir analysieren Ihre Situation im Detail und erstellen ein individuelles Angebot.</p>
+                <a href="kontakt.html" class="btn btn-inverted btn-large">Kostenlose Beratung vereinbaren</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-column">
                     <h4>WärmeWerke</h4>
-                    <p>Ein Unternehmen der Fuchs Holding GmbH. Wir schaffen Energiezentren für die Zukunft.</p>
-                    <p>Meisterbetrieb seit 1998</p>
+                    <p>Ihr Gebäude wird zum Kraftwerk. Mit intelligenter Energietechnik für eine nachhaltige Zukunft.</p>
                 </div>
+
                 <div class="footer-column">
                     <h4>Produkte</h4>
-                    <ul class="footer-links">
+                    <ul>
                         <li><a href="thermohybrid.html">ThermoHybrid</a></li>
                         <li><a href="waermepumpe.html">Wärmepumpe</a></li>
                         <li><a href="solar.html">Solaranlage</a></li>
                         <li><a href="produkte.html">Alle Produkte</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-column">
                     <h4>Ressourcen</h4>
-                    <ul class="footer-links">
+                    <ul>
                         <li><a href="rechner.html">Wirtschaftlichkeitsrechner</a></li>
-                        <li><a href="foerderung.html">Förderung & Finanzierung</a></li>
+                        <li><a href="foerderung.html">Förderung</a></li>
                         <li><a href="referenzen.html">Referenzen</a></li>
-                        <li><a href="ueber-uns.html">Über uns</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-column">
                     <h4>Kontakt</h4>
-                    <ul class="footer-links">
-                        <li>Hafenweg 15</li>
-                        <li>59192 Bergkamen</li>
-                        <li><a href="tel:+4923899005451">+49 238 990 054 51</a></li>
+                    <ul>
+                        <li><a href="kontakt.html">Kontaktformular</a></li>
+                        <li><a href="ueber-uns.html">Über uns</a></li>
+                        <li><a href="tel:+49228123456">+49 228 123456</a></li>
                         <li><a href="mailto:info@waermewerke.de">info@waermewerke.de</a></li>
                     </ul>
                 </div>
             </div>
+
             <div class="footer-bottom">
-                <p>© 2026 WärmeWerke GmbH – Ein Unternehmen der Fuchs Holding GmbH</p>
+                <div>&copy; 2024 WärmeWerke. Alle Rechte vorbehalten.</div>
                 <div class="footer-bottom-links">
                     <a href="impressum.html">Impressum</a>
                     <a href="datenschutz.html">Datenschutz</a>
@@ -238,8 +409,18 @@
         </div>
     </footer>
 
-    <script src="calculator.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js" integrity="sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Scripts -->
     <script src="main.js"></script>
+    <script src="calculator.js"></script>
+    <script>
+        // Show results section when calculation is done
+        document.getElementById('BerechnenBTN').addEventListener('click', function() {
+            setTimeout(() => {
+                const results = document.getElementById('results');
+                results.classList.add('visible');
+                results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 300);
+        });
+    </script>
 </body>
 </html>
