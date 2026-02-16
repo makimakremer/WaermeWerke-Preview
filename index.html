@@ -720,6 +720,274 @@
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
+            
+            .calculator-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .calc-formula {
+                font-size: 0.85rem;
+            }
+        }
+        
+        /* ===================================
+           CALCULATOR SECTION
+           =================================== */
+        .calculator-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .calc-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s;
+        }
+        
+        .calc-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+        
+        .calc-card-highlight {
+            background: linear-gradient(135deg, rgba(241, 135, 1, 0.05) 0%, rgba(247, 184, 1, 0.05) 100%);
+            border: 2px solid var(--orange);
+        }
+        
+        .calc-header {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .calc-step {
+            width: 48px;
+            height: 48px;
+            background: var(--orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.125rem;
+            flex-shrink: 0;
+        }
+        
+        .calc-eyebrow {
+            font-size: 0.75rem;
+            color: var(--orange);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+        
+        .calc-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .calc-body {
+            margin-top: 1rem;
+        }
+        
+        .calc-label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+        
+        .calc-input-group {
+            display: flex;
+            gap: 0.75rem;
+        }
+        
+        .calc-input {
+            flex: 1;
+            padding: 0.875rem 1.25rem;
+            border: 2px solid var(--gray-300);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+        
+        .calc-input:focus {
+            outline: none;
+            border-color: var(--orange);
+            box-shadow: 0 0 0 3px rgba(241, 135, 1, 0.1);
+        }
+        
+        .calc-btn {
+            background: var(--orange);
+            color: white;
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        
+        .calc-btn:hover {
+            background: #d67501;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(241, 135, 1, 0.3);
+        }
+        
+        .calc-help {
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+        
+        .calc-result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .calc-result-item {
+            text-align: center;
+        }
+        
+        .calc-result-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .calc-result-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--orange);
+        }
+        
+        .calc-subline {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        
+        .calc-electric-power {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--orange);
+            text-align: center;
+        }
+        
+        .calc-result-card {
+            background: var(--light-bg);
+        }
+        
+        .calc-scenario-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .calc-formula {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .calc-formula span {
+            color: var(--orange);
+            font-weight: 700;
+        }
+        
+        .calc-scenario-result {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .calc-scenario-result span {
+            color: var(--orange);
+            font-size: 1.5rem;
+        }
+        
+        .calc-final-card {
+            grid-column: 1 / -1;
+            background: var(--dark);
+            color: white;
+        }
+        
+        .calc-final-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .calc-final-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .calc-final-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+        
+        .calc-final-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .calc-final-list strong,
+        .calc-final-list span {
+            color: var(--orange);
+            font-weight: 700;
+        }
+        
+        .calc-ertrag {
+            background: rgba(241, 135, 1, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .calc-ertrag-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.5rem;
+        }
+        
+        .calc-ertrag-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--orange);
+        }
+        
+        .calc-cta {
+            text-align: center;
+        }
+        
+        .calc-disclaimer {
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 </head>
@@ -876,6 +1144,116 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+    
+    <!-- Calculator Section -->
+    <section id="rechner" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-eyebrow">Wirtschaftlichkeitsrechner</span>
+                <h2 class="section-title">Berechnen Sie Ihre<br>Energiekosten-Ersparnis</h2>
+                <p class="section-subtitle">Erfahren Sie in wenigen Sekunden, wie viel Sie mit ThermoHybrid sparen können und welche Förderung Sie erhalten.</p>
+            </div>
+            
+            <div class="calculator-container fade-in">
+                <!-- Step 1: Input -->
+                <div class="calc-card">
+                    <div class="calc-header">
+                        <span class="calc-step">01</span>
+                        <div>
+                            <p class="calc-eyebrow">Verbrauch erfassen</p>
+                            <h3 class="calc-title">Startwert eingeben</h3>
+                        </div>
+                    </div>
+                    <div class="calc-body">
+                        <label for="verbrauch" class="calc-label">Jahreswärmeverbrauch in kWh</label>
+                        <div class="calc-input-group">
+                            <input type="text" id="verbrauch" class="calc-input" placeholder="z. B. 46.000 kWh">
+                            <button id="BerechnenBTN" class="calc-btn">Berechnen</button>
+                        </div>
+                        <p class="calc-help">Beispiel: 46.000 kWh Jahreswärmeverbrauch</p>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Heizlast -->
+                <div class="calc-card">
+                    <div class="calc-header">
+                        <span class="calc-step">02</span>
+                        <div>
+                            <p class="calc-eyebrow">Heizlast verstehen</p>
+                            <h3 class="calc-title">Wärmeleistung</h3>
+                        </div>
+                    </div>
+                    <div class="calc-body">
+                        <div class="calc-result-grid">
+                            <div class="calc-result-item">
+                                <p class="calc-result-label">Heizlast</p>
+                                <p class="calc-result-value" id="Heizlastergebniss">— kW</p>
+                            </div>
+                            <div class="calc-result-item">
+                                <p class="calc-result-label">Heizleistung optimal</p>
+                                <p class="calc-result-value" id="Heizleistung">— kW</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Electric Power -->
+                <div class="calc-card calc-card-highlight">
+                    <div class="calc-header">
+                        <span class="calc-step">03</span>
+                        <div>
+                            <p class="calc-eyebrow">Output sichtbar</p>
+                            <h3 class="calc-title">Elektrische Leistung</h3>
+                        </div>
+                    </div>
+                    <div class="calc-body">
+                        <p class="calc-subline">ThermoHybrid erzeugt daraus:</p>
+                        <p class="calc-electric-power" id="Elektischeleistung">— kW</p>
+                    </div>
+                </div>
+                
+                <!-- Results: Einspeisung -->
+                <div class="calc-card calc-result-card">
+                    <h4 class="calc-scenario-title">Bei 100% Einspeisung</h4>
+                    <p class="calc-formula">
+                        30.000 h × (0,16 € Förderung + 0,11 € Strom) × <span id="Elektischeleistung1">—</span>
+                    </p>
+                    <p class="calc-scenario-result">Ergebnis: <span id="Einspeisung">— €</span></p>
+                </div>
+                
+                <!-- Results: Eigenverbrauch -->
+                <div class="calc-card calc-result-card">
+                    <h4 class="calc-scenario-title">Bei 100% Eigenverbrauch</h4>
+                    <p class="calc-formula">
+                        30.000 h × (0,08 € Förderung + 0,30 € Strom) × <span id="Elektischeleistung2">—</span>
+                    </p>
+                    <p class="calc-scenario-result">Ergebnis: <span id="Eigenverbrauch">— €</span></p>
+                </div>
+                
+                <!-- Final Results -->
+                <div class="calc-card calc-final-card">
+                    <h4 class="calc-final-title">Wirtschaftlichkeit</h4>
+                    <ul class="calc-final-list">
+                        <li>Amortisation innerhalb von <strong>3–5 Jahren</strong></li>
+                        <li>Kosten ThermoHybrid: <span id="preis">—</span></li>
+                        <li>Kosten Wartung: <span id="wartung">—</span></li>
+                        <li>CO₂-Einsparung pro Jahr: <strong><span id="co2-savings">—</span></strong></li>
+                    </ul>
+                    <div class="calc-ertrag">
+                        <p class="calc-ertrag-label">Jährlicher Ertrag</p>
+                        <p class="calc-ertrag-value" id="Ertrag">— €</p>
+                    </div>
+                    <div class="calc-cta">
+                        <a href="funnel.html" class="btn-primary">Jetzt Detailanalyse anfordern →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="calc-disclaimer fade-in">
+                * Alle Werte sind Richtwerte basierend auf aktuellen KWKG-Sätzen. Die finale Planung erfolgt nach Vor-Ort-Termin und Netzbetreiberfreigabe.
+            </p>
         </div>
     </section>
     
@@ -1074,5 +1452,8 @@
             });
         }
     </script>
+    
+    <!-- Calculator Script -->
+    <script src="calculator.js"></script>
 </body>
 </html>
