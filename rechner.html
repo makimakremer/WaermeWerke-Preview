@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wirtschaftlichkeitsrechner – WärmeWerke</title>
+    <meta name="description" content="Berechnen Sie jetzt, wie viel Sie mit ThermoHybrid sparen können. Echtzeit-Kalkulation inklusive Förderung.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#F18701;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#F7B801;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M8 4L16 16L8 28M14 4L22 16L14 28M20 4L28 16L20 28" stroke="url(#logoGradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>W° WärmeWerke</span>
+            </a>
+            <div class="nav-links">
+                <a href="produkte.html">Produkte</a>
+                <a href="rechner.html">Rechner</a>
+                <a href="foerderung.html">Förderung</a>
+                <a href="referenzen.html">Referenzen</a>
+                <a href="ueber-uns.html">Über uns</a>
+                <a href="kontakt.html" class="nav-cta">Kostenlos beraten lassen</a>
+            </div>
+            <button class="hamburger"><span></span><span></span><span></span></button>
+        </div>
+        <div class="mobile-menu">
+            <a href="produkte.html">Produkte</a>
+            <a href="rechner.html">Rechner</a>
+            <a href="foerderung.html">Förderung</a>
+            <a href="referenzen.html">Referenzen</a>
+            <a href="ueber-uns.html">Über uns</a>
+            <a href="kontakt.html">Kostenlos beraten lassen</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="section section-light" style="padding-top: 140px;">
+            <div class="container">
+                <div class="section-header">
+                    <div class="eyebrow fade-in">WIRTSCHAFTLICHKEITSRECHNER</div>
+                    <h1 class="fade-in" style="font-size: 48px;">Berechnen Sie Ihre Ersparnis</h1>
+                    <p class="fade-in">Geben Sie Ihren Jahreswärmeverbrauch ein und sehen Sie in Echtzeit, wie viel Sie mit ThermoHybrid sparen können.</p>
+                </div>
+                
+                <div class="calculator-wrapper">
+                    <div class="calculator-info fade-in">
+                        <div>
+                            <h3>So funktioniert der Rechner</h3>
+                            <p>Geben Sie Ihren jährlichen Wärmeverbrauch in kWh ein. Der Rechner ermittelt automatisch die passende ThermoHybrid-Einheit und berechnet Ihre Einsparungen.</p>
+                        </div>
+                        
+                        <div>
+                            <h3>Was wird berechnet?</h3>
+                            <ul>
+                                <li>Ihre Heizlast basierend auf dem Jahresverbrauch</li>
+                                <li>Die passende ThermoHybrid-Modellgröße</li>
+                                <li>Elektrische und thermische Leistung</li>
+                                <li>Jahresertrag bei Einspeisung oder Eigenverbrauch</li>
+                                <li>CO₂-Einsparung pro Jahr</li>
+                                <li>Nettoertrag nach Wartungskosten</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3>Typische Verbrauchswerte</h3>
+                            <ul>
+                                <li><strong>Einfamilienhaus:</strong> 20.000 - 30.000 kWh/Jahr</li>
+                                <li><strong>MFH (4-8 Parteien):</strong> 80.000 - 150.000 kWh/Jahr</li>
+                                <li><strong>Großes MFH (10+ Parteien):</strong> 150.000+ kWh/Jahr</li>
+                                <li><strong>Gewerbeimmobilie:</strong> 100.000+ kWh/Jahr</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="padding: 24px; background: #F8F8F8; border-radius: 12px; margin-top: 24px;">
+                            <h3 style="margin-bottom: 12px;">💡 Tipp</h3>
+                            <p style="font-size: 15px; margin: 0;">Finden Sie Ihren Jahresverbrauch in Ihrer Heizkostenabrechnung. Bei Unsicherheit beraten wir Sie gerne kostenlos!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator-card fade-in">
+                        <div class="calculator-step">
+                            <div class="calculator-step-title">Schritt 1: Jahreswärmeverbrauch eingeben</div>
+                            <div class="calculator-input-group">
+                                <input type="text" id="verbrauch" class="calculator-input" placeholder="z.B. 150000" aria-label="Jahreswärmeverbrauch in kWh">
+                                <button id="BerechnenBTN" class="calculator-button">Berechnen</button>
+                            </div>
+                            <p style="font-size: 14px; color: #6B7280; margin-top: 8px;">Finden Sie Ihren Verbrauch in Ihrer Jahresabrechnung</p>
+                        </div>
+                        
+                        <div class="calculator-step">
+                            <div class="calculator-step-title">Schritt 2: Ihre Heizlast</div>
+                            <div class="calculator-results">
+                                <div class="calculator-result">
+                                    <div class="calculator-result-label">Heizlast</div>
+                                    <div class="calculator-result-value" id="Heizlastergebniss">— kW</div>
+                                </div>
+                                <div class="calculator-result">
+                                    <div class="calculator-result-label">Empfohlene Heizleistung</div>
+                                    <div class="calculator-result-value" id="Heizleistung">— kW</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="calculator-step">
+                            <div class="calculator-step-title">Schritt 3: Elektrische Leistung</div>
+                            <div class="calculator-result">
+                                <div class="calculator-result-label">Elektrische Leistung des ThermoHybrid</div>
+                                <div class="calculator-result-value" id="Elektischeleistung">— kW</div>
+                            </div>
+                        </div>
+                        
+                        <div class="calculator-summary">
+                            <div class="calculator-summary-title">Wirtschaftlichkeitsübersicht</div>
+                            <div class="calculator-summary-row">
+                                <span class="calculator-summary-label">Anlagenpreis</span>
+                                <span class="calculator-summary-value" id="preis">—</span>
+                            </div>
+                            <div class="calculator-summary-row">
+                                <span class="calculator-summary-label">Wartungskosten (jährlich)</span>
+                                <span class="calculator-summary-value" id="wartung">—</span>
+                            </div>
+                            <div class="calculator-summary-row">
+                                <span class="calculator-summary-label">CO₂-Einsparung (jährlich)</span>
+                                <span class="calculator-summary-value" id="co2-savings">— kg</span>
+                            </div>
+                            <div class="calculator-summary-row">
+                                <span class="calculator-summary-label">Ertrag (bei 100% Einspeisung)</span>
+                                <span class="calculator-summary-value" id="Einspeisung">—</span>
+                            </div>
+                            <div class="calculator-summary-row">
+                                <span class="calculator-summary-label">Ertrag (bei 100% Eigenverbrauch)</span>
+                                <span class="calculator-summary-value" id="Eigenverbrauch">—</span>
+                            </div>
+                            <div class="calculator-summary-row">
+                                <span class="calculator-summary-label">Jährlicher Nettoertrag</span>
+                                <span class="calculator-summary-value" id="Ertrag" style="color: var(--accent); font-size: 20px;">—</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="max-width: 800px; margin: 64px auto 0; padding: 32px; background: var(--bg-subtle); border-radius: 16px; border: 2px solid var(--accent);">
+                    <h3 style="margin-bottom: 16px; color: var(--accent);">📊 Ergebnis verstehen</h3>
+                    <div style="display: grid; gap: 16px;">
+                        <div>
+                            <h4 style="font-size: 16px; margin-bottom: 8px;">Einspeisung vs. Eigenverbrauch</h4>
+                            <p style="font-size: 15px; margin: 0; color: var(--text-muted-light);">
+                                <strong>Einspeisung:</strong> Sie speisen 100% des erzeugten Stroms ins Netz ein und erhalten dafür Vergütung.<br>
+                                <strong>Eigenverbrauch:</strong> Sie nutzen den Strom selbst und sparen dadurch Strombezugskosten.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 16px; margin-bottom: 8px;">Nettoertrag</h4>
+                            <p style="font-size: 15px; margin: 0; color: var(--text-muted-light);">
+                                Der durchschnittliche Ertrag (Mischung aus Einspeisung und Eigenverbrauch) abzüglich Wartungskosten. Dies ist Ihre jährliche Ersparnis.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 16px; margin-bottom: 8px;">ROI (Return on Investment)</h4>
+                            <p style="font-size: 15px; margin: 0; color: var(--text-muted-light);">
+                                Bei typischen Erträgen amortisiert sich die Anlage in 3-4 Jahren. Mit Förderung sogar noch schneller!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 64px;">
+                    <h2 style="margin-bottom: 16px;">Überzeugt?</h2>
+                    <p style="font-size: 18px; margin-bottom: 32px; color: var(--text-muted-light);">Lassen Sie sich jetzt kostenlos beraten und holen Sie sich ein individuelles Angebot.</p>
+                    <a href="kontakt.html" class="btn btn-primary btn-large">Jetzt Beratungstermin vereinbaren</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>WärmeWerke</h4>
+                    <p>Ein Unternehmen der Fuchs Holding GmbH. Wir schaffen Energiezentren für die Zukunft.</p>
+                    <p>Meisterbetrieb seit 1998</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Produkte</h4>
+                    <ul class="footer-links">
+                        <li><a href="thermohybrid.html">ThermoHybrid</a></li>
+                        <li><a href="waermepumpe.html">Wärmepumpe</a></li>
+                        <li><a href="solar.html">Solaranlage</a></li>
+                        <li><a href="produkte.html">Alle Produkte</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Ressourcen</h4>
+                    <ul class="footer-links">
+                        <li><a href="rechner.html">Wirtschaftlichkeitsrechner</a></li>
+                        <li><a href="foerderung.html">Förderung & Finanzierung</a></li>
+                        <li><a href="referenzen.html">Referenzen</a></li>
+                        <li><a href="ueber-uns.html">Über uns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Kontakt</h4>
+                    <ul class="footer-links">
+                        <li>Hafenweg 15</li>
+                        <li>59192 Bergkamen</li>
+                        <li><a href="tel:+4923899005451">+49 238 990 054 51</a></li>
+                        <li><a href="mailto:info@waermewerke.de">info@waermewerke.de</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 WärmeWerke GmbH – Ein Unternehmen der Fuchs Holding GmbH</p>
+                <div class="footer-bottom-links">
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="calculator.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

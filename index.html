@@ -8,1055 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            /* Colors */
-            --bg-dark: #0A0A0A;
-            --bg-light: #FFFFFF;
-            --bg-subtle: #F8F8F8;
-            --accent-primary: #F18701;
-            --accent-hover: #D97800;
-            --accent-secondary: #F7B801;
-            --text-primary-dark: #FFFFFF;
-            --text-primary-light: #1A1A1A;
-            --text-secondary-dark: rgba(255,255,255,0.7);
-            --text-secondary-light: #6B7280;
-            --border-dark: rgba(255,255,255,0.1);
-            --border-light: #E5E7EB;
-            
-            /* Spacing */
-            --section-padding: 120px;
-            --section-padding-mobile: 80px;
-            --container-max: 1200px;
-            --card-gap: 24px;
-            --component-spacing: 48px;
-            --small-gap: 16px;
-            
-            /* Effects */
-            --card-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
-            --card-hover-shadow: 0 4px 16px rgba(0,0,0,0.12);
-            --card-radius: 16px;
-            --button-radius-large: 12px;
-            --button-radius-small: 8px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 18px;
-            line-height: 1.7;
-            color: var(--text-primary-light);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        .container {
-            max-width: var(--container-max);
-            margin: 0 auto;
-            padding: 0 48px;
-        }
-        
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 72px;
-            z-index: 1000;
-            transition: var(--transition);
-            background: transparent;
-        }
-        
-        .nav.scrolled {
-            background: rgba(10,10,10,0.95);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 1px 0 rgba(255,255,255,0.05);
-        }
-        
-        .nav-container {
-            max-width: var(--container-max);
-            margin: 0 auto;
-            padding: 0 48px;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 20px;
-            font-weight: 800;
-            color: var(--text-primary-dark);
-            text-decoration: none;
-        }
-        
-        .nav-logo-icon {
-            width: 32px;
-            height: 32px;
-        }
-        
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            list-style: none;
-        }
-        
-        .nav-link {
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--text-primary-dark);
-            text-decoration: none;
-            opacity: 0.85;
-            transition: var(--transition);
-        }
-        
-        .nav-link:hover {
-            opacity: 1;
-        }
-        
-        .nav-cta {
-            padding: 12px 24px;
-            background: var(--accent-primary);
-            color: var(--text-primary-dark);
-            border-radius: var(--button-radius-large);
-            font-size: 15px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            box-shadow: var(--card-shadow);
-        }
-        
-        .nav-cta:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
-            box-shadow: var(--card-hover-shadow);
-        }
-        
-        .nav-mobile-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-        }
-        
-        .nav-mobile-toggle span {
-            width: 24px;
-            height: 2px;
-            background: var(--text-primary-dark);
-            transition: var(--transition);
-        }
-        
-        .nav-mobile-menu {
-            display: none;
-            position: fixed;
-            top: 72px;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(10,10,10,0.98);
-            backdrop-filter: blur(12px);
-            padding: 32px;
-            flex-direction: column;
-            gap: 24px;
-            z-index: 999;
-        }
-        
-        .nav-mobile-menu.active {
-            display: flex;
-        }
-        
-        /* Hero Section */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-dark);
-            overflow: hidden;
-        }
-        
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-        }
-        
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%);
-            z-index: 2;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            max-width: 720px;
-            text-align: center;
-            color: var(--text-primary-dark);
-            padding: 0 24px;
-        }
-        
-        .hero-eyebrow {
-            display: inline-block;
-            padding: 8px 20px;
-            background: var(--accent-primary);
-            color: var(--text-primary-dark);
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            border-radius: 999px;
-            margin-bottom: 32px;
-        }
-        
-        .hero-headline {
-            font-size: 64px;
-            font-weight: 800;
-            line-height: 1.05;
-            letter-spacing: -0.03em;
-            margin-bottom: 32px;
-        }
-        
-        .hero-headline .gradient {
-            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero-benefits {
-            list-style: none;
-            margin-bottom: 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        
-        .hero-benefit {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            font-size: 18px;
-            color: var(--text-secondary-dark);
-        }
-        
-        .hero-benefit::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--accent-primary);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-        
-        .hero-cta {
-            display: inline-block;
-            padding: 18px 40px;
-            background: var(--accent-primary);
-            color: var(--text-primary-dark);
-            font-size: 18px;
-            font-weight: 600;
-            border-radius: var(--button-radius-large);
-            text-decoration: none;
-            transition: var(--transition);
-            box-shadow: var(--card-hover-shadow);
-            margin-bottom: 48px;
-        }
-        
-        .hero-cta:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-        }
-        
-        .hero-trust {
-            display: flex;
-            gap: 32px;
-            justify-content: center;
-            flex-wrap: wrap;
-            font-size: 14px;
-            color: rgba(255,255,255,0.6);
-        }
-        
-        .hero-trust-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .hero-scroll {
-            position: absolute;
-            bottom: 32px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 3;
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-5px);
-            }
-        }
-        
-        .hero-scroll svg {
-            width: 24px;
-            height: 24px;
-            opacity: 0.6;
-        }
-        
-        /* Trust Bar */
-        .trust-bar {
-            background: var(--bg-subtle);
-            padding: 32px 0;
-            border-top: 1px solid var(--border-light);
-            border-bottom: 1px solid var(--border-light);
-        }
-        
-        .trust-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 32px;
-            align-items: center;
-        }
-        
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .trust-icon {
-            width: 32px;
-            height: 32px;
-            flex-shrink: 0;
-        }
-        
-        .trust-text {
-            font-size: 16px;
-            font-weight: 500;
-            color: var(--text-secondary-light);
-        }
-        
-        /* Section Styles */
-        .section {
-            padding: var(--section-padding) 0;
-        }
-        
-        .section-dark {
-            background: var(--bg-dark);
-            color: var(--text-primary-dark);
-        }
-        
-        .section-light {
-            background: var(--bg-light);
-            color: var(--text-primary-light);
-        }
-        
-        .section-eyebrow {
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--accent-primary);
-            margin-bottom: 16px;
-            text-align: center;
-        }
-        
-        .section-headline {
-            font-size: 48px;
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            margin-bottom: 24px;
-            text-align: center;
-        }
-        
-        .section-subtitle {
-            font-size: 24px;
-            font-weight: 400;
-            line-height: 1.4;
-            margin-bottom: var(--component-spacing);
-            text-align: center;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .section-dark .section-subtitle {
-            color: var(--text-secondary-dark);
-        }
-        
-        .section-light .section-subtitle {
-            color: var(--text-secondary-light);
-        }
-        
-        /* Product Cards */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--card-gap);
-            margin-top: 64px;
-        }
-        
-        .product-card {
-            background: #141414;
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: var(--card-radius);
-            padding: 40px;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-        
-        .product-card:hover {
-            border-color: rgba(241,135,1,0.3);
-            transform: translateY(-4px);
-            box-shadow: var(--card-hover-shadow);
-        }
-        
-        .product-icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 24px;
-        }
-        
-        .product-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: var(--text-primary-dark);
-        }
-        
-        .product-description {
-            font-size: 16px;
-            line-height: 1.5;
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 24px;
-        }
-        
-        .product-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--accent-primary);
-            font-size: 15px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .product-link:hover {
-            gap: 12px;
-        }
-        
-        /* Steps */
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 48px;
-            margin-top: 64px;
-            position: relative;
-        }
-        
-        .steps::before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 16.66%;
-            right: 16.66%;
-            height: 2px;
-            background: var(--accent-primary);
-            opacity: 0.3;
-            border-style: dashed;
-        }
-        
-        .step {
-            position: relative;
-            text-align: center;
-        }
-        
-        .step-number {
-            font-size: 48px;
-            font-weight: 800;
-            color: var(--accent-primary);
-            margin-bottom: 24px;
-        }
-        
-        .step-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        
-        .step-description {
-            font-size: 16px;
-            line-height: 1.5;
-            color: var(--text-secondary-light);
-        }
-        
-        /* Stats */
-        .stats {
-            background: var(--bg-dark);
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .stats::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(241,135,1,0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 48px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 56px;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 12px;
-        }
-        
-        .stat-label {
-            font-size: 16px;
-            color: rgba(255,255,255,0.7);
-        }
-        
-        /* Calculator */
-        .calculator-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 64px;
-            margin-top: 64px;
-            align-items: start;
-        }
-        
-        .calculator-info {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-        
-        .calculator-info h3 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-        
-        .calculator-info ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        
-        .calculator-info li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--text-secondary-light);
-        }
-        
-        .calculator-info li::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: var(--accent-primary);
-            border-radius: 50%;
-            margin-top: 8px;
-            flex-shrink: 0;
-        }
-        
-        .calculator-card {
-            background: var(--bg-light);
-            border-radius: var(--card-radius);
-            padding: 40px;
-            box-shadow: var(--card-shadow);
-        }
-        
-        .calculator-step {
-            margin-bottom: 32px;
-        }
-        
-        .calculator-step:last-child {
-            margin-bottom: 0;
-        }
-        
-        .calculator-step-title {
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--accent-primary);
-            margin-bottom: 12px;
-        }
-        
-        .calculator-input-group {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-        
-        .calculator-input {
-            flex: 1;
-            padding: 14px 16px;
-            border: 2px solid var(--border-light);
-            border-radius: var(--button-radius-small);
-            font-size: 16px;
-            font-family: 'Inter', sans-serif;
-            transition: var(--transition);
-        }
-        
-        .calculator-input:focus {
-            outline: none;
-            border-color: var(--accent-primary);
-        }
-        
-        .calculator-button {
-            padding: 14px 32px;
-            background: var(--accent-primary);
-            color: var(--text-primary-dark);
-            border: none;
-            border-radius: var(--button-radius-small);
-            font-size: 16px;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .calculator-button:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
-        }
-        
-        .calculator-results {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-        
-        .calculator-result {
-            padding: 20px;
-            background: var(--bg-subtle);
-            border-radius: var(--button-radius-small);
-            text-align: center;
-        }
-        
-        .calculator-result-label {
-            font-size: 14px;
-            color: var(--text-secondary-light);
-            margin-bottom: 8px;
-        }
-        
-        .calculator-result-value {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--accent-primary);
-        }
-        
-        .calculator-summary {
-            padding: 24px;
-            background: var(--bg-subtle);
-            border-radius: var(--button-radius-small);
-            border: 2px solid var(--accent-primary);
-        }
-        
-        .calculator-summary-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-        
-        .calculator-summary-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--border-light);
-        }
-        
-        .calculator-summary-row:last-child {
-            border-bottom: none;
-            margin-top: 8px;
-            padding-top: 16px;
-            font-weight: 700;
-        }
-        
-        .calculator-summary-label {
-            font-size: 14px;
-            color: var(--text-secondary-light);
-        }
-        
-        .calculator-summary-value {
-            font-size: 16px;
-            font-weight: 600;
-        }
-        
-        /* Testimonials */
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--card-gap);
-            margin-top: 64px;
-        }
-        
-        .testimonial-card {
-            background: #141414;
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: var(--card-radius);
-            padding: 32px;
-        }
-        
-        .testimonial-stars {
-            display: flex;
-            gap: 4px;
-            margin-bottom: 20px;
-        }
-        
-        .testimonial-stars svg {
-            width: 16px;
-            height: 16px;
-        }
-        
-        .testimonial-text {
-            font-size: 16px;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.85);
-            margin-bottom: 20px;
-        }
-        
-        .testimonial-author {
-            font-size: 14px;
-            color: rgba(255,255,255,0.5);
-            font-style: italic;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--accent-primary) 0%, #F35B04 100%);
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .cta-headline {
-            font-size: 40px;
-            font-weight: 700;
-            color: var(--text-primary-dark);
-            margin-bottom: 16px;
-        }
-        
-        .cta-subtitle {
-            font-size: 20px;
-            color: rgba(255,255,255,0.85);
-            margin-bottom: 32px;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 18px 48px;
-            background: var(--bg-light);
-            color: var(--text-primary-light);
-            font-size: 18px;
-            font-weight: 600;
-            border-radius: var(--button-radius-large);
-            text-decoration: none;
-            transition: var(--transition);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-            margin-bottom: 24px;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
-        }
-        
-        .cta-phone {
-            font-size: 16px;
-            color: rgba(255,255,255,0.85);
-        }
-        
-        .cta-phone a {
-            color: var(--text-primary-dark);
-            font-weight: 600;
-            text-decoration: none;
-        }
-        
-        /* Footer */
-        .footer {
-            background: var(--bg-dark);
-            color: var(--text-primary-dark);
-            padding: 64px 0 32px;
-            border-top: 1px solid var(--border-dark);
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 48px;
-            margin-bottom: 48px;
-        }
-        
-        .footer-column h4 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        
-        .footer-column p {
-            font-size: 14px;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 16px;
-        }
-        
-        .footer-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        
-        .footer-links a {
-            font-size: 14px;
-            color: rgba(255,255,255,0.5);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent-primary);
-        }
-        
-        .footer-bottom {
-            padding-top: 32px;
-            border-top: 1px solid var(--border-dark);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-        
-        .footer-bottom p {
-            font-size: 14px;
-            color: rgba(255,255,255,0.5);
-        }
-        
-        .footer-bottom-links {
-            display: flex;
-            gap: 24px;
-        }
-        
-        .footer-bottom-links a {
-            font-size: 14px;
-            color: rgba(255,255,255,0.5);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .footer-bottom-links a:hover {
-            color: var(--accent-primary);
-        }
-        
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .container {
-                padding: 0 32px;
-            }
-            
-            .nav-container {
-                padding: 0 32px;
-            }
-            
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .calculator-wrapper {
-                grid-template-columns: 1fr;
-                gap: 48px;
-            }
-            
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            :root {
-                --section-padding: 80px;
-            }
-            
-            .container {
-                padding: 0 24px;
-            }
-            
-            .nav-container {
-                padding: 0 24px;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .nav-mobile-toggle {
-                display: flex;
-            }
-            
-            .hero-headline {
-                font-size: 40px;
-            }
-            
-            .section-headline {
-                font-size: 32px;
-            }
-            
-            .section-subtitle {
-                font-size: 18px;
-            }
-            
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .steps {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .steps::before {
-                display: none;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-            
-            .calculator-results {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .trust-items {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-headline {
-                font-size: 32px;
-            }
-            
-            .hero-cta {
-                padding: 14px 32px;
-                font-size: 16px;
-            }
-            
-            .section-headline {
-                font-size: 28px;
-            }
-            
-            .stat-number {
-                font-size: 40px;
-            }
-            
-            .cta-headline {
-                font-size: 32px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="nav" id="nav">
+    <nav class="nav">
         <div class="nav-container">
-            <a href="/" class="nav-logo">
-                <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" style="stop-color:#F18701;stop-opacity:1" />
@@ -1065,40 +24,40 @@
                     </defs>
                     <path d="M8 4L16 16L8 28M14 4L22 16L14 28M20 4L28 16L20 28" stroke="url(#logoGradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <span>WärmeWerke</span>
+                <span>W° WärmeWerke</span>
             </a>
-            <ul class="nav-links">
-                <li><a href="#produkte" class="nav-link">Produkte</a></li>
-                <li><a href="#vorteile" class="nav-link">Vorteile</a></li>
-                <li><a href="#referenzen" class="nav-link">Referenzen</a></li>
-                <li><a href="#rechner" class="nav-link">Rechner</a></li>
-                <li><a href="foerderung.html" class="nav-link">Förderung</a></li>
-                <li><a href="#kontakt" class="nav-cta">Kostenlos beraten lassen</a></li>
-            </ul>
-            <button class="nav-mobile-toggle" id="mobileToggle">
+            <div class="nav-links">
+                <a href="produkte.html">Produkte</a>
+                <a href="rechner.html">Rechner</a>
+                <a href="foerderung.html">Förderung</a>
+                <a href="referenzen.html">Referenzen</a>
+                <a href="ueber-uns.html">Über uns</a>
+                <a href="kontakt.html" class="nav-cta">Kostenlos beraten lassen</a>
+            </div>
+            <button class="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </div>
-        <div class="nav-mobile-menu" id="mobileMenu">
-            <a href="#produkte" class="nav-link">Produkte</a>
-            <a href="#vorteile" class="nav-link">Vorteile</a>
-            <a href="#referenzen" class="nav-link">Referenzen</a>
-            <a href="#rechner" class="nav-link">Rechner</a>
-            <a href="foerderung.html" class="nav-link">Förderung</a>
-            <a href="#kontakt" class="nav-cta">Kostenlos beraten lassen</a>
+        <div class="mobile-menu">
+            <a href="produkte.html">Produkte</a>
+            <a href="rechner.html">Rechner</a>
+            <a href="foerderung.html">Förderung</a>
+            <a href="referenzen.html">Referenzen</a>
+            <a href="ueber-uns.html">Über uns</a>
+            <a href="kontakt.html">Kostenlos beraten lassen</a>
         </div>
     </nav>
 
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a6?w=1920&q=80" alt="Modernes Energiezentrum" class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a6?w=1920&q=80" alt="Modernes Energiezentrum" class="hero-bg" loading="eager">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <div class="hero-eyebrow">VIEL MEHR ALS NUR EINE HEIZUNG</div>
-                <h1 class="hero-headline">
+                <div class="hero-eyebrow">KRAFT-WÄRME-KOPPLUNG DER NÄCHSTEN GENERATION</div>
+                <h1>
                     Ihr Gebäude wird zum<br><span class="gradient">Energiezentrum</span>
                 </h1>
                 <ul class="hero-benefits">
@@ -1107,46 +66,36 @@
                     <li class="hero-benefit">Staatliche Förderung bis zu 70%</li>
                     <li class="hero-benefit">ROI in 3–4 Jahren garantiert</li>
                 </ul>
-                <a href="#rechner" class="hero-cta">Jetzt Energie-Check starten →</a>
-                <div class="hero-trust">
-                    <div class="hero-trust-item">100+ zufriedene Kunden</div>
-                    <div class="hero-trust-item">Meisterbetrieb</div>
-                    <div class="hero-trust-item">Fördergarantie</div>
-                </div>
-            </div>
-            <div class="hero-scroll">
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
+                <a href="rechner.html" class="btn btn-primary btn-large">Jetzt Energie-Check starten →</a>
             </div>
         </section>
 
         <!-- Trust Bar -->
         <section class="trust-bar">
             <div class="container">
-                <div class="trust-items">
+                <div class="trust-grid">
                     <div class="trust-item">
-                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="#F18701" stroke-width="2">
+                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke-width="2">
                             <path d="M3 12h18M3 6h18M3 18h18"/>
                         </svg>
                         <span class="trust-text">Made in Germany</span>
                     </div>
                     <div class="trust-item">
-                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="#F18701" stroke-width="2">
+                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke-width="2">
                             <circle cx="12" cy="12" r="10"/>
                             <path d="M12 6v6l4 2"/>
                         </svg>
                         <span class="trust-text">100+ Systeme in Betrieb</span>
                     </div>
                     <div class="trust-item">
-                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="#F18701" stroke-width="2">
+                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke-width="2">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                             <circle cx="12" cy="7" r="4"/>
                         </svg>
                         <span class="trust-text">Meisterqualität seit 1998</span>
                     </div>
                     <div class="trust-item">
-                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="#F18701" stroke-width="2">
+                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke-width="2">
                             <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                         </svg>
                         <span class="trust-text">KWKG-Förderung inklusive</span>
@@ -1155,82 +104,71 @@
             </div>
         </section>
 
-        <!-- Products Section -->
-        <section class="section section-dark" id="produkte">
+        <!-- Products Overview -->
+        <section class="section section-dark">
             <div class="container">
-                <div class="section-eyebrow fade-in">UNSERE LÖSUNGEN</div>
-                <h2 class="section-headline fade-in">Alles aus einer Hand</h2>
-                <p class="section-subtitle fade-in">Von der Wärmepumpe bis zum Smart Home – ein vernetztes Energiesystem für maximale Effizienz.</p>
+                <div class="section-header">
+                    <div class="eyebrow fade-in">UNSERE LÖSUNGEN</div>
+                    <h2 class="fade-in">Alles aus einer Hand</h2>
+                    <p class="fade-in">Von der Wärmepumpe bis zum Smart Home – ein vernetztes Energiesystem für maximale Effizienz.</p>
+                </div>
                 
                 <div class="product-grid">
-                    <div class="product-card fade-in">
-                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="#F18701" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                        </svg>
-                        <h3 class="product-title">ThermoHybrid</h3>
-                        <p class="product-description">Strom & Wärme aus einem System – maximale Effizienz durch Kraft-Wärme-Kopplung</p>
-                        <a href="produkt-thermohybrid.html" class="product-link">
+                    <div class="card fade-in">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80" alt="ThermoHybrid System" class="card-image" loading="lazy">
+                        <h3>ThermoHybrid</h3>
+                        <p>Strom & Wärme aus einem System – maximale Effizienz durch Kraft-Wärme-Kopplung</p>
+                        <a href="thermohybrid.html" class="card-link">
                             Mehr erfahren
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M5 12h14m-7-7l7 7-7 7"/>
                             </svg>
                         </a>
                     </div>
                     
-                    <div class="product-card fade-in" style="animation-delay: 0.1s;">
-                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="#F18701" stroke-width="2">
-                            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
-                        </svg>
-                        <h3 class="product-title">Wärmepumpe</h3>
-                        <p class="product-description">Effizient heizen mit Umweltenergie – kostenlos aus Luft, Erde oder Wasser</p>
-                        <a href="produkt-renso-kompakt.html" class="product-link">
+                    <div class="card fade-in">
+                        <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80" alt="Wärmepumpe" class="card-image" loading="lazy">
+                        <h3>Wärmepumpe</h3>
+                        <p>Effizient heizen mit Umweltenergie – kostenlos aus Luft, Erde oder Wasser</p>
+                        <a href="waermepumpe.html" class="card-link">
                             Mehr erfahren
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M5 12h14m-7-7l7 7-7 7"/>
                             </svg>
                         </a>
                     </div>
                     
-                    <div class="product-card fade-in" style="animation-delay: 0.2s;">
-                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="#F18701" stroke-width="2">
-                            <circle cx="12" cy="12" r="5"/>
-                            <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m5.07 5.07l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m5.07-5.07l4.24-4.24"/>
-                        </svg>
-                        <h3 class="product-title">Solaranlage</h3>
-                        <p class="product-description">Eigenen Strom vom Dach – unabhängig und klimaneutral</p>
-                        <a href="#kontakt" class="product-link">
+                    <div class="card fade-in">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80" alt="Solaranlage" class="card-image" loading="lazy">
+                        <h3>Solaranlage</h3>
+                        <p>Eigenen Strom vom Dach – unabhängig und klimaneutral</p>
+                        <a href="solar.html" class="card-link">
                             Mehr erfahren
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M5 12h14m-7-7l7 7-7 7"/>
                             </svg>
                         </a>
                     </div>
                     
-                    <div class="product-card fade-in" style="animation-delay: 0.3s;">
-                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="#F18701" stroke-width="2">
-                            <rect x="1" y="6" width="15" height="12" rx="2"/>
-                            <path d="M17 8h4"/>
-                        </svg>
-                        <h3 class="product-title">Stromspeicher</h3>
-                        <p class="product-description">Energie speichern, wenn Sie sie brauchen – für maximale Autarkie</p>
-                        <a href="produkt-h2-storage.html" class="product-link">
+                    <div class="card fade-in">
+                        <img src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=800&q=80" alt="Stromspeicher" class="card-image" loading="lazy">
+                        <h3>Stromspeicher</h3>
+                        <p>Energie speichern, wenn Sie sie brauchen – für maximale Autarkie</p>
+                        <a href="produkte.html#stromspeicher" class="card-link">
                             Mehr erfahren
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M5 12h14m-7-7l7 7-7 7"/>
                             </svg>
                         </a>
                     </div>
                     
-                    <div class="product-card fade-in" style="animation-delay: 0.4s;">
-                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="#F18701" stroke-width="2">
-                            <path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 0 1 0 2.828l-7 7a2 2 0 0 1-2.828 0l-7-7A1.994 1.994 0 0 1 3 12V7a4 4 0 0 1 4-4z"/>
-                        </svg>
-                        <h3 class="product-title">Wallbox</h3>
-                        <p class="product-description">Elektromobilität für Zuhause – laden Sie Ihr E-Auto mit eigenem Strom</p>
-                        <a href="#kontakt" class="product-link">
+                    <div class="card fade-in">
+                        <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80" alt="Wallbox E-Ladestation" class="card-image" loading="lazy">
+                        <h3>Wallbox</h3>
+                        <p>Elektromobilität für Zuhause – laden Sie Ihr E-Auto mit eigenem Strom</p>
+                        <a href="produkte.html#wallbox" class="card-link">
                             Mehr erfahren
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M5 12h14m-7-7l7 7-7 7"/>
                             </svg>
                         </a>
@@ -1240,50 +178,52 @@
         </section>
 
         <!-- How It Works -->
-        <section class="section section-light" id="vorteile">
+        <section class="section section-light">
             <div class="container">
-                <div class="section-eyebrow fade-in">SO FUNKTIONIERT'S</div>
-                <h2 class="section-headline fade-in">In 3 Schritten zum Energiesystem</h2>
+                <div class="section-header">
+                    <div class="eyebrow fade-in">SO FUNKTIONIERT'S</div>
+                    <h2 class="fade-in">In 3 Schritten zum Energiesystem</h2>
+                </div>
                 
                 <div class="steps">
                     <div class="step fade-in">
                         <div class="step-number">01</div>
-                        <h3 class="step-title">Kostenlose Beratung</h3>
-                        <p class="step-description">Wir analysieren Ihren Bedarf und erstellen ein individuelles Konzept.</p>
+                        <h3>Kostenlose Beratung</h3>
+                        <p>Wir analysieren Ihren Bedarf und erstellen ein individuelles Konzept.</p>
                     </div>
                     
-                    <div class="step fade-in" style="animation-delay: 0.1s;">
+                    <div class="step fade-in">
                         <div class="step-number">02</div>
-                        <h3 class="step-title">Planung & Förderung</h3>
-                        <p class="step-description">Wir übernehmen die komplette Planung und sichern Ihre Fördermittel.</p>
+                        <h3>Planung & Förderung</h3>
+                        <p>Wir übernehmen die komplette Planung und sichern Ihre Fördermittel.</p>
                     </div>
                     
-                    <div class="step fade-in" style="animation-delay: 0.2s;">
+                    <div class="step fade-in">
                         <div class="step-number">03</div>
-                        <h3 class="step-title">Installation & Betrieb</h3>
-                        <p class="step-description">Unser Meisterbetrieb installiert Ihr System – Sie lehnen sich zurück.</p>
+                        <h3>Installation & Betrieb</h3>
+                        <p>Unser Meisterbetrieb installiert Ihr System – Sie lehnen sich zurück.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Stats Section -->
-        <section class="stats">
+        <section class="section section-dark">
             <div class="container">
-                <div class="stats-grid">
-                    <div class="stat fade-in">
+                <div class="stats">
+                    <div class="fade-in">
                         <div class="stat-number">60%</div>
                         <div class="stat-label">weniger Energiekosten</div>
                     </div>
-                    <div class="stat fade-in" style="animation-delay: 0.1s;">
+                    <div class="fade-in">
                         <div class="stat-number">100+</div>
                         <div class="stat-label">zufriedene Kunden</div>
                     </div>
-                    <div class="stat fade-in" style="animation-delay: 0.2s;">
+                    <div class="fade-in">
                         <div class="stat-number">70%</div>
                         <div class="stat-label">Förderquote möglich</div>
                     </div>
-                    <div class="stat fade-in" style="animation-delay: 0.3s;">
+                    <div class="fade-in">
                         <div class="stat-number">3-4</div>
                         <div class="stat-label">Jahre bis ROI</div>
                     </div>
@@ -1291,177 +231,63 @@
             </div>
         </section>
 
-        <!-- Calculator Section -->
-        <section class="section section-light" id="rechner">
-            <div class="container">
-                <div class="section-eyebrow fade-in">ROI-SIMULATION</div>
-                <h2 class="section-headline fade-in">Wirtschaftlichkeit in Echtzeit</h2>
-                
-                <div class="calculator-wrapper">
-                    <div class="calculator-info fade-in">
-                        <div>
-                            <h3>Berechnen Sie Ihre Ersparnis</h3>
-                            <p>Unser ThermoHybrid-System kombiniert Stromerzeugung und Wärmeversorgung in einem hocheffizienten System. Berechnen Sie jetzt, wie viel Sie sparen können.</p>
-                        </div>
-                        
-                        <div>
-                            <h3>Ihre Vorteile</h3>
-                            <ul>
-                                <li>Bis zu 60% weniger Energiekosten durch Kraft-Wärme-Kopplung</li>
-                                <li>Staatliche Förderung nach KWKG bis zu 70%</li>
-                                <li>Amortisation in nur 3-4 Jahren</li>
-                                <li>CO₂-neutral und zukunftssicher</li>
-                                <li>Wartung und Service inklusive</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="calculator-card fade-in" style="animation-delay: 0.1s;">
-                        <div class="calculator-step">
-                            <div class="calculator-step-title">Schritt 1: Jahreswärmeverbrauch eingeben</div>
-                            <div class="calculator-input-group">
-                                <input type="text" id="verbrauch" class="calculator-input" placeholder="z.B. 150000" aria-label="Jahreswärmeverbrauch in kWh">
-                                <button id="BerechnenBTN" class="calculator-button">Berechnen</button>
-                            </div>
-                        </div>
-                        
-                        <div class="calculator-step">
-                            <div class="calculator-step-title">Schritt 2: Ihre Heizlast</div>
-                            <div class="calculator-results">
-                                <div class="calculator-result">
-                                    <div class="calculator-result-label">Heizlast</div>
-                                    <div class="calculator-result-value" id="Heizlastergebniss">— kW</div>
-                                </div>
-                                <div class="calculator-result">
-                                    <div class="calculator-result-label">Empfohlene Heizleistung</div>
-                                    <div class="calculator-result-value" id="Heizleistung">— kW</div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="calculator-step">
-                            <div class="calculator-step-title">Schritt 3: Elektrische Leistung</div>
-                            <div class="calculator-result">
-                                <div class="calculator-result-label">Elektrische Leistung des ThermoHybrid</div>
-                                <div class="calculator-result-value" id="Elektischeleistung">— kW</div>
-                            </div>
-                        </div>
-                        
-                        <div class="calculator-summary">
-                            <div class="calculator-summary-title">Amortisationsübersicht</div>
-                            <div class="calculator-summary-row">
-                                <span class="calculator-summary-label">Anlagenpreis</span>
-                                <span class="calculator-summary-value" id="preis">—</span>
-                            </div>
-                            <div class="calculator-summary-row">
-                                <span class="calculator-summary-label">Wartungskosten (jährlich)</span>
-                                <span class="calculator-summary-value" id="wartung">—</span>
-                            </div>
-                            <div class="calculator-summary-row">
-                                <span class="calculator-summary-label">CO₂-Einsparung (jährlich)</span>
-                                <span class="calculator-summary-value" id="co2-savings">— kg</span>
-                            </div>
-                            <div class="calculator-summary-row">
-                                <span class="calculator-summary-label">Ertrag (bei 100% Einspeisung)</span>
-                                <span class="calculator-summary-value" id="Einspeisung">—</span>
-                            </div>
-                            <div class="calculator-summary-row">
-                                <span class="calculator-summary-label">Ertrag (bei 100% Eigenverbrauch)</span>
-                                <span class="calculator-summary-value" id="Eigenverbrauch">—</span>
-                            </div>
-                            <div class="calculator-summary-row">
-                                <span class="calculator-summary-label">Jährlicher Nettoertrag</span>
-                                <span class="calculator-summary-value" id="Ertrag" style="color: var(--accent-primary); font-size: 20px;">—</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Testimonials -->
-        <section class="section section-dark" id="referenzen">
+        <section class="section section-dark">
             <div class="container">
-                <div class="section-eyebrow fade-in">KUNDENSTIMMEN</div>
-                <h2 class="section-headline fade-in">Was unsere Kunden sagen</h2>
+                <div class="section-header">
+                    <div class="eyebrow fade-in">KUNDENSTIMMEN</div>
+                    <h2 class="fade-in">Was unsere Kunden sagen</h2>
+                </div>
                 
                 <div class="testimonial-grid">
-                    <div class="testimonial-card fade-in">
+                    <div class="card fade-in">
                         <div class="testimonial-stars">
-                            <svg viewBox="0 0 24 24" fill="#F7B801">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#F7B801">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#F7B801">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#F7B801">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#F7B801">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                         </div>
                         <p class="testimonial-text">"Seit der Installation haben wir 58% weniger Energiekosten. Die Beratung war erstklassig."</p>
                         <p class="testimonial-author">— Thomas M., Dortmund</p>
                     </div>
                     
-                    <div class="testimonial-card fade-in" style="animation-delay: 0.1s;">
+                    <div class="card fade-in">
                         <div class="testimonial-stars">
-                            <svg viewBox="0 0 24 24" fill="#F7B801">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#F7B801">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#F7B801">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#F7B801">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#F7B801">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                         </div>
-                        <p class="testimonial-text">"Von der Planung bis zur Inbetriebnahme — alles aus einer Hand. Absolut empfehlenswert."</p>
-                        <p class="testimonial-author">— Sandra K., Bochum</p>
+                        <p class="testimonial-text">"Die Förderung wurde komplett übernommen. Null Stress, maximale Ersparnis."</p>
+                        <p class="testimonial-author">— Sandra K., Münster</p>
                     </div>
                     
-                    <div class="testimonial-card fade-in" style="animation-delay: 0.2s;">
+                    <div class="card fade-in">
                         <div class="testimonial-stars">
-                            <svg viewBox="0 0 24 24" fill="#F7B801">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#F7B801">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#F7B801">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#F7B801">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="#F7B801">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                         </div>
-                        <p class="testimonial-text">"Die Förderung wurde komplett von WärmeWerke organisiert. Wir mussten uns um nichts kümmern."</p>
-                        <p class="testimonial-author">— Familie Weber, Essen</p>
+                        <p class="testimonial-text">"Hervorragende Beratung und professionelle Installation. Kann ich nur weiterempfehlen!"</p>
+                        <p class="testimonial-author">— Michael R., Bergkamen</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="cta-section" id="kontakt">
+        <!-- CTA Banner -->
+        <section class="cta-banner">
             <div class="container">
-                <h2 class="cta-headline">Bereit für Ihre Energiewende?</h2>
-                <p class="cta-subtitle">Kostenlose Beratung – unverbindlich und individuell.</p>
-                <a href="funnel.html" class="cta-button">Jetzt Termin vereinbaren →</a>
-                <p class="cta-phone">Oder rufen Sie an: <a href="tel:+492389900545">+49 238 990 054 51</a></p>
+                <h2>Bereit für Ihre Energiewende?</h2>
+                <p>Lassen Sie sich kostenlos beraten und erfahren Sie, wie viel Sie sparen können.</p>
+                <a href="kontakt.html" class="btn btn-large">Jetzt Beratungstermin vereinbaren</a>
+                <div class="cta-phone">
+                    Oder rufen Sie uns an: <a href="tel:+4923899005451">+49 238 990 054 51</a>
+                </div>
             </div>
         </section>
     </main>
@@ -1472,42 +298,39 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h4>WärmeWerke</h4>
-                    <p>Moderne Energiesysteme für Ihr Zuhause. Von der Wärmepumpe bis zum kompletten Energiezentrum.</p>
-                    <p style="margin-top: 20px;">Ein Unternehmen der<br><strong>Fuchs Holding GmbH</strong></p>
+                    <p>Ein Unternehmen der Fuchs Holding GmbH. Wir schaffen Energiezentren für die Zukunft.</p>
+                    <p>Meisterbetrieb seit 1998</p>
                 </div>
-                
                 <div class="footer-column">
                     <h4>Produkte</h4>
                     <ul class="footer-links">
-                        <li><a href="produkt-thermohybrid.html">ThermoHybrid</a></li>
-                        <li><a href="produkt-renso-kompakt.html">Wärmepumpe</a></li>
-                        <li><a href="produkt-h2-storage.html">Stromspeicher</a></li>
-                        <li><a href="#kontakt">Wallbox</a></li>
+                        <li><a href="thermohybrid.html">ThermoHybrid</a></li>
+                        <li><a href="waermepumpe.html">Wärmepumpe</a></li>
+                        <li><a href="solar.html">Solaranlage</a></li>
+                        <li><a href="produkte.html">Alle Produkte</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-column">
                     <h4>Ressourcen</h4>
                     <ul class="footer-links">
-                        <li><a href="foerderung.html">Förderung</a></li>
-                        <li><a href="wirtschaftlichkeit.html">Wirtschaftlichkeit</a></li>
+                        <li><a href="rechner.html">Wirtschaftlichkeitsrechner</a></li>
+                        <li><a href="foerderung.html">Förderung & Finanzierung</a></li>
                         <li><a href="referenzen.html">Referenzen</a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="ueber-uns.html">Über uns</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-column">
-                    <h4>Unternehmen</h4>
+                    <h4>Kontakt</h4>
                     <ul class="footer-links">
-                        <li><a href="#kontakt">Kontakt</a></li>
-                        <li><a href="impressum.html">Impressum</a></li>
-                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                        <li>Hafenweg 15</li>
+                        <li>59192 Bergkamen</li>
+                        <li><a href="tel:+4923899005451">+49 238 990 054 51</a></li>
+                        <li><a href="mailto:info@waermewerke.de">info@waermewerke.de</a></li>
                     </ul>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2026 WärmeWerke – Ein Unternehmen der Fuchs Holding GmbH</p>
+                <p>© 2026 WärmeWerke GmbH – Ein Unternehmen der Fuchs Holding GmbH</p>
                 <div class="footer-bottom-links">
                     <a href="impressum.html">Impressum</a>
                     <a href="datenschutz.html">Datenschutz</a>
@@ -1516,78 +339,6 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="calculator.js"></script>
-    <script>
-        // Navigation scroll effect
-        const nav = document.getElementById('nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile menu toggle
-        const mobileToggle = document.getElementById('mobileToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        
-        mobileToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking a link
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all elements with fade-in class
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Initialize calculator
-        document.addEventListener('DOMContentLoaded', () => {
-            if (typeof FuchsCalculator !== 'undefined') {
-                FuchsCalculator.initCalculator();
-                FuchsCalculator.initDetailPrefill();
-            }
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && href !== '#kontakt') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        const offsetTop = target.offsetTop - 72;
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
