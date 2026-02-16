@@ -8,7 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -65,16 +67,31 @@
         <section class="section section-light">
             <div class="container">
                 <div class="grid-2">
-                    <div class="fade-in">
+                    <div class="animate-in">
                         <div class="eyebrow">WAS IST THERMOHYBRID?</div>
                         <h2>Maximale Effizienz durch Kraft-Wärme-Kopplung</h2>
                         <p>ThermoHybrid ist ein hochmodernes Blockheizkraftwerk (BHKW), das gleichzeitig Strom und Wärme erzeugt. Während herkömmliche Kraftwerke bis zu 60% der Energie als Abwärme verschwenden, nutzt ThermoHybrid diese Wärme direkt für Ihr Gebäude.</p>
                         <p>Das Ergebnis: Ein Gesamtwirkungsgrad von über 90% und bis zu 60% weniger Energiekosten im Vergleich zur getrennten Erzeugung von Strom und Wärme.</p>
                         <p><strong>Perfekt für:</strong> Mehrfamilienhäuser, Gewerbeimmobilien, öffentliche Gebäude und größere Einfamilienhäuser mit hohem Wärmebedarf.</p>
                     </div>
-                    <div class="fade-in">
+                    <div class="animate-in">
                         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Modernes Gebäude mit Energiesystem" style="width: 100%; border-radius: 16px;" loading="lazy">
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Energy Flow Visualization -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <div class="eyebrow animate-in">SO FUNKTIONIERT ES</div>
+                    <h2 class="animate-in">Energiefluss im ThermoHybrid</h2>
+                    <p class="animate-in">Ein System, doppelter Nutzen: Aus Gas wird Strom und Wärme</p>
+                </div>
+                
+                <div class="animate-in" style="max-width: 900px; margin: 48px auto; padding: 48px; background: var(--bg-card-dark); border-radius: 24px; border: 1px solid var(--border-dark);">
+                    <object data="energy-flow.svg" type="image/svg+xml" style="width: 100%; height: auto;"></object>
                 </div>
             </div>
         </section>
@@ -83,27 +100,27 @@
         <section class="section section-subtle">
             <div class="container">
                 <div class="section-header">
-                    <div class="eyebrow fade-in">TECHNISCHE DATEN</div>
-                    <h2 class="fade-in">Leistungsklassen</h2>
-                    <p class="fade-in">Von 2 bis 71 kW elektrischer Leistung – für jedes Gebäude die richtige Lösung.</p>
+                    <div class="eyebrow animate-in">TECHNISCHE DATEN</div>
+                    <h2 class="animate-in">Leistungsklassen</h2>
+                    <p class="animate-in">Von 2 bis 71 kW elektrischer Leistung – für jedes Gebäude die richtige Lösung.</p>
                 </div>
                 
                 <div class="grid-3">
-                    <div class="card fade-in">
+                    <div class="card animate-in">
                         <h3>Kompakt (2-5 kW)</h3>
                         <p><strong>Modelle:</strong> NT 2, NT 3, NT 4, NT 5</p>
                         <p><strong>Thermische Leistung:</strong> 5,2 - 12,9 kW</p>
                         <p><strong>Ideal für:</strong> Große Einfamilienhäuser, kleine Mehrfamilienhäuser</p>
                         <p><strong>Preis ab:</strong> 75.000 €</p>
                     </div>
-                    <div class="card fade-in">
+                    <div class="card animate-in">
                         <h3>Standard (8-21 kW)</h3>
                         <p><strong>Modelle:</strong> NT 8, NT 9, NT 12, NT 16, NT 17, NT 20, NT 21</p>
                         <p><strong>Thermische Leistung:</strong> 20,4 - 47,6 kW</p>
                         <p><strong>Ideal für:</strong> Mehrfamilienhäuser, Gewerbe</p>
                         <p><strong>Preis ab:</strong> 85.000 €</p>
                     </div>
-                    <div class="card fade-in">
+                    <div class="card animate-in">
                         <h3>Leistung (25-71 kW)</h3>
                         <p><strong>Modelle:</strong> NT 25, NT 30, NT 50, NT 70</p>
                         <p><strong>Thermische Leistung:</strong> 54,9 - 118 kW</p>
@@ -118,19 +135,19 @@
         <section class="section section-dark">
             <div class="container">
                 <div class="section-header">
-                    <div class="eyebrow fade-in">IHRE VORTEILE</div>
-                    <h2 class="fade-in">Warum ThermoHybrid?</h2>
+                    <div class="eyebrow animate-in">IHRE VORTEILE</div>
+                    <h2 class="animate-in">Warum ThermoHybrid?</h2>
                 </div>
                 
                 <div class="grid-3">
-                    <div class="card fade-in">
+                    <div class="card animate-in">
                         <svg style="width: 48px; height: 48px; margin-bottom: 24px; stroke: #F18701;" viewBox="0 0 24 24" fill="none" stroke-width="2">
                             <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                         </svg>
                         <h3>Bis zu 60% Kostenersparnis</h3>
                         <p>Durch die gleichzeitige Erzeugung von Strom und Wärme senken Sie Ihre Energiekosten drastisch.</p>
                     </div>
-                    <div class="card fade-in">
+                    <div class="card animate-in">
                         <svg style="width: 48px; height: 48px; margin-bottom: 24px; stroke: #F18701;" viewBox="0 0 24 24" fill="none" stroke-width="2">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
                             <polyline points="22 4 12 14.01 9 11.01"/>
@@ -138,7 +155,7 @@
                         <h3>KWKG-Förderung bis 70%</h3>
                         <p>Profitieren Sie von staatlicher Förderung nach dem Kraft-Wärme-Kopplungsgesetz.</p>
                     </div>
-                    <div class="card fade-in">
+                    <div class="card animate-in">
                         <svg style="width: 48px; height: 48px; margin-bottom: 24px; stroke: #F18701;" viewBox="0 0 24 24" fill="none" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -146,21 +163,21 @@
                         <h3>Amortisation in 3-4 Jahren</h3>
                         <p>Schnelle Rückkehr Ihrer Investition durch hohe Einsparungen und Förderung.</p>
                     </div>
-                    <div class="card fade-in">
+                    <div class="card animate-in">
                         <svg style="width: 48px; height: 48px; margin-bottom: 24px; stroke: #F18701;" viewBox="0 0 24 24" fill="none" stroke-width="2">
                             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
                         </svg>
                         <h3>CO₂-neutral</h3>
                         <p>Reduzieren Sie Ihre CO₂-Emissionen um bis zu 60% gegenüber konventioneller Versorgung.</p>
                     </div>
-                    <div class="card fade-in">
+                    <div class="card animate-in">
                         <svg style="width: 48px; height: 48px; margin-bottom: 24px; stroke: #F18701;" viewBox="0 0 24 24" fill="none" stroke-width="2">
                             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
                         </svg>
                         <h3>Hohe Verfügbarkeit</h3>
                         <p>Über 8.000 Betriebsstunden pro Jahr – zuverlässig und wartungsarm.</p>
                     </div>
-                    <div class="card fade-in">
+                    <div class="card animate-in">
                         <svg style="width: 48px; height: 48px; margin-bottom: 24px; stroke: #F18701;" viewBox="0 0 24 24" fill="none" stroke-width="2">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                         </svg>
@@ -175,13 +192,13 @@
         <section class="section section-light" id="rechner">
             <div class="container">
                 <div class="section-header">
-                    <div class="eyebrow fade-in">WIRTSCHAFTLICHKEIT</div>
-                    <h2 class="fade-in">Berechnen Sie Ihre Ersparnis</h2>
-                    <p class="fade-in">Sehen Sie in Echtzeit, wie viel Sie mit ThermoHybrid sparen können.</p>
+                    <div class="eyebrow animate-in">WIRTSCHAFTLICHKEIT</div>
+                    <h2 class="animate-in">Berechnen Sie Ihre Ersparnis</h2>
+                    <p class="animate-in">Sehen Sie in Echtzeit, wie viel Sie mit ThermoHybrid sparen können.</p>
                 </div>
                 
                 <div class="calculator-wrapper">
-                    <div class="calculator-info fade-in">
+                    <div class="calculator-info animate-in">
                         <div>
                             <h3>So funktioniert der Rechner</h3>
                             <p>Geben Sie Ihren jährlichen Wärmeverbrauch in kWh ein. Der Rechner ermittelt automatisch die passende ThermoHybrid-Einheit und berechnet Ihre Einsparungen.</p>
@@ -209,7 +226,7 @@
                         </div>
                     </div>
                     
-                    <div class="calculator-card fade-in">
+                    <div class="calculator-card animate-in">
                         <div class="calculator-step">
                             <div class="calculator-step-title">Schritt 1: Jahreswärmeverbrauch eingeben</div>
                             <div class="calculator-input-group">
@@ -338,6 +355,7 @@
     </footer>
 
     <script src="calculator.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js" integrity="sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="main.js"></script>
 </body>
 </html>

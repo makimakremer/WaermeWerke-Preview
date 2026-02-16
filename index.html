@@ -8,7 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -53,7 +55,10 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a6?w=1920&q=80" alt="Modernes Energiezentrum" class="hero-bg" loading="eager">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="videos/hero-bg.mp4" type="video/mp4">
+            </video>
+            <div class="hero-gradient-bg" style="display: none;"></div>
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <div class="hero-eyebrow">KRAFT-WÄRME-KOPPLUNG DER NÄCHSTEN GENERATION</div>
@@ -108,13 +113,13 @@
         <section class="section section-dark">
             <div class="container">
                 <div class="section-header">
-                    <div class="eyebrow fade-in">UNSERE LÖSUNGEN</div>
-                    <h2 class="fade-in">Alles aus einer Hand</h2>
-                    <p class="fade-in">Von der Wärmepumpe bis zum Smart Home – ein vernetztes Energiesystem für maximale Effizienz.</p>
+                    <div class="eyebrow animate-in">UNSERE LÖSUNGEN</div>
+                    <h2 class="animate-in">Alles aus einer Hand</h2>
+                    <p class="animate-in">Von der Wärmepumpe bis zum Smart Home – ein vernetztes Energiesystem für maximale Effizienz.</p>
                 </div>
                 
                 <div class="product-grid">
-                    <div class="card fade-in">
+                    <div class="card animate-in">
                         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80" alt="ThermoHybrid System" class="card-image" loading="lazy">
                         <h3>ThermoHybrid</h3>
                         <p>Strom & Wärme aus einem System – maximale Effizienz durch Kraft-Wärme-Kopplung</p>
@@ -126,7 +131,7 @@
                         </a>
                     </div>
                     
-                    <div class="card fade-in">
+                    <div class="card animate-in">
                         <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80" alt="Wärmepumpe" class="card-image" loading="lazy">
                         <h3>Wärmepumpe</h3>
                         <p>Effizient heizen mit Umweltenergie – kostenlos aus Luft, Erde oder Wasser</p>
@@ -138,7 +143,7 @@
                         </a>
                     </div>
                     
-                    <div class="card fade-in">
+                    <div class="card animate-in">
                         <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80" alt="Solaranlage" class="card-image" loading="lazy">
                         <h3>Solaranlage</h3>
                         <p>Eigenen Strom vom Dach – unabhängig und klimaneutral</p>
@@ -150,7 +155,7 @@
                         </a>
                     </div>
                     
-                    <div class="card fade-in">
+                    <div class="card animate-in">
                         <img src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=800&q=80" alt="Stromspeicher" class="card-image" loading="lazy">
                         <h3>Stromspeicher</h3>
                         <p>Energie speichern, wenn Sie sie brauchen – für maximale Autarkie</p>
@@ -162,7 +167,7 @@
                         </a>
                     </div>
                     
-                    <div class="card fade-in">
+                    <div class="card animate-in">
                         <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80" alt="Wallbox E-Ladestation" class="card-image" loading="lazy">
                         <h3>Wallbox</h3>
                         <p>Elektromobilität für Zuhause – laden Sie Ihr E-Auto mit eigenem Strom</p>
@@ -181,24 +186,28 @@
         <section class="section section-light">
             <div class="container">
                 <div class="section-header">
-                    <div class="eyebrow fade-in">SO FUNKTIONIERT'S</div>
-                    <h2 class="fade-in">In 3 Schritten zum Energiesystem</h2>
+                    <div class="eyebrow animate-in">SO FUNKTIONIERT'S</div>
+                    <h2 class="animate-in">In 3 Schritten zum Energiesystem</h2>
+                </div>
+                
+                <div class="animate-in" style="max-width: 800px; margin: 48px auto;">
+                    <object data="energy-flow.svg" type="image/svg+xml" style="width: 100%; height: auto;"></object>
                 </div>
                 
                 <div class="steps">
-                    <div class="step fade-in">
+                    <div class="step animate-in">
                         <div class="step-number">01</div>
                         <h3>Kostenlose Beratung</h3>
                         <p>Wir analysieren Ihren Bedarf und erstellen ein individuelles Konzept.</p>
                     </div>
                     
-                    <div class="step fade-in">
+                    <div class="step animate-in">
                         <div class="step-number">02</div>
                         <h3>Planung & Förderung</h3>
                         <p>Wir übernehmen die komplette Planung und sichern Ihre Fördermittel.</p>
                     </div>
                     
-                    <div class="step fade-in">
+                    <div class="step animate-in">
                         <div class="step-number">03</div>
                         <h3>Installation & Betrieb</h3>
                         <p>Unser Meisterbetrieb installiert Ihr System – Sie lehnen sich zurück.</p>
@@ -211,19 +220,19 @@
         <section class="section section-dark">
             <div class="container">
                 <div class="stats">
-                    <div class="fade-in">
+                    <div class="animate-in">
                         <div class="stat-number">60%</div>
                         <div class="stat-label">weniger Energiekosten</div>
                     </div>
-                    <div class="fade-in">
+                    <div class="animate-in">
                         <div class="stat-number">100+</div>
                         <div class="stat-label">zufriedene Kunden</div>
                     </div>
-                    <div class="fade-in">
+                    <div class="animate-in">
                         <div class="stat-number">70%</div>
                         <div class="stat-label">Förderquote möglich</div>
                     </div>
-                    <div class="fade-in">
+                    <div class="animate-in">
                         <div class="stat-number">3-4</div>
                         <div class="stat-label">Jahre bis ROI</div>
                     </div>
@@ -235,12 +244,12 @@
         <section class="section section-dark">
             <div class="container">
                 <div class="section-header">
-                    <div class="eyebrow fade-in">KUNDENSTIMMEN</div>
-                    <h2 class="fade-in">Was unsere Kunden sagen</h2>
+                    <div class="eyebrow animate-in">KUNDENSTIMMEN</div>
+                    <h2 class="animate-in">Was unsere Kunden sagen</h2>
                 </div>
                 
                 <div class="testimonial-grid">
-                    <div class="card fade-in">
+                    <div class="card animate-in">
                         <div class="testimonial-stars">
                             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -252,7 +261,7 @@
                         <p class="testimonial-author">— Thomas M., Dortmund</p>
                     </div>
                     
-                    <div class="card fade-in">
+                    <div class="card animate-in">
                         <div class="testimonial-stars">
                             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -264,7 +273,7 @@
                         <p class="testimonial-author">— Sandra K., Münster</p>
                     </div>
                     
-                    <div class="card fade-in">
+                    <div class="card animate-in">
                         <div class="testimonial-stars">
                             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -339,6 +348,7 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js" integrity="sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="main.js"></script>
 </body>
 </html>

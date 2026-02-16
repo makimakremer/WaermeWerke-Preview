@@ -1,0 +1,543 @@
+/* ============================================
+   ENHANCED ANIMATIONS & MOTION GRAPHICS
+   ============================================ */
+
+/* ====== Scroll-Triggered Animations ====== */
+.animate-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered delays for children */
+.animate-in:nth-child(1) { transition-delay: 0s; }
+.animate-in:nth-child(2) { transition-delay: 0.1s; }
+.animate-in:nth-child(3) { transition-delay: 0.15s; }
+.animate-in:nth-child(4) { transition-delay: 0.2s; }
+.animate-in:nth-child(5) { transition-delay: 0.25s; }
+.animate-in:nth-child(6) { transition-delay: 0.3s; }
+
+/* ====== Hero Video Background ====== */
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Animated gradient fallback */
+.hero-gradient-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0A1929, #1A237E, #B71C1C, #E65100);
+    background-size: 400% 400%;
+    animation: gradientShift 20s ease infinite;
+    z-index: 1;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ====== Card Hover Animations ====== */
+.card {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    border-color: rgba(241, 135, 1, 0.3);
+}
+
+.card-image {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.card:hover .card-image {
+    transform: scale(1.05);
+}
+
+.card-link {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover .card-link svg {
+    transform: translateX(4px);
+}
+
+/* ====== Button Micro-interactions ====== */
+.btn {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover {
+    transform: scale(1.02) translateY(-1px);
+    box-shadow: 0 8px 24px rgba(241, 135, 1, 0.3);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* CTA button pulse animation */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Gentle pulse for CTA buttons */
+@keyframes gentlePulse {
+    0%, 100% {
+        box-shadow: 0 4px 16px rgba(241, 135, 1, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 24px rgba(241, 135, 1, 0.5);
+    }
+}
+
+.btn-primary {
+    animation: gentlePulse 3s ease-in-out infinite;
+}
+
+/* ====== Navigation Enhancements ====== */
+.nav {
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Active page indicator */
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* Mobile menu slide-in */
+.mobile-menu {
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu.active {
+    transform: translateX(0);
+}
+
+/* Hamburger animation */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-10px);
+}
+
+/* ====== Parallax Effects ====== */
+.parallax-container {
+    overflow: hidden;
+}
+
+.parallax-image {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* ====== Counter Animations ====== */
+.stat-number {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-number.counting {
+    animation: scalePulse 0.3s ease-out;
+}
+
+@keyframes scalePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* ====== Typography Enhancements ====== */
+.hero h1 {
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero h1 .gradient {
+    animation: gradientFlow 8s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ====== Step Number Pulse ====== */
+.step-number {
+    animation: gentleFloat 3s ease-in-out infinite;
+}
+
+.step:nth-child(1) .step-number { animation-delay: 0s; }
+.step:nth-child(2) .step-number { animation-delay: 0.5s; }
+.step:nth-child(3) .step-number { animation-delay: 1s; }
+
+@keyframes gentleFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+}
+
+/* ====== SVG Path Animations ====== */
+.svg-draw-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawPath 2s ease-out forwards;
+}
+
+@keyframes drawPath {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Energy flow particles */
+@keyframes flowParticle {
+    0% {
+        stroke-dashoffset: 100;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 0;
+    }
+}
+
+.energy-particle {
+    stroke-dasharray: 10 90;
+    animation: flowParticle 3s ease-in-out infinite;
+}
+
+.energy-particle:nth-child(1) { animation-delay: 0s; }
+.energy-particle:nth-child(2) { animation-delay: 1s; }
+.energy-particle:nth-child(3) { animation-delay: 2s; }
+
+/* ====== Calculator Result Animation ====== */
+.calculator-results {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.calculator-results.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.result-highlight {
+    animation: goldGlow 2s ease-in-out;
+}
+
+@keyframes goldGlow {
+    0%, 100% {
+        box-shadow: 0 0 0 rgba(247, 184, 1, 0);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(247, 184, 1, 0.6);
+    }
+}
+
+/* Tree/leaf icon animation for CO2 savings */
+@keyframes growTree {
+    from {
+        transform: scale(0) translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.co2-icon {
+    animation: growTree 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ====== Loading States ====== */
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(241, 135, 1, 0.2);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ====== Success Checkmark ====== */
+.success-checkmark {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: drawCheck 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes drawCheck {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* ====== Image Hover Zoom (for galleries) ====== */
+.image-hover-zoom {
+    overflow: hidden;
+    border-radius: var(--card-radius);
+}
+
+.image-hover-zoom img {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-hover-zoom:hover img {
+    transform: scale(1.08);
+}
+
+/* ====== Gradient Borders ====== */
+.gradient-border {
+    position: relative;
+    background: var(--bg-card-dark);
+    border-radius: var(--card-radius);
+}
+
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--card-radius);
+    padding: 2px;
+    background: var(--accent-gradient);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gradient-border:hover::before {
+    opacity: 1;
+}
+
+/* ====== Text Reveal Animation ====== */
+.text-reveal {
+    overflow: hidden;
+}
+
+.text-reveal span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: revealText 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes revealText {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ====== Floating Animation ====== */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.float-animation {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* ====== Performance Optimizations ====== */
+.will-animate {
+    will-change: transform;
+}
+
+.gpu-accelerate {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* ====== Responsive Animations ====== */
+@media (max-width: 768px) {
+    .animate-in {
+        transform: translateY(20px);
+    }
+    
+    .card:hover {
+        transform: translateY(-3px);
+    }
+    
+    /* Reduce motion for mobile */
+    .hero-gradient-bg {
+        animation-duration: 30s;
+    }
+    
+    .gentleFloat {
+        animation: none;
+    }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ====== Lottie Animation Container ====== */
+.lottie-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ====== Progress Bars ====== */
+.progress-bar {
+    height: 4px;
+    background: rgba(241, 135, 1, 0.2);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--accent-gradient);
+    border-radius: 999px;
+    transform: translateX(-100%);
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-bar-fill.animate {
+    transform: translateX(0);
+}
+
+/* ====== Shimmer Loading Effect ====== */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.shimmer {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* ====== Tooltip Animations ====== */
+.tooltip {
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.tooltip.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}

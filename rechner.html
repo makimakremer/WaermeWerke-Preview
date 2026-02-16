@@ -8,7 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
 </head>
 <body>
     <nav class="nav">
@@ -49,13 +51,13 @@
         <section class="section section-light" style="padding-top: 140px;">
             <div class="container">
                 <div class="section-header">
-                    <div class="eyebrow fade-in">WIRTSCHAFTLICHKEITSRECHNER</div>
-                    <h1 class="fade-in" style="font-size: 48px;">Berechnen Sie Ihre Ersparnis</h1>
-                    <p class="fade-in">Geben Sie Ihren Jahreswärmeverbrauch ein und sehen Sie in Echtzeit, wie viel Sie mit ThermoHybrid sparen können.</p>
+                    <div class="eyebrow animate-in">WIRTSCHAFTLICHKEITSRECHNER</div>
+                    <h1 class="animate-in" style="font-size: 48px;">Berechnen Sie Ihre Ersparnis</h1>
+                    <p class="animate-in">Geben Sie Ihren Jahreswärmeverbrauch ein und sehen Sie in Echtzeit, wie viel Sie mit ThermoHybrid sparen können.</p>
                 </div>
                 
                 <div class="calculator-wrapper">
-                    <div class="calculator-info fade-in">
+                    <div class="calculator-info animate-in">
                         <div>
                             <h3>So funktioniert der Rechner</h3>
                             <p>Geben Sie Ihren jährlichen Wärmeverbrauch in kWh ein. Der Rechner ermittelt automatisch die passende ThermoHybrid-Einheit und berechnet Ihre Einsparungen.</p>
@@ -89,7 +91,7 @@
                         </div>
                     </div>
                     
-                    <div class="calculator-card fade-in">
+                    <div class="calculator-card animate-in">
                         <div class="calculator-step">
                             <div class="calculator-step-title">Schritt 1: Jahreswärmeverbrauch eingeben</div>
                             <div class="calculator-input-group">
@@ -132,8 +134,13 @@
                                 <span class="calculator-summary-value" id="wartung">—</span>
                             </div>
                             <div class="calculator-summary-row">
-                                <span class="calculator-summary-label">CO₂-Einsparung (jährlich)</span>
-                                <span class="calculator-summary-value" id="co2-savings">— kg</span>
+                                <span class="calculator-summary-label">
+                                    <svg class="co2-icon" style="width: 20px; height: 20px; display: inline-block; vertical-align: middle; margin-right: 6px; fill: #10B981;" viewBox="0 0 24 24">
+                                        <path d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z"/>
+                                    </svg>
+                                    CO₂-Einsparung (jährlich)
+                                </span>
+                                <span class="calculator-summary-value" id="co2-savings" style="color: #10B981;">— kg</span>
                             </div>
                             <div class="calculator-summary-row">
                                 <span class="calculator-summary-label">Ertrag (bei 100% Einspeisung)</span>
@@ -143,9 +150,9 @@
                                 <span class="calculator-summary-label">Ertrag (bei 100% Eigenverbrauch)</span>
                                 <span class="calculator-summary-value" id="Eigenverbrauch">—</span>
                             </div>
-                            <div class="calculator-summary-row">
-                                <span class="calculator-summary-label">Jährlicher Nettoertrag</span>
-                                <span class="calculator-summary-value" id="Ertrag" style="color: var(--accent); font-size: 20px;">—</span>
+                            <div class="calculator-summary-row result-highlight" style="padding: 16px; background: rgba(241, 135, 1, 0.05); border-radius: 8px; border: 1px solid rgba(241, 135, 1, 0.2);">
+                                <span class="calculator-summary-label" style="font-weight: 600;">💰 Jährlicher Nettoertrag</span>
+                                <span class="calculator-summary-value" id="Ertrag" style="color: var(--accent); font-size: 22px; font-weight: 700;">—</span>
                             </div>
                         </div>
                     </div>
@@ -232,6 +239,7 @@
     </footer>
 
     <script src="calculator.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js" integrity="sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="main.js"></script>
 </body>
 </html>
