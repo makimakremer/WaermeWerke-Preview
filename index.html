@@ -27,7 +27,7 @@
     <meta property="og:image" content="https://waermewerke.de/images/og-image.jpg">
 
     <!-- Theme -->
-    <meta name="theme-color" content="#0A0A0F">
+    <meta name="theme-color" content="#0A0B10">
 </head>
 <body>
     <!-- Skip Link -->
@@ -41,13 +41,13 @@
 
         <nav id="nav-menu" class="nav-menu">
             <ul class="nav-links">
-                <li><a href="#problem">Das Problem</a></li>
-                <li><a href="#solution">Die Lösung</a></li>
-                <li><a href="#numbers">Zahlen</a></li>
+                <li><a href="#produkte">Produkte</a></li>
+                <li><a href="#vorteile">Vorteile</a></li>
+                <li><a href="#referenzen">Referenzen</a></li>
                 <li><a href="wirtschaftlichkeit.html">Rechner</a></li>
                 <li><a href="foerderung.html">Förderung</a></li>
             </ul>
-            <a href="funnel.html" class="btn-primary btn-sm">Energie-Check</a>
+            <a href="funnel.html" class="btn-primary btn-sm">Kostenlos beraten lassen</a>
         </nav>
 
         <button id="burger-menu" class="burger-menu" aria-label="Navigation öffnen">
@@ -60,7 +60,7 @@
     <main id="main-content">
 
         <!-- =============================================
-             KAPITEL 1: OPENING (Hero)
+             HERO - Premium, Bold, Überzeugend
              ============================================= -->
         <section class="chapter chapter-hero" id="hero">
             <div class="chapter-bg">
@@ -69,11 +69,18 @@
             </div>
 
             <div class="chapter-content">
-                <h1 class="hero-statement reveal-text">
-                    <span class="statement-line">Wir bauen die Kraftwerke</span>
-                    <span class="statement-line">von morgen.</span>
-                    <span class="statement-line statement-highlight">Für Gebäude von heute.</span>
+                <span class="eyebrow-pill reveal">Kraft-Wärme-Kopplung der nächsten Generation</span>
+                <h1 class="hero-statement" style="margin-top: 1.5rem;">
+                    <span class="statement-line">Ihr Gebäude wird zum</span>
+                    <span class="statement-line statement-highlight">Kraftwerk.</span>
                 </h1>
+                <p class="lead" style="max-width: 640px; margin: 1.5rem auto 2.5rem; text-align: center; color: var(--ww-text-muted);">
+                    ThermoHybrid erzeugt Strom und Wärme gleichzeitig — direkt in Ihrem Gebäude. Bis zu 60% weniger CO₂, staatliche Förderung und ROI in 3–4 Jahren.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <a href="funnel.html" class="btn-primary btn-lg">Energie-Check starten →</a>
+                    <a href="#produkte" class="btn-secondary btn-lg">Produkte entdecken</a>
+                </div>
             </div>
 
             <div class="scroll-indicator">
@@ -87,9 +94,37 @@
         </section>
 
         <!-- =============================================
-             KAPITEL 2: DAS PROBLEM
+             BENEFITS BAR - Trust Elemente
              ============================================= -->
-        <section class="chapter chapter-problem" id="problem">
+        <div class="benefits-bar">
+            <div class="benefits-inner">
+                <div class="benefit-item">
+                    <span class="benefit-icon">🇩🇪</span>
+                    <span>Made in Germany</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">⚡</span>
+                    <span>120+ Systeme in Betrieb</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">💰</span>
+                    <span>KWKG-Förderung inklusive</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🔧</span>
+                    <span>25+ Jahre Erfahrung</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">📊</span>
+                    <span>ROI in 3–4 Jahren</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- =============================================
+             DAS PROBLEM
+             ============================================= -->
+        <section class="chapter chapter-problem" id="problem" style="min-height: auto; padding: var(--space-20) var(--space-4);">
             <div class="chapter-inner">
                 <div class="grid-editorial">
                     <div class="editorial-content">
@@ -132,44 +167,93 @@
         </section>
 
         <!-- =============================================
-             KAPITEL 3: UNSERE VISION
+             PRODUKT-SHOWCASE (wie EKD)
              ============================================= -->
-        <section class="chapter chapter-vision" id="vision">
+        <section class="chapter" id="produkte" style="min-height: auto; padding: var(--space-20) var(--space-4); background: var(--ww-bg-alt);">
             <div class="chapter-inner">
-                <span class="chapter-number chapter-number-center">02</span>
-                <h2 class="vision-question reveal-text">
-                    Was wäre, wenn Ihr Gebäude<br>
-                    nicht nur Energie <em>verbraucht</em>,<br>
-                    sondern Energie <em class="text-gradient">erzeugt</em>?
-                </h2>
-                <div class="vision-visual reveal">
-                    <div class="transformation-visual">
-                        <div class="transform-stage transform-before">
-                            <div class="transform-icon">🏢</div>
-                            <span class="transform-label">Energieverbraucher</span>
-                        </div>
-                        <div class="transform-arrow">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <path d="M8 24h32M32 16l8 8-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <div class="transform-stage transform-after">
-                            <div class="transform-icon">⚡🏢</div>
-                            <span class="transform-label text-gradient">Energiezentrum</span>
-                        </div>
+                <div style="text-align: center; margin-bottom: var(--space-12);">
+                    <span class="eyebrow-pill reveal">Unser Produktportfolio</span>
+                    <h2 class="heading-lg reveal" style="margin-top: var(--space-4);">Die stärksten Komponenten<br>für Ihr Gebäude</h2>
+                    <p class="lead reveal" style="max-width: 600px; margin: var(--space-4) auto 0;">
+                        Innovative KWK-Technologie, intelligent vernetzt und aufeinander abgestimmt — für maximale Effizienz.
+                    </p>
+                </div>
+
+                <div class="product-grid reveal-stagger">
+                    <!-- Hero Product -->
+                    <div class="product-card hero-card shimmer-card">
+                        <a href="produkt-thermohybrid.html" class="product-link">
+                            <img src="images/thermohybrid.png" alt="ThermoHybrid" loading="lazy">
+                            <div class="product-overlay">
+                                <span class="product-label">Flaggschiff</span>
+                                <h3>ThermoHybrid</h3>
+                                <p class="product-sub">Strom & Wärme aus einer Anlage. Über 90% Gesamteffizienz.</p>
+                            </div>
+                            <span class="product-cta">→</span>
+                        </a>
+                    </div>
+
+                    <!-- Comfy Plus -->
+                    <div class="product-card card-solar shimmer-card">
+                        <a href="produkt-comfy-plus-75.html" class="product-link">
+                            <img src="images/FuchsComfy.png" alt="Comfy Plus 75" loading="lazy">
+                            <div class="product-overlay">
+                                <span class="product-label">Wärme</span>
+                                <h3>Comfy Plus 75</h3>
+                                <p class="product-sub">Komfort-Heizlösung</p>
+                            </div>
+                            <span class="product-cta">→</span>
+                        </a>
+                    </div>
+
+                    <!-- H2 Storage -->
+                    <div class="product-card card-storage shimmer-card">
+                        <a href="produkt-h2-storage.html" class="product-link">
+                            <img src="images/h2.png" alt="H2 Storage" loading="lazy">
+                            <div class="product-overlay">
+                                <span class="product-label">Speicher</span>
+                                <h3>H2 Storage</h3>
+                            </div>
+                            <span class="product-cta">→</span>
+                        </a>
+                    </div>
+
+                    <!-- Titan -->
+                    <div class="product-card card-wallbox shimmer-card">
+                        <a href="produkt-fuchs-titan.html" class="product-link">
+                            <img src="images/titan.png" alt="Titan" loading="lazy">
+                            <div class="product-overlay">
+                                <span class="product-label">Industrie</span>
+                                <h3>Titan</h3>
+                                <p class="product-sub">Für Großprojekte</p>
+                            </div>
+                            <span class="product-cta">→</span>
+                        </a>
+                    </div>
+
+                    <!-- Renso Kompakt -->
+                    <div class="product-card card-heat shimmer-card">
+                        <a href="produkt-renso-kompakt.html" class="product-link">
+                            <img src="images/renso.png" alt="Renso Kompakt" loading="lazy">
+                            <div class="product-overlay">
+                                <span class="product-label">Kompakt</span>
+                                <h3>Renso</h3>
+                            </div>
+                            <span class="product-cta">→</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- =============================================
-             KAPITEL 4: DIE LÖSUNG (ThermoHybrid)
+             WIE ES FUNKTIONIERT (Solution Steps)
              ============================================= -->
-        <section class="chapter chapter-solution" id="solution">
+        <section class="chapter chapter-solution" id="vorteile" style="min-height: auto; padding: var(--space-20) var(--space-4);">
             <div class="chapter-inner">
                 <div class="solution-header reveal">
-                    <span class="chapter-number">03</span>
-                    <h2 class="heading-lg">ThermoHybrid</h2>
+                    <span class="eyebrow-pill">So funktioniert's</span>
+                    <h2 class="heading-lg" style="margin-top: var(--space-4);">ThermoHybrid</h2>
                     <p class="lead">Eine Technologie. Vier Vorteile.</p>
                 </div>
 
@@ -178,7 +262,7 @@
                         <div class="step-number">01</div>
                         <div class="step-content">
                             <h3>Generator erzeugt Strom</h3>
-                            <p>Ein hocheffizienter Generator produziert Grundlaststrom für Ihr Gebäude - oder speist ins Netz ein.</p>
+                            <p>Ein hocheffizienter Generator produziert Grundlaststrom für Ihr Gebäude — oder speist ins Netz ein.</p>
                         </div>
                         <div class="step-visual">
                             <img src="images/thermohybrid.png" alt="ThermoHybrid Generator" loading="lazy">
@@ -189,7 +273,7 @@
                         <div class="step-number">02</div>
                         <div class="step-content">
                             <h3>Abwärme wird genutzt</h3>
-                            <p>Die entstehende Wärme geht nicht verloren - sie heizt Ihr Gebäude. Effizienz über 90%.</p>
+                            <p>Die entstehende Wärme geht nicht verloren — sie heizt Ihr Gebäude. Effizienz über 90%.</p>
                         </div>
                         <div class="step-visual">
                             <img src="images/FuchsComfy.png" alt="Wärmenutzung" loading="lazy">
@@ -199,7 +283,7 @@
                     <div class="solution-step reveal" data-step="3">
                         <div class="step-number">03</div>
                         <div class="step-content">
-                            <h3>System optimiert sich</h3>
+                            <h3>System optimiert sich selbst</h3>
                             <p>Intelligentes Monitoring passt den Betrieb automatisch an. 24/7 Überwachung, Remote-Service inklusive.</p>
                         </div>
                         <div class="step-visual">
@@ -210,7 +294,7 @@
                     <div class="solution-step reveal" data-step="4">
                         <div class="step-number">04</div>
                         <div class="step-content">
-                            <h3>Sie profitieren</h3>
+                            <h3>Sie profitieren — ab Tag 1</h3>
                             <p>KWKG-Vergütung, Einsparungen, CO₂-Reduktion. Ihr Gebäude wird zum Profit-Center.</p>
                         </div>
                         <div class="step-visual step-visual-stats">
@@ -229,23 +313,24 @@
         </section>
 
         <!-- =============================================
-             KAPITEL 5: ZAHLEN DIE ÜBERZEUGEN
+             ZAHLEN DIE ÜBERZEUGEN
              ============================================= -->
-        <section class="chapter chapter-numbers" id="numbers">
+        <section class="chapter chapter-numbers" id="numbers" style="min-height: auto; padding: var(--space-20) var(--space-4);">
             <div class="chapter-inner">
-                <span class="chapter-number chapter-number-center">04</span>
+                <span class="eyebrow-pill reveal">Unsere Erfolgsbilanz</span>
+                <h2 class="heading-lg reveal" style="margin-top: var(--space-4); margin-bottom: var(--space-12);">Zahlen, die überzeugen</h2>
 
-                <div class="numbers-grid">
-                    <div class="number-card reveal">
+                <div class="numbers-grid reveal-stagger">
+                    <div class="number-card">
                         <span class="counter number-value" data-target="120" data-suffix="+">0</span>
                         <span class="number-label">Systeme in Betrieb</span>
                     </div>
-                    <div class="number-card reveal">
+                    <div class="number-card">
                         <span class="counter number-value" data-target="60" data-suffix="%">0</span>
                         <span class="number-label">weniger CO₂</span>
                     </div>
-                    <div class="number-card reveal">
-                        <span class="counter number-value" data-target="3" data-suffix="-4 J.">0</span>
+                    <div class="number-card">
+                        <span class="counter number-value" data-target="3" data-suffix="–4 J.">0</span>
                         <span class="number-label">bis zum ROI</span>
                     </div>
                 </div>
@@ -267,17 +352,80 @@
         </section>
 
         <!-- =============================================
-             KAPITEL 6: MADE IN GERMANY
+             KUNDENSTIMMEN (wie 1KOMMA5°)
              ============================================= -->
-        <section class="chapter chapter-about" id="about">
+        <section class="testimonials-section" id="referenzen">
+            <div class="testimonials-inner">
+                <div class="testimonials-header">
+                    <span class="eyebrow-pill reveal">Kundenstimmen</span>
+                    <h2 class="heading-lg reveal" style="margin-top: var(--space-4);">Das sagen unsere Kunden</h2>
+                    <p class="lead reveal" style="max-width: 600px; margin: var(--space-4) auto 0;">
+                        Über 120 Gebäudebetreiber vertrauen auf ThermoHybrid. Hier sind ihre Erfahrungen.
+                    </p>
+                </div>
+
+                <div class="testimonials-grid reveal-stagger">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">
+                            „Die Investition hat sich schneller amortisiert als erwartet. Nach 2,5 Jahren sind wir im Plus — und das System läuft zuverlässig rund um die Uhr."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">MK</div>
+                            <div>
+                                <div class="testimonial-name">Michael K.</div>
+                                <div class="testimonial-role">Hotelier, NRW</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">
+                            „Beratung und Installation waren erstklassig. Wir sparen jetzt über 40% Energiekosten und produzieren unseren eigenen Strom. Absolute Empfehlung."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">SB</div>
+                            <div>
+                                <div class="testimonial-name">Sandra B.</div>
+                                <div class="testimonial-role">Wohnungsverwaltung, Bergkamen</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">
+                            „Das Monitoring ist fantastisch. Ich sehe in Echtzeit, wie viel Strom und Wärme erzeugt wird. Der Service reagiert schnell und kompetent."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">TW</div>
+                            <div>
+                                <div class="testimonial-name">Thomas W.</div>
+                                <div class="testimonial-role">Gewerbebetrieb, Dortmund</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: var(--space-8);">
+                    <a href="referenzen.html" class="btn-secondary">Alle Referenzen ansehen →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             MADE IN GERMANY
+             ============================================= -->
+        <section class="chapter chapter-about" id="about" style="min-height: auto; padding: var(--space-20) var(--space-4);">
             <div class="chapter-inner">
                 <div class="grid-editorial reverse">
                     <div class="editorial-visual reveal">
                         <img src="images/Lagerhalle.png" alt="WärmeWerke Produktion" class="about-image" loading="lazy">
                     </div>
                     <div class="editorial-content">
-                        <span class="chapter-number">05</span>
-                        <h2 class="heading-md reveal">
+                        <span class="eyebrow-pill">Qualität aus Deutschland</span>
+                        <h2 class="heading-md reveal" style="margin-top: var(--space-4);">
                             Jedes System durchläuft<br>
                             <span class="text-gradient">110 Qualitätschecks</span>,<br>
                             bevor es Ihr Gebäude erreicht.
@@ -285,15 +433,19 @@
                         <ul class="about-list reveal">
                             <li>
                                 <span class="about-icon">🇩🇪</span>
-                                <span>Made in Germany</span>
+                                <span>Made in Germany — Eigene Fertigung</span>
                             </li>
                             <li>
                                 <span class="about-icon">🏭</span>
-                                <span>Eigene Fertigung</span>
+                                <span>Über 25 Jahre Erfahrung in KWK-Technologie</span>
                             </li>
                             <li>
                                 <span class="about-icon">📊</span>
-                                <span>25+ Jahre Erfahrung</span>
+                                <span>24/7 Remote-Monitoring & Service</span>
+                            </li>
+                            <li>
+                                <span class="about-icon">🛡️</span>
+                                <span>Vollständige KWKG & BEW Förderberatung</span>
                             </li>
                         </ul>
                     </div>
@@ -302,13 +454,55 @@
         </section>
 
         <!-- =============================================
-             KAPITEL 7: NÄCHSTER SCHRITT
+             5 SCHRITTE (wie EKD)
              ============================================= -->
-        <section class="chapter chapter-cta" id="contact">
+        <section style="background: var(--ww-bg-alt); padding: var(--space-20) var(--space-4);">
+            <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+                <span class="eyebrow-pill reveal">So einfach geht's</span>
+                <h2 class="heading-lg reveal" style="margin-top: var(--space-4); margin-bottom: var(--space-12);">In 5 Schritten zum eigenen Kraftwerk</h2>
+
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-4); text-align: center;" class="reveal-stagger">
+                    <div style="padding: var(--space-6);">
+                        <div style="width: 56px; height: 56px; margin: 0 auto var(--space-4); background: var(--ww-gradient-cta); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.25rem; font-family: var(--font-display);">1</div>
+                        <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Energie-Check</h4>
+                        <p style="font-size: 0.85rem; color: var(--ww-text-subtle);">4 Fragen beantworten</p>
+                    </div>
+                    <div style="padding: var(--space-6);">
+                        <div style="width: 56px; height: 56px; margin: 0 auto var(--space-4); background: var(--ww-gradient-cta); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.25rem; font-family: var(--font-display);">2</div>
+                        <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Beratung</h4>
+                        <p style="font-size: 0.85rem; color: var(--ww-text-subtle);">Kostenlose Vor-Ort-Analyse</p>
+                    </div>
+                    <div style="padding: var(--space-6);">
+                        <div style="width: 56px; height: 56px; margin: 0 auto var(--space-4); background: var(--ww-gradient-cta); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.25rem; font-family: var(--font-display);">3</div>
+                        <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Planung</h4>
+                        <p style="font-size: 0.85rem; color: var(--ww-text-subtle);">Individuelles Konzept & Angebot</p>
+                    </div>
+                    <div style="padding: var(--space-6);">
+                        <div style="width: 56px; height: 56px; margin: 0 auto var(--space-4); background: var(--ww-gradient-cta); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.25rem; font-family: var(--font-display);">4</div>
+                        <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Installation</h4>
+                        <p style="font-size: 0.85rem; color: var(--ww-text-subtle);">Professionelle Montage</p>
+                    </div>
+                    <div style="padding: var(--space-6);">
+                        <div style="width: 56px; height: 56px; margin: 0 auto var(--space-4); background: var(--ww-gradient-cta); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.25rem; font-family: var(--font-display);">5</div>
+                        <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Inbetriebnahme</h4>
+                        <p style="font-size: 0.85rem; color: var(--ww-text-subtle);">Ihr Kraftwerk läuft</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: var(--space-10);" class="reveal">
+                    <a href="funnel.html" class="btn-primary btn-lg">Jetzt Energie-Check starten →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             CTA - KONTAKT
+             ============================================= -->
+        <section class="chapter chapter-cta" id="contact" style="min-height: auto; padding: var(--space-20) var(--space-4);">
             <div class="chapter-inner">
-                <span class="chapter-number chapter-number-center">06</span>
-                <h2 class="cta-headline reveal">
-                    Bereit für den nächsten Schritt?
+                <span class="eyebrow-pill reveal">Bereit?</span>
+                <h2 class="cta-headline reveal" style="margin-top: var(--space-4);">
+                    Machen Sie Ihr Gebäude<br>zum <span class="text-gradient">Energiezentrum</span>.
                 </h2>
 
                 <div class="cta-options reveal">
@@ -406,12 +600,26 @@
             </nav>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 WärmeWerke GmbH. Alle Rechte vorbehalten.</p>
+                <p>&copy; 2025 WärmeWerke GmbH. Alle Rechte vorbehalten.</p>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script src="script.js"></script>
+
+    <!-- Responsive 5-Steps Grid -->
+    <style>
+        @media (max-width: 900px) {
+            [style*="grid-template-columns: repeat(5"] {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+        }
+        @media (max-width: 600px) {
+            [style*="grid-template-columns: repeat(5"] {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+    </style>
 </body>
 </html>
