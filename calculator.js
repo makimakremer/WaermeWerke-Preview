@@ -66,13 +66,13 @@
             }
 
             const heizlast = verbrauch / 3000;
-            heizlastElement.textContent = `${heizlast.toFixed(1)} kW`;
+            heizlastElement.textContent = `${heizlast.toFixed(1)} kW ->`;
 
             const passendBHKW = findePassendesBHKW(heizlast);
-            const elektrischMarkup = `${passendBHKW.elektrisch} kW`;
+            const elektrischMarkup = `<span style="color: #2ed5d2">${passendBHKW.elektrisch} kW</span>`;
 
             elektrischElements.forEach(el => {
-                el.textContent = elektrischMarkup;
+                el.innerHTML = elektrischMarkup;
             });
 
             heizleistungElements.forEach(el => {
@@ -100,6 +100,14 @@
                         co2SavingsEl.textContent = `${kgFormatter.format(einsparungKg)} kg`;
                     }
                 } catch {}
+
+                const teaserRangeEl = document.getElementById('teaser-range');
+                if (teaserRangeEl) {
+                    const rangeMin = Math.min(einspeisungValue, eigenverbrauchValue);
+                    const rangeMax = Math.max(einspeisungValue, eigenverbrauchValue);
+                    const formatRange = (val) => `${(val / 1000).toFixed(0)} T€`;
+                    teaserRangeEl.textContent = `${formatRange(rangeMin)} – ${formatRange(rangeMax)}`;
+                }
             }
         };
 
@@ -112,13 +120,49 @@
         });
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initCalculator);
-    } else {
-        initCalculator();
+    function initDetailPrefill() {
+        try {
+            const params = new URLSearchParams(location.search);
+            const v = params.get('v');
+            if (!v) return;
+            const input = document.getElementById('verbrauch');
+            if (input && !input.value) input.value = v;
+        } catch {
+            /* no-op */
+        }
+    }
+
+    function initRevenueApply() {
+        const buttons = document.querySelectorAll('.rev-apply');
+        const target = document.getElementById('Ertrag');
+        if (!buttons.length || !target) return;
+
+        const parseCurrency = (text) => {
+            const normalized = String(text || '').replace(/[^\d,.,-]/g, '').replace(/\.(?=.*\.)/g, '').replace(',', '.');
+            const num = parseFloat(normalized);
+            return Number.isFinite(num) ? num : NaN;
+        };
+
+        const formatCurrency = (value) => euroFormatter.format(value);
+
+        buttons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const sourceId = btn.getAttribute('data-source');
+                const sourceEl = sourceId ? document.getElementById(sourceId) : null;
+                if (!sourceEl) return;
+                const value = parseCurrency(sourceEl.textContent);
+                if (!Number.isFinite(value)) return;
+                target.textContent = `Ertrag: ${formatCurrency(value)}`;
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        });
     }
 
     window.FuchsCalculator = {
-        initCalculator
+        initCalculator,
+        initDetailPrefill,
+        initRevenueApply
     };
 })();
+
+
