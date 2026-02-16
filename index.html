@@ -3,577 +3,1004 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WärmeWerke | Die Kraftwerke von morgen</title>
-    <meta name="description" content="WärmeWerke revolutioniert die Gebäudeenergie. ThermoHybrid kombiniert Stromerzeugung mit Wärmenutzung - für maximale Effizienz und Förderung.">
-
+    <title>WärmeWerke | Ihre Energielösung für morgen</title>
+    <meta name="description" content="WärmeWerke verwandelt Ihr Gebäude in ein modernes Energiezentrum. Wärmepumpen, Solaranlagen und intelligente Energielösungen aus einer Hand.">
+    
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-
+    
     <!-- Open Graph -->
-    <meta property="og:title" content="WärmeWerke | Die Kraftwerke von morgen">
-    <meta property="og:description" content="Wir verwandeln Gebäude in Energiezentren. ThermoHybrid - Strom & Wärme aus einer Anlage.">
+    <meta property="og:title" content="WärmeWerke | Ihre Energielösung für morgen">
+    <meta property="og:description" content="Intelligente Energiesysteme für moderne Gebäude.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://waermewerke.de">
-    <meta property="og:image" content="https://waermewerke.de/images/og-image.jpg">
-
-    <!-- Theme -->
-    <meta name="theme-color" content="#0A0B10">
+    
+    <style>
+        /* ===================================
+           RESET & BASE
+           =================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --orange: #F18701;
+            --gold: #F7B801;
+            --dark: #0D0D0D;
+            --dark-alt: #111111;
+            --light: #FFFFFF;
+            --light-bg: #F8F9FA;
+            --gray-100: #F5F5F5;
+            --gray-200: #E5E5E5;
+            --gray-300: #D4D4D4;
+            --gray-400: #A3A3A3;
+            --gray-600: #525252;
+            --gray-800: #262626;
+            --text-dark: #171717;
+            --text-muted: #737373;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* ===================================
+           NAVIGATION
+           =================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .navbar-inner {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--gold) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 1.25rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+        
+        .btn-cta {
+            background: var(--orange);
+            color: white;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-cta:hover {
+            background: #d67501;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(241, 135, 1, 0.3);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--dark);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        
+        /* ===================================
+           HERO SECTION
+           =================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding: 8rem 2rem 4rem;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(13, 13, 13, 0.95) 0%, rgba(17, 17, 17, 0.85) 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            text-align: center;
+        }
+        
+        .eyebrow {
+            display: inline-block;
+            background: rgba(241, 135, 1, 0.15);
+            color: var(--orange);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-headline {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero-headline .gradient-text {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-bullets {
+            max-width: 600px;
+            margin: 2rem auto;
+            text-align: left;
+            display: inline-block;
+        }
+        
+        .hero-bullet {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .check-icon::after {
+            content: "✓";
+            color: white;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+        
+        .hero-cta {
+            margin-top: 3rem;
+        }
+        
+        .btn-primary {
+            background: var(--orange);
+            color: white;
+            padding: 1.125rem 2.5rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            background: #d67501;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(241, 135, 1, 0.4);
+        }
+        
+        .trust-indicators {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+        
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .trust-item strong {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        /* ===================================
+           TRUST BAR
+           =================================== */
+        .trust-bar {
+            background: white;
+            padding: 2rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .trust-bar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .trust-badge-icon {
+            font-size: 1.5rem;
+        }
+        
+        /* ===================================
+           SECTION COMMON
+           =================================== */
+        .section {
+            padding: 6rem 2rem;
+        }
+        
+        .section-dark {
+            background: var(--dark);
+            color: white;
+        }
+        
+        .section-light {
+            background: var(--light-bg);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-eyebrow {
+            display: inline-block;
+            color: var(--orange);
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .section-dark .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* ===================================
+           PRODUCTS GRID
+           =================================== */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background: var(--gray-100);
+        }
+        
+        .product-content {
+            padding: 1.75rem;
+        }
+        
+        .product-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+        
+        .product-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* ===================================
+           HOW IT WORKS
+           =================================== */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .step-card {
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--gold) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.75rem;
+            font-weight: 900;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+        
+        .step-desc {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+        
+        /* ===================================
+           TESTIMONIALS
+           =================================== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .testimonial-stars {
+            color: var(--gold);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--gold) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .testimonial-name {
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .testimonial-location {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        /* ===================================
+           CTA SECTION
+           =================================== */
+        .cta-section {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+        
+        .cta-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2.5rem;
+        }
+        
+        /* ===================================
+           FOOTER
+           =================================== */
+        .footer {
+            background: var(--dark-alt);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 4rem 2rem 2rem;
+        }
+        
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-brand {
+            max-width: 300px;
+        }
+        
+        .footer-logo {
+            font-size: 1.75rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-tagline {
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+        
+        .footer-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.25rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--orange);
+        }
+        
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* ===================================
+           ANIMATIONS
+           =================================== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ===================================
+           RESPONSIVE
+           =================================== */
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-inner {
+                padding: 1rem 1.5rem;
+            }
+            
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+            
+            .hero-bullets {
+                text-align: left;
+            }
+            
+            .trust-indicators {
+                gap: 1.5rem;
+            }
+            
+            .section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .products-grid,
+            .steps-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Skip Link -->
-    <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
-
+    
     <!-- Navigation -->
-    <header class="navbar navbar-editorial">
-        <a href="index.html" class="logo-text">
-            <span class="logo-waermewerke">WärmeWerke</span>
-        </a>
-
-        <nav id="nav-menu" class="nav-menu">
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">W°</div>
+                <span>WärmeWerke</span>
+            </a>
+            
             <ul class="nav-links">
                 <li><a href="#produkte">Produkte</a></li>
-                <li><a href="#vorteile">Vorteile</a></li>
+                <li><a href="#wie-es-funktioniert">Vorteile</a></li>
                 <li><a href="#referenzen">Referenzen</a></li>
                 <li><a href="wirtschaftlichkeit.html">Rechner</a></li>
                 <li><a href="foerderung.html">Förderung</a></li>
             </ul>
-            <a href="funnel.html" class="btn-primary btn-sm">Kostenlos beraten lassen</a>
-        </nav>
-
-        <button id="burger-menu" class="burger-menu" aria-label="Navigation öffnen">
-            <span class="burger-line"></span>
-            <span class="burger-line"></span>
-            <span class="burger-line"></span>
-        </button>
-    </header>
-
-    <main id="main-content">
-
-        <!-- =============================================
-             HERO - Premium, Bold, Überzeugend
-             ============================================= -->
-        <section class="chapter chapter-hero" id="hero">
-            <div class="chapter-bg">
-                <img src="images/Hero.webp" alt="" class="chapter-bg-image" loading="eager">
-                <div class="chapter-bg-overlay"></div>
-            </div>
-
-            <div class="chapter-content">
-                <span class="eyebrow-pill reveal">Kraft-Wärme-Kopplung der nächsten Generation</span>
-                <h1 class="hero-statement" style="margin-top: 1.5rem;">
-                    <span class="statement-line">Ihr Gebäude wird zum</span>
-                    <span class="statement-line statement-highlight">Kraftwerk.</span>
-                </h1>
-                <p class="lead" style="max-width: 640px; margin: 1.5rem auto 2.5rem; text-align: center; color: var(--ww-text-muted);">
-                    ThermoHybrid erzeugt Strom und Wärme gleichzeitig — direkt in Ihrem Gebäude. Bis zu 60% weniger CO₂, staatliche Förderung und ROI in 3–4 Jahren.
-                </p>
-                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-                    <a href="funnel.html" class="btn-primary btn-lg">Energie-Check starten →</a>
-                    <a href="#produkte" class="btn-secondary btn-lg">Produkte entdecken</a>
+            
+            <a href="funnel.html" class="btn-cta">Kostenlos beraten lassen</a>
+            
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80" alt="Modern home" class="hero-bg">
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content fade-in">
+            <span class="eyebrow">Viel mehr als nur eine Heizung</span>
+            
+            <h1 class="hero-headline">
+                Ihr Gebäude wird zum<br>
+                <span class="gradient-text">Energiezentrum</span>
+            </h1>
+            
+            <div class="hero-bullets">
+                <div class="hero-bullet">
+                    <span class="check-icon"></span>
+                    <span>Bis zu 60% weniger Energiekosten</span>
+                </div>
+                <div class="hero-bullet">
+                    <span class="check-icon"></span>
+                    <span>100% nachhaltige Technologie</span>
+                </div>
+                <div class="hero-bullet">
+                    <span class="check-icon"></span>
+                    <span>Staatliche Förderung bis zu 70%</span>
+                </div>
+                <div class="hero-bullet">
+                    <span class="check-icon"></span>
+                    <span>ROI in 3–4 Jahren garantiert</span>
                 </div>
             </div>
-
-            <div class="scroll-indicator">
-                <span class="scroll-text">Entdecken</span>
-                <div class="scroll-arrow">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 5v14M5 12l7 7 7-7"/>
-                    </svg>
-                </div>
+            
+            <div class="hero-cta">
+                <a href="funnel.html" class="btn-primary">Jetzt Energie-Check starten →</a>
             </div>
-        </section>
-
-        <!-- =============================================
-             BENEFITS BAR - Trust Elemente
-             ============================================= -->
-        <div class="benefits-bar">
-            <div class="benefits-inner">
-                <div class="benefit-item">
-                    <span class="benefit-icon">🇩🇪</span>
-                    <span>Made in Germany</span>
+            
+            <div class="trust-indicators">
+                <div class="trust-item">
+                    <strong>100+</strong>
+                    <span>zufriedene Kunden</span>
                 </div>
-                <div class="benefit-item">
-                    <span class="benefit-icon">⚡</span>
-                    <span>120+ Systeme in Betrieb</span>
-                </div>
-                <div class="benefit-item">
-                    <span class="benefit-icon">💰</span>
-                    <span>KWKG-Förderung inklusive</span>
-                </div>
-                <div class="benefit-item">
-                    <span class="benefit-icon">🔧</span>
+                <div class="trust-item">
+                    <strong>Meisterbetrieb</strong>
                     <span>25+ Jahre Erfahrung</span>
                 </div>
-                <div class="benefit-item">
-                    <span class="benefit-icon">📊</span>
-                    <span>ROI in 3–4 Jahren</span>
+                <div class="trust-item">
+                    <strong>Fördergarantie</strong>
+                    <span>Bis zu 70%</span>
                 </div>
             </div>
         </div>
-
-        <!-- =============================================
-             DAS PROBLEM
-             ============================================= -->
-        <section class="chapter chapter-problem" id="problem" style="min-height: auto; padding: var(--space-20) var(--space-4);">
-            <div class="chapter-inner">
-                <div class="grid-editorial">
-                    <div class="editorial-content">
-                        <span class="chapter-number">01</span>
-                        <div class="stat-highlight reveal">
-                            <span class="counter stat-number" data-target="65" data-suffix="%">0%</span>
-                            <span class="stat-label">aller Heizungen in Deutschland sind veraltet</span>
-                        </div>
-                        <p class="editorial-text reveal">
-                            Während die Welt über Energiewende spricht, arbeiten Millionen
-                            Heizungsanlagen ineffizient vor sich hin. Sie verbrauchen Energie,
-                            statt sie zu erzeugen. Sie kosten Geld, statt es zu verdienen.
-                        </p>
-                        <p class="editorial-text text-muted reveal">
-                            Das GEG 2026 kommt. Die Frage ist nicht ob, sondern wann
-                            Ihr Gebäude handeln muss.
-                        </p>
+    </section>
+    
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <div class="trust-bar-inner">
+            <div class="trust-badge">
+                <span class="trust-badge-icon">🇩🇪</span>
+                <span>Made in Germany</span>
+            </div>
+            <div class="trust-badge">
+                <span class="trust-badge-icon">⚡</span>
+                <span>120+ Systeme in Betrieb</span>
+            </div>
+            <div class="trust-badge">
+                <span class="trust-badge-icon">🔧</span>
+                <span>Meisterqualität seit 1998</span>
+            </div>
+            <div class="trust-badge">
+                <span class="trust-badge-icon">💰</span>
+                <span>KWKG-Förderung inklusive</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Products Section -->
+    <section id="produkte" class="section section-light">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-eyebrow">Unser Produktportfolio</span>
+                <h2 class="section-title">Intelligente Energielösungen<br>für moderne Gebäude</h2>
+                <p class="section-subtitle">Von der Wärmepumpe bis zur Smart-Home-Integration – alles aus einer Hand für maximale Effizienz.</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1624397640148-949b1732bb0a?w=600&q=80" alt="Wärmepumpe" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-name">Wärmepumpe</h3>
+                        <p class="product-desc">Hocheffiziente Luft-Wasser-Wärmepumpen für maximale Energieeffizienz. Bis zu 75% Förderung möglich.</p>
                     </div>
-                    <div class="editorial-visual reveal">
-                        <div class="visual-card">
-                            <div class="visual-comparison">
-                                <div class="comparison-old">
-                                    <span class="comparison-icon">🔥</span>
-                                    <span class="comparison-label">Alte Heizung</span>
-                                    <span class="comparison-value text-error">-100%</span>
-                                    <span class="comparison-desc">Verbraucht nur</span>
-                                </div>
-                                <div class="comparison-arrow">→</div>
-                                <div class="comparison-new">
-                                    <span class="comparison-icon">⚡</span>
-                                    <span class="comparison-label">ThermoHybrid</span>
-                                    <span class="comparison-value text-success">+40%</span>
-                                    <span class="comparison-desc">Erzeugt & spart</span>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                
+                <div class="product-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80" alt="Solaranlage" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-name">Solaranlage</h3>
+                        <p class="product-desc">Premium-Photovoltaikanlagen mit höchsten Wirkungsgraden. Produzieren Sie Ihren eigenen Strom.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80" alt="Stromspeicher" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-name">Stromspeicher</h3>
+                        <p class="product-desc">Intelligente Batteriespeicher für 24/7 Unabhängigkeit. Nutzen Sie Solarstrom auch nachts.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80" alt="Wallbox" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-name">Wallbox</h3>
+                        <p class="product-desc">Schnellladelösungen für Ihr E-Auto. Laden Sie mit selbst erzeugtem Solarstrom.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80" alt="Smart Home" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-name">Smart Home</h3>
+                        <p class="product-desc">Intelligentes Energiemanagement. Alle Systeme vernetzt, optimiert und überwacht.</p>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- =============================================
-             PRODUKT-SHOWCASE (wie EKD)
-             ============================================= -->
-        <section class="chapter" id="produkte" style="min-height: auto; padding: var(--space-20) var(--space-4); background: var(--ww-bg-alt);">
-            <div class="chapter-inner">
-                <div style="text-align: center; margin-bottom: var(--space-12);">
-                    <span class="eyebrow-pill reveal">Unser Produktportfolio</span>
-                    <h2 class="heading-lg reveal" style="margin-top: var(--space-4);">Die stärksten Komponenten<br>für Ihr Gebäude</h2>
-                    <p class="lead reveal" style="max-width: 600px; margin: var(--space-4) auto 0;">
-                        Innovative KWK-Technologie, intelligent vernetzt und aufeinander abgestimmt — für maximale Effizienz.
+        </div>
+    </section>
+    
+    <!-- How It Works Section -->
+    <section id="wie-es-funktioniert" class="section section-dark">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-eyebrow">So funktioniert's</span>
+                <h2 class="section-title">In 3 Schritten zur<br>optimalen Energielösung</h2>
+                <p class="section-subtitle">Von der Beratung bis zur Inbetriebnahme – wir begleiten Sie auf jedem Schritt.</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card fade-in">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Beratung & Planung</h3>
+                    <p class="step-desc">Kostenlose Vor-Ort-Analyse Ihres Gebäudes. Wir erstellen ein individuelles Energiekonzept mit Förderberatung.</p>
+                </div>
+                
+                <div class="step-card fade-in">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Installation</h3>
+                    <p class="step-desc">Professionelle Montage durch unsere Meisterbetriebe. Alle Komponenten perfekt aufeinander abgestimmt.</p>
+                </div>
+                
+                <div class="step-card fade-in">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Service & Wartung</h3>
+                    <p class="step-desc">24/7 Monitoring, Remote-Service und regelmäßige Wartung. Sie profitieren ab Tag 1.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="referenzen" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-eyebrow">Kundenstimmen</span>
+                <h2 class="section-title">Das sagen unsere Kunden</h2>
+                <p class="section-subtitle">Über 100 zufriedene Kunden vertrauen auf WärmeWerke. Hier sind ihre Erfahrungen.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        „Die Investition hat sich schneller amortisiert als erwartet. Nach 2,5 Jahren sind wir im Plus – und das System läuft zuverlässig rund um die Uhr."
                     </p>
-                </div>
-
-                <div class="product-grid reveal-stagger">
-                    <!-- Hero Product -->
-                    <div class="product-card hero-card shimmer-card">
-                        <a href="produkt-thermohybrid.html" class="product-link">
-                            <img src="images/thermohybrid.png" alt="ThermoHybrid" loading="lazy">
-                            <div class="product-overlay">
-                                <span class="product-label">Flaggschiff</span>
-                                <h3>ThermoHybrid</h3>
-                                <p class="product-sub">Strom & Wärme aus einer Anlage. Über 90% Gesamteffizienz.</p>
-                            </div>
-                            <span class="product-cta">→</span>
-                        </a>
-                    </div>
-
-                    <!-- Comfy Plus -->
-                    <div class="product-card card-solar shimmer-card">
-                        <a href="produkt-comfy-plus-75.html" class="product-link">
-                            <img src="images/FuchsComfy.png" alt="Comfy Plus 75" loading="lazy">
-                            <div class="product-overlay">
-                                <span class="product-label">Wärme</span>
-                                <h3>Comfy Plus 75</h3>
-                                <p class="product-sub">Komfort-Heizlösung</p>
-                            </div>
-                            <span class="product-cta">→</span>
-                        </a>
-                    </div>
-
-                    <!-- H2 Storage -->
-                    <div class="product-card card-storage shimmer-card">
-                        <a href="produkt-h2-storage.html" class="product-link">
-                            <img src="images/h2.png" alt="H2 Storage" loading="lazy">
-                            <div class="product-overlay">
-                                <span class="product-label">Speicher</span>
-                                <h3>H2 Storage</h3>
-                            </div>
-                            <span class="product-cta">→</span>
-                        </a>
-                    </div>
-
-                    <!-- Titan -->
-                    <div class="product-card card-wallbox shimmer-card">
-                        <a href="produkt-fuchs-titan.html" class="product-link">
-                            <img src="images/titan.png" alt="Titan" loading="lazy">
-                            <div class="product-overlay">
-                                <span class="product-label">Industrie</span>
-                                <h3>Titan</h3>
-                                <p class="product-sub">Für Großprojekte</p>
-                            </div>
-                            <span class="product-cta">→</span>
-                        </a>
-                    </div>
-
-                    <!-- Renso Kompakt -->
-                    <div class="product-card card-heat shimmer-card">
-                        <a href="produkt-renso-kompakt.html" class="product-link">
-                            <img src="images/renso.png" alt="Renso Kompakt" loading="lazy">
-                            <div class="product-overlay">
-                                <span class="product-label">Kompakt</span>
-                                <h3>Renso</h3>
-                            </div>
-                            <span class="product-cta">→</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =============================================
-             WIE ES FUNKTIONIERT (Solution Steps)
-             ============================================= -->
-        <section class="chapter chapter-solution" id="vorteile" style="min-height: auto; padding: var(--space-20) var(--space-4);">
-            <div class="chapter-inner">
-                <div class="solution-header reveal">
-                    <span class="eyebrow-pill">So funktioniert's</span>
-                    <h2 class="heading-lg" style="margin-top: var(--space-4);">ThermoHybrid</h2>
-                    <p class="lead">Eine Technologie. Vier Vorteile.</p>
-                </div>
-
-                <div class="solution-steps">
-                    <div class="solution-step reveal" data-step="1">
-                        <div class="step-number">01</div>
-                        <div class="step-content">
-                            <h3>Generator erzeugt Strom</h3>
-                            <p>Ein hocheffizienter Generator produziert Grundlaststrom für Ihr Gebäude — oder speist ins Netz ein.</p>
-                        </div>
-                        <div class="step-visual">
-                            <img src="images/thermohybrid.png" alt="ThermoHybrid Generator" loading="lazy">
-                        </div>
-                    </div>
-
-                    <div class="solution-step reveal" data-step="2">
-                        <div class="step-number">02</div>
-                        <div class="step-content">
-                            <h3>Abwärme wird genutzt</h3>
-                            <p>Die entstehende Wärme geht nicht verloren — sie heizt Ihr Gebäude. Effizienz über 90%.</p>
-                        </div>
-                        <div class="step-visual">
-                            <img src="images/FuchsComfy.png" alt="Wärmenutzung" loading="lazy">
-                        </div>
-                    </div>
-
-                    <div class="solution-step reveal" data-step="3">
-                        <div class="step-number">03</div>
-                        <div class="step-content">
-                            <h3>System optimiert sich selbst</h3>
-                            <p>Intelligentes Monitoring passt den Betrieb automatisch an. 24/7 Überwachung, Remote-Service inklusive.</p>
-                        </div>
-                        <div class="step-visual">
-                            <img src="images/Monitoring.png" alt="Monitoring Dashboard" loading="lazy">
-                        </div>
-                    </div>
-
-                    <div class="solution-step reveal" data-step="4">
-                        <div class="step-number">04</div>
-                        <div class="step-content">
-                            <h3>Sie profitieren — ab Tag 1</h3>
-                            <p>KWKG-Vergütung, Einsparungen, CO₂-Reduktion. Ihr Gebäude wird zum Profit-Center.</p>
-                        </div>
-                        <div class="step-visual step-visual-stats">
-                            <div class="mini-stat">
-                                <span class="mini-stat-value">0,27€</span>
-                                <span class="mini-stat-label">pro kWh Einspeisung</span>
-                            </div>
-                            <div class="mini-stat">
-                                <span class="mini-stat-value">0,08€</span>
-                                <span class="mini-stat-label">pro kWh Eigenverbrauch</span>
-                            </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MK</div>
+                        <div>
+                            <div class="testimonial-name">Michael Krause</div>
+                            <div class="testimonial-location">Hotelier, Dortmund</div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- =============================================
-             ZAHLEN DIE ÜBERZEUGEN
-             ============================================= -->
-        <section class="chapter chapter-numbers" id="numbers" style="min-height: auto; padding: var(--space-20) var(--space-4);">
-            <div class="chapter-inner">
-                <span class="eyebrow-pill reveal">Unsere Erfolgsbilanz</span>
-                <h2 class="heading-lg reveal" style="margin-top: var(--space-4); margin-bottom: var(--space-12);">Zahlen, die überzeugen</h2>
-
-                <div class="numbers-grid reveal-stagger">
-                    <div class="number-card">
-                        <span class="counter number-value" data-target="120" data-suffix="+">0</span>
-                        <span class="number-label">Systeme in Betrieb</span>
-                    </div>
-                    <div class="number-card">
-                        <span class="counter number-value" data-target="60" data-suffix="%">0</span>
-                        <span class="number-label">weniger CO₂</span>
-                    </div>
-                    <div class="number-card">
-                        <span class="counter number-value" data-target="3" data-suffix="–4 J.">0</span>
-                        <span class="number-label">bis zum ROI</span>
-                    </div>
-                </div>
-
-                <p class="numbers-tagline reveal">
-                    Seit 2019 verwandeln wir Gebäude in Energiezentren.
-                </p>
-
-                <div class="trust-strip reveal">
-                    <span class="trust-item">Hospitality</span>
-                    <span class="trust-divider">·</span>
-                    <span class="trust-item">Wohnungswirtschaft</span>
-                    <span class="trust-divider">·</span>
-                    <span class="trust-item">Produktion</span>
-                    <span class="trust-divider">·</span>
-                    <span class="trust-item">Kommunen</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- =============================================
-             KUNDENSTIMMEN (wie 1KOMMA5°)
-             ============================================= -->
-        <section class="testimonials-section" id="referenzen">
-            <div class="testimonials-inner">
-                <div class="testimonials-header">
-                    <span class="eyebrow-pill reveal">Kundenstimmen</span>
-                    <h2 class="heading-lg reveal" style="margin-top: var(--space-4);">Das sagen unsere Kunden</h2>
-                    <p class="lead reveal" style="max-width: 600px; margin: var(--space-4) auto 0;">
-                        Über 120 Gebäudebetreiber vertrauen auf ThermoHybrid. Hier sind ihre Erfahrungen.
+                
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        „Beratung und Installation waren erstklassig. Wir sparen jetzt über 40% Energiekosten und produzieren unseren eigenen Strom. Absolute Empfehlung."
                     </p>
-                </div>
-
-                <div class="testimonials-grid reveal-stagger">
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">
-                            „Die Investition hat sich schneller amortisiert als erwartet. Nach 2,5 Jahren sind wir im Plus — und das System läuft zuverlässig rund um die Uhr."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">MK</div>
-                            <div>
-                                <div class="testimonial-name">Michael K.</div>
-                                <div class="testimonial-role">Hotelier, NRW</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">
-                            „Beratung und Installation waren erstklassig. Wir sparen jetzt über 40% Energiekosten und produzieren unseren eigenen Strom. Absolute Empfehlung."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">SB</div>
-                            <div>
-                                <div class="testimonial-name">Sandra B.</div>
-                                <div class="testimonial-role">Wohnungsverwaltung, Bergkamen</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">
-                            „Das Monitoring ist fantastisch. Ich sehe in Echtzeit, wie viel Strom und Wärme erzeugt wird. Der Service reagiert schnell und kompetent."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">TW</div>
-                            <div>
-                                <div class="testimonial-name">Thomas W.</div>
-                                <div class="testimonial-role">Gewerbebetrieb, Dortmund</div>
-                            </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SB</div>
+                        <div>
+                            <div class="testimonial-name">Sandra Becker</div>
+                            <div class="testimonial-location">Wohnungsverwaltung, Bergkamen</div>
                         </div>
                     </div>
                 </div>
-
-                <div style="text-align: center; margin-top: var(--space-8);">
-                    <a href="referenzen.html" class="btn-secondary">Alle Referenzen ansehen →</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- =============================================
-             MADE IN GERMANY
-             ============================================= -->
-        <section class="chapter chapter-about" id="about" style="min-height: auto; padding: var(--space-20) var(--space-4);">
-            <div class="chapter-inner">
-                <div class="grid-editorial reverse">
-                    <div class="editorial-visual reveal">
-                        <img src="images/Lagerhalle.png" alt="WärmeWerke Produktion" class="about-image" loading="lazy">
-                    </div>
-                    <div class="editorial-content">
-                        <span class="eyebrow-pill">Qualität aus Deutschland</span>
-                        <h2 class="heading-md reveal" style="margin-top: var(--space-4);">
-                            Jedes System durchläuft<br>
-                            <span class="text-gradient">110 Qualitätschecks</span>,<br>
-                            bevor es Ihr Gebäude erreicht.
-                        </h2>
-                        <ul class="about-list reveal">
-                            <li>
-                                <span class="about-icon">🇩🇪</span>
-                                <span>Made in Germany — Eigene Fertigung</span>
-                            </li>
-                            <li>
-                                <span class="about-icon">🏭</span>
-                                <span>Über 25 Jahre Erfahrung in KWK-Technologie</span>
-                            </li>
-                            <li>
-                                <span class="about-icon">📊</span>
-                                <span>24/7 Remote-Monitoring & Service</span>
-                            </li>
-                            <li>
-                                <span class="about-icon">🛡️</span>
-                                <span>Vollständige KWKG & BEW Förderberatung</span>
-                            </li>
-                        </ul>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        „Das Monitoring ist fantastisch. Ich sehe in Echtzeit, wie viel Strom und Wärme erzeugt wird. Der Service reagiert schnell und kompetent."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">TW</div>
+                        <div>
+                            <div class="testimonial-name">Thomas Wagner</div>
+                            <div class="testimonial-location">Gewerbebetrieb, Köln</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- =============================================
-             5 SCHRITTE (wie EKD)
-             ============================================= -->
-        <section style="background: var(--ww-bg-alt); padding: var(--space-20) var(--space-4);">
-            <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
-                <span class="eyebrow-pill reveal">So einfach geht's</span>
-                <h2 class="heading-lg reveal" style="margin-top: var(--space-4); margin-bottom: var(--space-12);">In 5 Schritten zum eigenen Kraftwerk</h2>
-
-                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-4); text-align: center;" class="reveal-stagger">
-                    <div style="padding: var(--space-6);">
-                        <div style="width: 56px; height: 56px; margin: 0 auto var(--space-4); background: var(--ww-gradient-cta); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.25rem; font-family: var(--font-display);">1</div>
-                        <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Energie-Check</h4>
-                        <p style="font-size: 0.85rem; color: var(--ww-text-subtle);">4 Fragen beantworten</p>
-                    </div>
-                    <div style="padding: var(--space-6);">
-                        <div style="width: 56px; height: 56px; margin: 0 auto var(--space-4); background: var(--ww-gradient-cta); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.25rem; font-family: var(--font-display);">2</div>
-                        <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Beratung</h4>
-                        <p style="font-size: 0.85rem; color: var(--ww-text-subtle);">Kostenlose Vor-Ort-Analyse</p>
-                    </div>
-                    <div style="padding: var(--space-6);">
-                        <div style="width: 56px; height: 56px; margin: 0 auto var(--space-4); background: var(--ww-gradient-cta); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.25rem; font-family: var(--font-display);">3</div>
-                        <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Planung</h4>
-                        <p style="font-size: 0.85rem; color: var(--ww-text-subtle);">Individuelles Konzept & Angebot</p>
-                    </div>
-                    <div style="padding: var(--space-6);">
-                        <div style="width: 56px; height: 56px; margin: 0 auto var(--space-4); background: var(--ww-gradient-cta); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.25rem; font-family: var(--font-display);">4</div>
-                        <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Installation</h4>
-                        <p style="font-size: 0.85rem; color: var(--ww-text-subtle);">Professionelle Montage</p>
-                    </div>
-                    <div style="padding: var(--space-6);">
-                        <div style="width: 56px; height: 56px; margin: 0 auto var(--space-4); background: var(--ww-gradient-cta); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.25rem; font-family: var(--font-display);">5</div>
-                        <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Inbetriebnahme</h4>
-                        <p style="font-size: 0.85rem; color: var(--ww-text-subtle);">Ihr Kraftwerk läuft</p>
-                    </div>
-                </div>
-
-                <div style="margin-top: var(--space-10);" class="reveal">
-                    <a href="funnel.html" class="btn-primary btn-lg">Jetzt Energie-Check starten →</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- =============================================
-             CTA - KONTAKT
-             ============================================= -->
-        <section class="chapter chapter-cta" id="contact" style="min-height: auto; padding: var(--space-20) var(--space-4);">
-            <div class="chapter-inner">
-                <span class="eyebrow-pill reveal">Bereit?</span>
-                <h2 class="cta-headline reveal" style="margin-top: var(--space-4);">
-                    Machen Sie Ihr Gebäude<br>zum <span class="text-gradient">Energiezentrum</span>.
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="fade-in">
+                <span class="eyebrow">Bereit für die Energiewende?</span>
+                <h2 class="cta-title">
+                    Starten Sie jetzt Ihre<br>
+                    <span class="gradient-text">Energierevolution</span>
                 </h2>
-
-                <div class="cta-options reveal">
-                    <a href="funnel.html" class="cta-card cta-primary">
-                        <div class="cta-card-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                                <path d="M9 12l2 2 4-4"/>
-                            </svg>
-                        </div>
-                        <h3>Energie-Check starten</h3>
-                        <p>In 60 Sekunden erfahren Sie, ob ThermoHybrid zu Ihrem Gebäude passt.</p>
-                        <span class="cta-arrow">→</span>
-                    </a>
-
-                    <a href="#contact-form" class="cta-card cta-secondary">
-                        <div class="cta-card-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                            </svg>
-                        </div>
-                        <h3>Direkt Kontakt aufnehmen</h3>
-                        <p>Sprechen Sie mit einem unserer Energieberater.</p>
-                        <span class="cta-arrow">→</span>
-                    </a>
+                <p class="cta-subtitle">
+                    Kostenlose Beratung, individuelle Planung und bis zu 70% Förderung.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                    <a href="funnel.html" class="btn-primary">Jetzt Energie-Check starten →</a>
                 </div>
-
-                <div class="contact-simple reveal" id="contact-form">
-                    <form action="https://formsubmit.co/info@waermewerke.de" method="POST" class="simple-form">
-                        <input type="hidden" name="_subject" value="Kontaktanfrage von waermewerke.de">
-                        <input type="hidden" name="_next" value="https://waermewerke.de/welcome.html">
-                        <input type="hidden" name="_captcha" value="false">
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="text" name="name" id="name" placeholder=" " required>
-                                <label for="name">Ihr Name</label>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="email" id="email" placeholder=" " required>
-                                <label for="email">E-Mail</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <textarea name="message" id="message" rows="3" placeholder=" "></textarea>
-                            <label for="message">Ihre Nachricht (optional)</label>
-                        </div>
-                        <button type="submit" class="btn-primary">Absenden</button>
-                    </form>
-
-                    <p class="contact-alternative">
-                        oder direkt: <a href="mailto:info@waermewerke.de">info@waermewerke.de</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">W°</div>
+                        <span>WärmeWerke</span>
+                    </div>
+                    <p class="footer-tagline">
+                        Intelligente Energielösungen für moderne Gebäude. Ein Unternehmen der Fuchs Holding GmbH.
                     </p>
                 </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer-minimal">
-        <div class="footer-inner">
-            <div class="footer-brand">
-                <span class="logo-text logo-waermewerke">WärmeWerke</span>
-                <p class="footer-tagline">Die Kraftwerke von morgen.</p>
-            </div>
-
-            <nav class="footer-nav">
-                <div class="footer-col">
-                    <h4>Produkte</h4>
-                    <ul>
+                
+                <div>
+                    <h4 class="footer-title">Produkte</h4>
+                    <ul class="footer-links">
                         <li><a href="produkt-thermohybrid.html">ThermoHybrid</a></li>
                         <li><a href="produkt-comfy-plus-75.html">Comfy Plus 75</a></li>
                         <li><a href="produkt-fuchs-titan.html">Titan</a></li>
@@ -581,45 +1008,71 @@
                         <li><a href="produkt-renso-kompakt.html">Renso Kompakt</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Ressourcen</h4>
-                    <ul>
+                
+                <div>
+                    <h4 class="footer-title">Ressourcen</h4>
+                    <ul class="footer-links">
                         <li><a href="wirtschaftlichkeit.html">Wirtschaftlichkeit</a></li>
                         <li><a href="foerderung.html">Förderung</a></li>
                         <li><a href="referenzen.html">Referenzen</a></li>
                         <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Rechtliches</h4>
-                    <ul>
+                
+                <div>
+                    <h4 class="footer-title">Unternehmen</h4>
+                    <ul class="footer-links">
                         <li><a href="impressum.html">Impressum</a></li>
                         <li><a href="datenschutz.html">Datenschutz</a></li>
                     </ul>
                 </div>
-            </nav>
-
+            </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 WärmeWerke GmbH. Alle Rechte vorbehalten.</p>
+                <p>&copy; 2025 WärmeWerke GmbH – Ein Unternehmen der Fuchs Holding GmbH. Alle Rechte vorbehalten.</p>
             </div>
         </div>
     </footer>
-
+    
     <!-- Scripts -->
-    <script src="script.js"></script>
-
-    <!-- Responsive 5-Steps Grid -->
-    <style>
-        @media (max-width: 900px) {
-            [style*="grid-template-columns: repeat(5"] {
-                grid-template-columns: repeat(3, 1fr) !important;
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
         }
-        @media (max-width: 600px) {
-            [style*="grid-template-columns: repeat(5"] {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-        }
-    </style>
+    </script>
 </body>
 </html>
